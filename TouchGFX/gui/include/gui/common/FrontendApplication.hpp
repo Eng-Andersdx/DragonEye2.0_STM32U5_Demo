@@ -13,11 +13,8 @@ public:
     FrontendApplication(Model& m, FrontendHeap& heap);
     virtual ~FrontendApplication() { }
 
-    virtual void handleTickEvent()
-    {
-        model.tick();
-        FrontendApplicationBase::handleTickEvent();
-    }
+    virtual void handleTickEvent();
+
 private:
 };
 

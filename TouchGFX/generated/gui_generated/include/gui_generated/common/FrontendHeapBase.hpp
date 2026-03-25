@@ -12,12 +12,24 @@
 #include <gui/common/FrontendApplication.hpp>
 #include <gui/model/Model.hpp>
 
-#include <gui/screen_screen/screenView.hpp>
-#include <gui/screen_screen/screenPresenter.hpp>
-#include <gui/screen_1_screen/screen_1View.hpp>
-#include <gui/screen_1_screen/screen_1Presenter.hpp>
-#include <gui/screen_2_screen/screen_2View.hpp>
-#include <gui/screen_2_screen/screen_2Presenter.hpp>
+#include <gui/intro_screen/IntroView.hpp>
+#include <gui/intro_screen/IntroPresenter.hpp>
+#include <gui/menuscreen_screen/MenuScreenView.hpp>
+#include <gui/menuscreen_screen/MenuScreenPresenter.hpp>
+#include <gui/volume_screen/VolumeView.hpp>
+#include <gui/volume_screen/VolumePresenter.hpp>
+#include <gui/hoblevelscreen_screen/HobLevelScreenView.hpp>
+#include <gui/hoblevelscreen_screen/HobLevelScreenPresenter.hpp>
+#include <gui/hobscreen_screen/HobScreenView.hpp>
+#include <gui/hobscreen_screen/HobScreenPresenter.hpp>
+#include <gui/exercisescreen_screen/ExerciseScreenView.hpp>
+#include <gui/exercisescreen_screen/ExerciseScreenPresenter.hpp>
+#include <gui/runningscreen_screen/RunningScreenView.hpp>
+#include <gui/runningscreen_screen/RunningScreenPresenter.hpp>
+#include <gui/oventempview_screen/OvenTempViewView.hpp>
+#include <gui/oventempview_screen/OvenTempViewPresenter.hpp>
+#include <gui/coffee_screen/CoffeeView.hpp>
+#include <gui/coffee_screen/CoffeePresenter.hpp>
 
 
 /**
@@ -40,10 +52,16 @@ public:
      * A list of all view types. Must end with meta::Nil.
      * @note All view types used in the application MUST be added to this list!
      */
-    typedef touchgfx::meta::TypeList< screenView,
-            touchgfx::meta::TypeList< screen_1View,
-            touchgfx::meta::TypeList< screen_2View,
-            touchgfx::meta::Nil > >
+    typedef touchgfx::meta::TypeList< IntroView,
+            touchgfx::meta::TypeList< MenuScreenView,
+            touchgfx::meta::TypeList< VolumeView,
+            touchgfx::meta::TypeList< HobLevelScreenView,
+            touchgfx::meta::TypeList< HobScreenView,
+            touchgfx::meta::TypeList< ExerciseScreenView,
+            touchgfx::meta::TypeList< RunningScreenView,
+            touchgfx::meta::TypeList< OvenTempViewView,
+            touchgfx::meta::TypeList< CoffeeView,
+            touchgfx::meta::Nil > > > > > > > >
             > GeneratedViewTypes;
 
     /**
@@ -55,10 +73,16 @@ public:
      * A list of all presenter types. Must end with meta::Nil.
      * @note All presenter types used in the application MUST be added to this list!
      */
-    typedef touchgfx::meta::TypeList< screenPresenter,
-            touchgfx::meta::TypeList< screen_1Presenter,
-            touchgfx::meta::TypeList< screen_2Presenter,
-            touchgfx::meta::Nil > >
+    typedef touchgfx::meta::TypeList< IntroPresenter,
+            touchgfx::meta::TypeList< MenuScreenPresenter,
+            touchgfx::meta::TypeList< VolumePresenter,
+            touchgfx::meta::TypeList< HobLevelScreenPresenter,
+            touchgfx::meta::TypeList< HobScreenPresenter,
+            touchgfx::meta::TypeList< ExerciseScreenPresenter,
+            touchgfx::meta::TypeList< RunningScreenPresenter,
+            touchgfx::meta::TypeList< OvenTempViewPresenter,
+            touchgfx::meta::TypeList< CoffeePresenter,
+            touchgfx::meta::Nil > > > > > > > >
             > GeneratedPresenterTypes;
 
     /**
@@ -81,7 +105,7 @@ public:
 
     virtual void gotoStartScreen(FrontendApplication& app)
     {
-        app.gotoscreenScreenNoTransition();
+        app.gotoIntroScreenNoTransition();
     }
 protected:
     FrontendHeapBase(touchgfx::AbstractPartition& presenters, touchgfx::AbstractPartition& views, touchgfx::AbstractPartition& transitions, FrontendApplication& app)

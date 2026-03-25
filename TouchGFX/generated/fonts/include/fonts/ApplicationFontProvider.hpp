@@ -13,17 +13,27 @@ class FlashDataReader;
 
 struct Typography
 {
-    static const touchgfx::FontId DEFAULT = 0;
-    static const touchgfx::FontId LARGE = 1;
-    static const touchgfx::FontId SMALL = 2;
+    static const touchgfx::FontId OPENSANS = 0;
+    static const touchgfx::FontId NUMBEROPEN = 1;
+    static const touchgfx::FontId HOB_NUMBER_MAIN = 2;
+    static const touchgfx::FontId HOB_MAIN_NUMBER = 3;
+    static const touchgfx::FontId COFFEE_TITLE_40PX = 4;
+    static const touchgfx::FontId EXERCISE_NO = 5;
+    static const touchgfx::FontId TYPOGRAPHY1 = 6;
+    static const touchgfx::FontId TYPOGRAPHY2 = 7;
 };
 
 struct TypographyFontIndex
 {
-    static const touchgfx::FontId DEFAULT = 0; // verdana_20_4bpp
-    static const touchgfx::FontId LARGE = 1;   // verdana_40_4bpp
-    static const touchgfx::FontId SMALL = 2;   // verdana_10_4bpp
-    static const uint16_t NUMBER_OF_FONTS = 3;
+    static const touchgfx::FontId OPENSANS = 0;          // OpenSans_ExtraBold_30_4bpp
+    static const touchgfx::FontId NUMBEROPEN = 1;        // OpenSans_ExtraBold_136_4bpp
+    static const touchgfx::FontId HOB_NUMBER_MAIN = 2;   // OpenSans_ExtraBold_40_4bpp
+    static const touchgfx::FontId HOB_MAIN_NUMBER = 3;   // OpenSans_ExtraBold_100_4bpp
+    static const touchgfx::FontId COFFEE_TITLE_40PX = 0; // OpenSans_ExtraBold_30_4bpp
+    static const touchgfx::FontId EXERCISE_NO = 4;       // verdana_21_4bpp
+    static const touchgfx::FontId TYPOGRAPHY1 = 5;       // verdana_20_4bpp
+    static const touchgfx::FontId TYPOGRAPHY2 = 5;       // verdana_20_4bpp
+    static const uint16_t NUMBER_OF_FONTS = 6;
 };
 
 class ApplicationFontProvider : public touchgfx::FontProvider

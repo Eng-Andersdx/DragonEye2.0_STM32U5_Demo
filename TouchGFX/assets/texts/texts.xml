@@ -4,11 +4,170 @@
     <Language Id="GB" />
   </Languages>
   <Texts>
-    <TextGroup Id="Group1" />
+    <TextGroup Id="Main_menu">
+      <Text Id="T_MENU_COFFEE" Alignment="Center" TypographyId="OPENSANS">
+        <Translation Language="GB" Alignment="Center">Coffee</Translation>
+      </Text>
+      <Text Id="T_MENU_OVEN" Alignment="Center" TypographyId="OPENSANS">
+        <Translation Language="GB" Alignment="Center">Oven</Translation>
+      </Text>
+      <Text Id="T_MENU_EXERCISE" Alignment="Center" TypographyId="OPENSANS">
+        <Translation Language="GB" Alignment="Center">Exercise</Translation>
+      </Text>
+      <Text Id="T_MENU_HOB" Alignment="Center" TypographyId="OPENSANS">
+        <Translation Language="GB" Alignment="Center">Hob</Translation>
+      </Text>
+      <Text Id="T_MENU_VOLUME" Alignment="Center" TypographyId="OPENSANS">
+        <Translation Language="GB" Alignment="Center">Volume</Translation>
+      </Text>
+      <Text Id="main_menu_text" Alignment="Center" TypographyId="OPENSANS">
+        <Translation Language="GB" Alignment="Center">Volume_wide</Translation>
+      </Text>
+    </TextGroup>
+    <TextGroup Id="Coffee">
+      <Text Id="T_TAP_TO_START" Alignment="Center" TypographyId="COFFEE_TITLE_40PX">
+        <Translation Language="GB" Alignment="Center">Tap to start</Translation>
+      </Text>
+      <Text Id="T_HOT_WATER" Alignment="Center" TypographyId="COFFEE_TITLE_40PX">
+        <Translation Language="GB" Alignment="Center">Hot Water</Translation>
+      </Text>
+      <Text Id="T_MOCHA" Alignment="Center" TypographyId="COFFEE_TITLE_40PX">
+        <Translation Language="GB" Alignment="Center">Mocha</Translation>
+      </Text>
+      <Text Id="T_WHITE_COFFEE" Alignment="Center" TypographyId="COFFEE_TITLE_40PX">
+        <Translation Language="GB" Alignment="Center">White Coffee</Translation>
+      </Text>
+      <Text Id="T_CAPPUCCINO" Alignment="Center" TypographyId="COFFEE_TITLE_40PX">
+        <Translation Language="GB" Alignment="Center">Cappuccino</Translation>
+      </Text>
+      <Text Id="T_LATTE" Alignment="Center" TypographyId="COFFEE_TITLE_40PX">
+        <Translation Language="GB" Alignment="Center">Latte</Translation>
+      </Text>
+      <Text Id="T_AMERICANO" Alignment="Center" TypographyId="COFFEE_TITLE_40PX">
+        <Translation Language="GB" Alignment="Center">Americano</Translation>
+      </Text>
+      <Text Id="T_ESPRESSO" Alignment="Center" TypographyId="COFFEE_TITLE_40PX">
+        <Translation Language="GB" Alignment="Center">Espresso</Translation>
+      </Text>
+      <Text Id="COFFEE_WILDCARD" Alignment="Left" TypographyId="Hob_main_number">
+        <Translation Language="GB">New Text</Translation>
+      </Text>
+      <Text Id="Coffe_title" Alignment="Center" TypographyId="Hob_main_number">
+        <Translation Language="GB">New Text</Translation>
+      </Text>
+      <Text Id="coffee_title" Alignment="Center" TypographyId="OPENSANS">
+        <Translation Language="GB" Alignment="Center">&lt;&gt;</Translation>
+      </Text>
+    </TextGroup>
+    <TextGroup Id="Running">
+      <Text Id="Speed" Alignment="Center" TypographyId="OPENSANS">
+        <Translation Language="GB">Speed</Translation>
+      </Text>
+      <Text Id="Speed_value" Alignment="Center" TypographyId="NumberOPEN">
+        <Translation Language="GB">&lt;&gt;</Translation>
+      </Text>
+      <Text Id="WILDCARD_SPEED" Alignment="Left" TypographyId="NumberOPEN">
+        <Translation Language="GB"></Translation>
+      </Text>
+    </TextGroup>
+    <TextGroup Id="OVEN">
+      <Text Id="Fahrenheit" Alignment="Center" TypographyId="OPENSANS">
+        <Translation Language="GB" Alignment="Center"></Translation>
+      </Text>
+      <Text Id="TEMPERATURE_LABEL" Alignment="Center" TypographyId="OPENSANS">
+        <Translation Language="GB">Temperature (°C)</Translation>
+      </Text>
+      <Text Id="Temp_Value" Alignment="Center" TypographyId="NumberOPEN">
+        <Translation Language="GB">&lt;&gt;</Translation>
+      </Text>
+      <Text Id="WILDCARD_TEMP" Alignment="Left" TypographyId="NumberOPEN">
+        <Translation Language="GB"></Translation>
+      </Text>
+    </TextGroup>
+    <TextGroup Id="Excercise">
+      <Text Id="ResourceId2" Alignment="Left" TypographyId="OPENSANS">
+        <Translation Language="GB">New Text</Translation>
+      </Text>
+      <Text Id="T_EXERCISE" Alignment="Center" TypographyId="OPENSANS">
+        <Translation Language="GB" Alignment="Center">Exercise</Translation>
+      </Text>
+      <Text Id="T_CYCLING" Alignment="Left" TypographyId="OPENSANS">
+        <Translation Language="GB" Alignment="Center">Cycling</Translation>
+      </Text>
+      <Text Id="T_RUNNING" Alignment="Left" TypographyId="OPENSANS">
+        <Translation Language="GB" Alignment="Center">Running</Translation>
+      </Text>
+    </TextGroup>
+    <TextGroup Id="Hob">
+      <Text Id="WILDCARD_lvl_value" Alignment="Left" TypographyId="Hob_main_number">
+        <Translation Language="GB"></Translation>
+      </Text>
+      <Text Id="lvl_value" Alignment="Center" TypographyId="Hob_main_number">
+        <Translation Language="GB">&lt;&gt;</Translation>
+      </Text>
+      <Text Id="WILDCARD_LVL_BR" Alignment="Center" TypographyId="Hob_number_main">
+        <Translation Language="GB"></Translation>
+      </Text>
+      <Text Id="WILDCARD_LVL_TR" Alignment="Center" TypographyId="Hob_number_main">
+        <Translation Language="GB"></Translation>
+      </Text>
+      <Text Id="WILDCARD_LVL_M" Alignment="Center" TypographyId="Hob_number_main">
+        <Translation Language="GB"></Translation>
+      </Text>
+      <Text Id="WILDCARD_LVL_TL" Alignment="Center" TypographyId="Hob_number_main">
+        <Translation Language="GB"></Translation>
+      </Text>
+      <Text Id="WILDCARD_LVL_BL" Alignment="Center" TypographyId="Hob_number_main">
+        <Translation Language="GB"></Translation>
+      </Text>
+      <Text Id="lvl_BR" Alignment="Center" TypographyId="Hob_number_main">
+        <Translation Language="GB" Alignment="Center">&lt;&gt;</Translation>
+      </Text>
+      <Text Id="lvl_TR" Alignment="Center" TypographyId="Hob_number_main">
+        <Translation Language="GB" Alignment="Center">&lt;&gt;</Translation>
+      </Text>
+      <Text Id="lvl_M" Alignment="Center" TypographyId="Hob_number_main">
+        <Translation Language="GB" Alignment="Center">&lt;&gt;</Translation>
+      </Text>
+      <Text Id="lvl_TL" Alignment="Center" TypographyId="Hob_number_main">
+        <Translation Language="GB" Alignment="Center">&lt;&gt;</Translation>
+      </Text>
+      <Text Id="lvl_BL" Alignment="Center" TypographyId="Hob_number_main">
+        <Translation Language="GB" Alignment="Center">&lt;&gt;</Translation>
+      </Text>
+    </TextGroup>
+    <TextGroup Id="Unsorted">
+      <Text Id="__SingleUse_W9YR" Alignment="Left" TypographyId="Typography1">
+        <Translation Language="GB">v1.0</Translation>
+      </Text>
+      <Text Id="__SingleUse_G59J" Alignment="Center" TypographyId="OPENSANS">
+        <Translation Language="GB">&lt;value&gt;°F</Translation>
+      </Text>
+      <Text Id="__SingleUse_THQY" Alignment="Left" TypographyId="Exercise_no">
+        <Translation Language="GB">10</Translation>
+      </Text>
+      <Text Id="__SingleUse_M26G" Alignment="Left" TypographyId="Exercise_no">
+        <Translation Language="GB">0</Translation>
+      </Text>
+      <Text Id="ResourceId3" Alignment="Left" TypographyId="OPENSANS">
+        <Translation Language="GB">New Text</Translation>
+      </Text>
+      <Text Id="__SingleUse_609H" Alignment="Left" TypographyId="COFFEE_TITLE_40PX">
+        <Translation Language="GB">Tap to start</Translation>
+      </Text>
+      <Text Id="ResourceId1" Alignment="Left" TypographyId="OPENSANS">
+        <Translation Language="GB"></Translation>
+      </Text>
+    </TextGroup>
   </Texts>
   <Typographies>
-    <Typography Id="Default" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="Large" Font="verdana.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
-    <Typography Id="Small" Font="verdana.ttf" Size="10" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="OPENSANS" Font="OpenSans-ExtraBold.ttf" Size="30" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="NumberOPEN" Font="OpenSans-ExtraBold.ttf" Size="136" Bpp="4" IsVector="no" Direction="RTL" FallbackCharacter="0" WildcardCharacterRanges="0x30-0x39,0xB0" />
+    <Typography Id="Hob_number_main" Font="OpenSans-ExtraBold.ttf" Size="40" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="Hob_main_number" Font="OpenSans-ExtraBold.ttf" Size="100" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" WildcardCharacterRanges="0-9" />
+    <Typography Id="COFFEE_TITLE_40PX" Font="OpenSans-ExtraBold.ttf" Size="30" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Exercise_no" Font="verdana.ttf" Size="21" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Typography1" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
+    <Typography Id="Typography2" Font="verdana.ttf" Size="20" Bpp="4" IsVector="no" Direction="LTR" FallbackCharacter="?" />
   </Typographies>
 </TextDatabase>

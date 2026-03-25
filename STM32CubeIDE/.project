@@ -335,9 +335,99 @@
 			<locationURI>PARENT-1-PROJECT_LOC/Middlewares/Third_Party/FreeRTOS/Source/portable/MemMang/heap_4.c</locationURI>
 		</link>
 		<link>
+			<name>Application/User/gui/CoffeePresenter.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/coffee_screen/CoffeePresenter.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/CoffeeView.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/coffee_screen/CoffeeView.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/Constants.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/common/Constants.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/Enums.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/common/Enums.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/FloatEasingEquations.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/common/FloatEasingEquations.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/gui/FrontendApplication.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/common/FrontendApplication.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/Settings.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/common/Settings.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/MenuWheel.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/containers/MenuWheel.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/blackContainer.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/containers/blackContainer.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/ExerciseScreenPresenter.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/exercisescreen_screen/ExerciseScreenPresenter.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/ExerciseScreenView.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/exercisescreen_screen/ExerciseScreenView.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/HobLevelScreenPresenter.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/hoblevelscreen_screen/HobLevelScreenPresenter.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/HobLevelScreenView.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/hoblevelscreen_screen/HobLevelScreenView.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/HobScreenPresenter.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/hobscreen_screen/HobScreenPresenter.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/HobScreenView.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/hobscreen_screen/HobScreenView.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/IntroPresenter.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/intro_screen/IntroPresenter.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/IntroView.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/intro_screen/IntroView.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/MenuScreenPresenter.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/menuscreen_screen/MenuScreenPresenter.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/MenuScreenView.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/menuscreen_screen/MenuScreenView.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/gui/Model.cpp</name>
@@ -345,34 +435,44 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/model/Model.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/gui/screen_1Presenter.cpp</name>
+			<name>Application/User/gui/OvenTempViewPresenter.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/screen_1_screen/screen_1Presenter.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/oventempview_screen/OvenTempViewPresenter.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/gui/screen_1View.cpp</name>
+			<name>Application/User/gui/OvenTempViewView.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/screen_1_screen/screen_1View.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/oventempview_screen/OvenTempViewView.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/gui/screen_2Presenter.cpp</name>
+			<name>Application/User/gui/RunningScreenPresenter.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/screen_2_screen/screen_2Presenter.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/runningscreen_screen/RunningScreenPresenter.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/gui/screen_2View.cpp</name>
+			<name>Application/User/gui/RunningScreenView.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/screen_2_screen/screen_2View.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/runningscreen_screen/RunningScreenView.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/gui/screenPresenter.cpp</name>
+			<name>Application/User/gui/VolumePresenter.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/screen_screen/screenPresenter.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/volume_screen/VolumePresenter.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/gui/screenView.cpp</name>
+			<name>Application/User/gui/VolumeView.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/screen_screen/screenView.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/volume_screen/VolumeView.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/AnalogClockExtended.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/widgets/AnalogClockExtended.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/TextArc.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/widgets/TextArc.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/ApplicationFontProvider.cpp</name>
@@ -400,9 +500,24 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/FontCache.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Font_verdana_10_4bpp_0.cpp</name>
+			<name>Application/User/generated/Font_OpenSans_ExtraBold_100_4bpp_0.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_verdana_10_4bpp_0.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_OpenSans_ExtraBold_100_4bpp_0.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/Font_OpenSans_ExtraBold_136_4bpp_0.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_OpenSans_ExtraBold_136_4bpp_0.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/Font_OpenSans_ExtraBold_30_4bpp_0.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_OpenSans_ExtraBold_30_4bpp_0.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/Font_OpenSans_ExtraBold_40_4bpp_0.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_OpenSans_ExtraBold_40_4bpp_0.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/Font_verdana_20_4bpp_0.cpp</name>
@@ -410,9 +525,9 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_verdana_20_4bpp_0.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Font_verdana_40_4bpp_0.cpp</name>
+			<name>Application/User/generated/Font_verdana_21_4bpp_0.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_verdana_40_4bpp_0.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Font_verdana_21_4bpp_0.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/GeneratedFont.cpp</name>
@@ -420,9 +535,24 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/GeneratedFont.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Kerning_verdana_10_4bpp.cpp</name>
+			<name>Application/User/generated/Kerning_OpenSans_ExtraBold_100_4bpp.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_verdana_10_4bpp.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_OpenSans_ExtraBold_100_4bpp.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/Kerning_OpenSans_ExtraBold_136_4bpp.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_OpenSans_ExtraBold_136_4bpp.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/Kerning_OpenSans_ExtraBold_30_4bpp.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_OpenSans_ExtraBold_30_4bpp.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/Kerning_OpenSans_ExtraBold_40_4bpp.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_OpenSans_ExtraBold_40_4bpp.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/Kerning_verdana_20_4bpp.cpp</name>
@@ -430,14 +560,29 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_verdana_20_4bpp.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Kerning_verdana_40_4bpp.cpp</name>
+			<name>Application/User/generated/Kerning_verdana_21_4bpp.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_verdana_40_4bpp.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Kerning_verdana_21_4bpp.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Table_verdana_10_4bpp.cpp</name>
+			<name>Application/User/generated/Table_OpenSans_ExtraBold_100_4bpp.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_verdana_10_4bpp.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_OpenSans_ExtraBold_100_4bpp.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/Table_OpenSans_ExtraBold_136_4bpp.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_OpenSans_ExtraBold_136_4bpp.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/Table_OpenSans_ExtraBold_30_4bpp.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_OpenSans_ExtraBold_30_4bpp.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/Table_OpenSans_ExtraBold_40_4bpp.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_OpenSans_ExtraBold_40_4bpp.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/Table_verdana_20_4bpp.cpp</name>
@@ -445,9 +590,9 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_verdana_20_4bpp.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/Table_verdana_40_4bpp.cpp</name>
+			<name>Application/User/generated/Table_verdana_21_4bpp.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_verdana_40_4bpp.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/Table_verdana_21_4bpp.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/UnmappedDataFont.cpp</name>
@@ -460,24 +605,89 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/fonts/src/VectorFontRendererBuffers.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/CoffeeViewBase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/coffee_screen/CoffeeViewBase.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/FrontendApplicationBase.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/common/FrontendApplicationBase.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/screen_1ViewBase.cpp</name>
+			<name>Application/User/generated/MenuWheelBase.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/screen_1_screen/screen_1ViewBase.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/containers/MenuWheelBase.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/screen_2ViewBase.cpp</name>
+			<name>Application/User/generated/blackContainerBase.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/screen_2_screen/screen_2ViewBase.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/containers/blackContainerBase.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/screenViewBase.cpp</name>
+			<name>Application/User/generated/ExerciseScreenViewBase.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/screen_screen/screenViewBase.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/exercisescreen_screen/ExerciseScreenViewBase.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/HobLevelScreenViewBase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/hoblevelscreen_screen/HobLevelScreenViewBase.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/HobScreenViewBase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/hobscreen_screen/HobScreenViewBase.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/IntroViewBase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/intro_screen/IntroViewBase.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/MenuScreenViewBase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/menuscreen_screen/MenuScreenViewBase.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/OvenTempViewViewBase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/oventempview_screen/OvenTempViewViewBase.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/RunningScreenViewBase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/runningscreen_screen/RunningScreenViewBase.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/VolumeViewBase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/volume_screen/VolumeViewBase.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_coffee_big_main.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Big_Main_menu_icons/image_coffee_big_main.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_exercise_big_main.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Big_Main_menu_icons/image_exercise_big_main.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_hob_big_main.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Big_Main_menu_icons/image_hob_big_main.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_oven_big_main.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Big_Main_menu_icons/image_oven_big_main.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_speaker_big_main.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Big_Main_menu_icons/image_speaker_big_main.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/BitmapDatabase.cpp</name>
@@ -485,9 +695,509 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/BitmapDatabase.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/image_Back_icon.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Buttons/image_Back_icon.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Minus_Alone.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Buttons/image_Minus_Alone.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Minus_whole.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Buttons/image_Minus_whole.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Plus_whole.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Buttons/image_Plus_whole.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_chevron_left.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Buttons/image_chevron_left.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_chevron_right.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Buttons/image_chevron_right.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Americano_grad.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Coffee/image_Americano_grad.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Cappuccino_grad.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Coffee/image_Cappuccino_grad.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Espresso_grad.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Coffee/image_Espresso_grad.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Hot_water_grad.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Coffee/image_Hot_water_grad.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Latte_grad.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Coffee/image_Latte_grad.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Mocha_grad.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Coffee/image_Mocha_grad.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00000.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00000.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00001.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00001.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00002.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00002.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00003.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00003.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00004.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00004.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00005.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00005.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00006.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00006.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00007.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00007.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00008.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00008.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00009.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00009.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00010.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00010.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00011.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00011.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00012.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00012.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00013.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00013.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00014.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00014.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00015.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00015.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00016.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00016.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00017.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00017.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00018.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00018.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00019.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00019.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00020.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00020.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00021.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00021.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00022.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00022.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00023.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00023.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00024.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00024.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00025.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00025.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00026.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00026.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Comp_4_00027.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/DA_10FPS_PNG_V2/image_Comp_4_00027.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_hob_BL.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Hob/image_hob_BL.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_hob_BR.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Hob/image_hob_BR.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_hob_G_BR.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Hob/image_hob_G_BR.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_hob_G_M.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Hob/image_hob_G_M.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_hob_G_TL.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Hob/image_hob_G_TL.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_hob_G_TR.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Hob/image_hob_G_TR.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_hob_TL.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Hob/image_hob_TL.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_hob_TR.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Hob/image_hob_TR.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_hob__G_BL.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Hob/image_hob__G_BL.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_hob_main.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Hob/image_hob_main.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_hob_middle.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Hob/image_hob_middle.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Speaker_icon_main.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Main_menu_icons/image_Speaker_icon_main.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_coffee_icon_main.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Main_menu_icons/image_coffee_icon_main.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_exercise_icon_main.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Main_menu_icons/image_exercise_icon_main.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_hob_icon_main.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Main_menu_icons/image_hob_icon_main.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_oven_icon_main.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Main_menu_icons/image_oven_icon_main.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/SVGDatabase.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/SVGDatabase.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_c_select.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Selects/image_c_select.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_g_select.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Selects/image_g_select.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_g_select2.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Selects/image_g_select2.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_h_select.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Selects/image_h_select.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_h_select2.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Selects/image_h_select2.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_o_select.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Selects/image_o_select.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_v_select.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Selects/image_v_select.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_speaker_icon_0.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Speaker/image_speaker_icon_0.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_speaker_icon_1.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Speaker/image_speaker_icon_1.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_speaker_icon_33.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Speaker/image_speaker_icon_33.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_speaker_icon_66.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Speaker/image_speaker_icon_66.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_volume_bg.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Speaker/image_volume_bg.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Tick_15FPS_140px_00000.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Tick_15FPS_140px/image_Tick_15FPS_140px_00000.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Tick_15FPS_140px_00001.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Tick_15FPS_140px/image_Tick_15FPS_140px_00001.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Tick_15FPS_140px_00002.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Tick_15FPS_140px/image_Tick_15FPS_140px_00002.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Tick_15FPS_140px_00003.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Tick_15FPS_140px/image_Tick_15FPS_140px_00003.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Tick_15FPS_140px_00004.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Tick_15FPS_140px/image_Tick_15FPS_140px_00004.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Tick_15FPS_140px_00005.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Tick_15FPS_140px/image_Tick_15FPS_140px_00005.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Tick_15FPS_140px_00006.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Tick_15FPS_140px/image_Tick_15FPS_140px_00006.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Tick_15FPS_140px_00007.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Tick_15FPS_140px/image_Tick_15FPS_140px_00007.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Tick_15FPS_140px_00008.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Tick_15FPS_140px/image_Tick_15FPS_140px_00008.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Tick_15FPS_140px_00009.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Tick_15FPS_140px/image_Tick_15FPS_140px_00009.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Tick_15FPS_140px_00010.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Tick_15FPS_140px/image_Tick_15FPS_140px_00010.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_icon_theme_images_action_done_1_1_E8F6FB.svg.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/__generated/image_icon_theme_images_action_done_1_1_E8F6FB.svg.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_icon_theme_images_action_done_50_50_000000.svg.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/__generated/image_icon_theme_images_action_done_50_50_000000.svg.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_icon_theme_images_action_done_50_50_E8F6FB.svg.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/__generated/image_icon_theme_images_action_done_50_50_E8F6FB.svg.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_americano_icon.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/coffee_icons/image_americano_icon.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_cappuccino_icon.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/coffee_icons/image_cappuccino_icon.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_espresso_icon.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/coffee_icons/image_espresso_icon.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_hot_water_icon.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/coffee_icons/image_hot_water_icon.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_latte_icon.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/coffee_icons/image_latte_icon.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_mocha_icon.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/coffee_icons/image_mocha_icon.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Artboard_68Green_ticks.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_Artboard_68Green_ticks.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Artboard_69Green_ticks.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_Artboard_69Green_ticks.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Cycle_icon.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_Cycle_icon.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Gradient_black_big_3.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_Gradient_black_big_3.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Oventemp_3.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_Oventemp_3.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Run_icon.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_Run_icon.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_Stretch_icon.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_Stretch_icon.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_coffee_vert_bg.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/new_main/image_coffee_vert_bg.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_exercise_vert_bg.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/new_main/image_exercise_vert_bg.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_hob_vert_bg.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/new_main/image_hob_vert_bg.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_oven_vert_bg.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/new_main/image_oven_vert_bg.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_volume_vert_bg.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/new_main/image_volume_vert_bg.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/LanguageGb.cpp</name>

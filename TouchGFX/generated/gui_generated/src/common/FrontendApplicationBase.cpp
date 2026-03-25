@@ -11,12 +11,24 @@
 #ifdef SIMULATOR
 #include <platform/driver/lcd/LCD24bpp.hpp>
 #endif
-#include <gui/screen_screen/screenView.hpp>
-#include <gui/screen_screen/screenPresenter.hpp>
-#include <gui/screen_1_screen/screen_1View.hpp>
-#include <gui/screen_1_screen/screen_1Presenter.hpp>
-#include <gui/screen_2_screen/screen_2View.hpp>
-#include <gui/screen_2_screen/screen_2Presenter.hpp>
+#include <gui/intro_screen/IntroView.hpp>
+#include <gui/intro_screen/IntroPresenter.hpp>
+#include <gui/menuscreen_screen/MenuScreenView.hpp>
+#include <gui/menuscreen_screen/MenuScreenPresenter.hpp>
+#include <gui/volume_screen/VolumeView.hpp>
+#include <gui/volume_screen/VolumePresenter.hpp>
+#include <gui/hoblevelscreen_screen/HobLevelScreenView.hpp>
+#include <gui/hoblevelscreen_screen/HobLevelScreenPresenter.hpp>
+#include <gui/hobscreen_screen/HobScreenView.hpp>
+#include <gui/hobscreen_screen/HobScreenPresenter.hpp>
+#include <gui/exercisescreen_screen/ExerciseScreenView.hpp>
+#include <gui/exercisescreen_screen/ExerciseScreenPresenter.hpp>
+#include <gui/runningscreen_screen/RunningScreenView.hpp>
+#include <gui/runningscreen_screen/RunningScreenPresenter.hpp>
+#include <gui/oventempview_screen/OvenTempViewView.hpp>
+#include <gui/oventempview_screen/OvenTempViewPresenter.hpp>
+#include <gui/coffee_screen/CoffeeView.hpp>
+#include <gui/coffee_screen/CoffeePresenter.hpp>
 
 using namespace touchgfx;
 
@@ -27,6 +39,7 @@ FrontendApplicationBase::FrontendApplicationBase(Model& m, FrontendHeap& heap)
       model(m)
 {
     touchgfx::HAL::getInstance()->setDisplayOrientation(touchgfx::ORIENTATION_LANDSCAPE);
+    touchgfx::Texts::setLanguage(GB);
 #ifdef SIMULATOR
     reinterpret_cast<touchgfx::LCD24bpp&>(touchgfx::HAL::lcd()).enableTextureMapperAll();
     reinterpret_cast<touchgfx::LCD24bpp&>(touchgfx::HAL::lcd()).enableDecompressorL8_All();
@@ -38,41 +51,119 @@ FrontendApplicationBase::FrontendApplicationBase(Model& m, FrontendHeap& heap)
  * Screen Transition Declarations
  */
 
-// screen
+// Intro
 
-void FrontendApplicationBase::gotoscreenScreenNoTransition()
+void FrontendApplicationBase::gotoIntroScreenNoTransition()
 {
-    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoscreenScreenNoTransitionImpl);
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoIntroScreenNoTransitionImpl);
     pendingScreenTransitionCallback = &transitionCallback;
 }
 
-void FrontendApplicationBase::gotoscreenScreenNoTransitionImpl()
+void FrontendApplicationBase::gotoIntroScreenNoTransitionImpl()
 {
-    touchgfx::makeTransition<screenView, screenPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+    touchgfx::makeTransition<IntroView, IntroPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }
 
-// screen_1
+// MenuScreen
 
-void FrontendApplicationBase::gotoscreen_1ScreenNoTransition()
+void FrontendApplicationBase::gotoMenuScreenScreenNoTransition()
 {
-    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoscreen_1ScreenNoTransitionImpl);
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoMenuScreenScreenNoTransitionImpl);
     pendingScreenTransitionCallback = &transitionCallback;
 }
 
-void FrontendApplicationBase::gotoscreen_1ScreenNoTransitionImpl()
+void FrontendApplicationBase::gotoMenuScreenScreenNoTransitionImpl()
 {
-    touchgfx::makeTransition<screen_1View, screen_1Presenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+    touchgfx::makeTransition<MenuScreenView, MenuScreenPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }
 
-// screen_2
+// Volume
 
-void FrontendApplicationBase::gotoscreen_2ScreenNoTransition()
+void FrontendApplicationBase::gotoVolumeScreenNoTransition()
 {
-    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoscreen_2ScreenNoTransitionImpl);
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoVolumeScreenNoTransitionImpl);
     pendingScreenTransitionCallback = &transitionCallback;
 }
 
-void FrontendApplicationBase::gotoscreen_2ScreenNoTransitionImpl()
+void FrontendApplicationBase::gotoVolumeScreenNoTransitionImpl()
 {
-    touchgfx::makeTransition<screen_2View, screen_2Presenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+    touchgfx::makeTransition<VolumeView, VolumePresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// HobLevelScreen
+
+void FrontendApplicationBase::gotoHobLevelScreenScreenNoTransition()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoHobLevelScreenScreenNoTransitionImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoHobLevelScreenScreenNoTransitionImpl()
+{
+    touchgfx::makeTransition<HobLevelScreenView, HobLevelScreenPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// HobScreen
+
+void FrontendApplicationBase::gotoHobScreenScreenNoTransition()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoHobScreenScreenNoTransitionImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoHobScreenScreenNoTransitionImpl()
+{
+    touchgfx::makeTransition<HobScreenView, HobScreenPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// ExerciseScreen
+
+void FrontendApplicationBase::gotoExerciseScreenScreenNoTransition()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoExerciseScreenScreenNoTransitionImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoExerciseScreenScreenNoTransitionImpl()
+{
+    touchgfx::makeTransition<ExerciseScreenView, ExerciseScreenPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// RunningScreen
+
+void FrontendApplicationBase::gotoRunningScreenScreenNoTransition()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoRunningScreenScreenNoTransitionImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoRunningScreenScreenNoTransitionImpl()
+{
+    touchgfx::makeTransition<RunningScreenView, RunningScreenPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// OvenTempView
+
+void FrontendApplicationBase::gotoOvenTempViewScreenNoTransition()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoOvenTempViewScreenNoTransitionImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoOvenTempViewScreenNoTransitionImpl()
+{
+    touchgfx::makeTransition<OvenTempViewView, OvenTempViewPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// Coffee
+
+void FrontendApplicationBase::gotoCoffeeScreenNoTransition()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoCoffeeScreenNoTransitionImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoCoffeeScreenNoTransitionImpl()
+{
+    touchgfx::makeTransition<CoffeeView, CoffeePresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }

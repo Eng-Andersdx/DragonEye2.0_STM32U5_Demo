@@ -17,31 +17,67 @@ public:
 
     virtual void changeToStartScreen()
     {
-        gotoscreenScreenNoTransition();
+        gotoIntroScreenNoTransition();
     }
 
-    // screen
-    void gotoscreenScreenNoTransition();
+    // Intro
+    void gotoIntroScreenNoTransition();
 
-    // screen_1
-    void gotoscreen_1ScreenNoTransition();
+    // MenuScreen
+    void gotoMenuScreenScreenNoTransition();
 
-    // screen_2
-    void gotoscreen_2ScreenNoTransition();
+    // Volume
+    void gotoVolumeScreenNoTransition();
+
+    // HobLevelScreen
+    void gotoHobLevelScreenScreenNoTransition();
+
+    // HobScreen
+    void gotoHobScreenScreenNoTransition();
+
+    // ExerciseScreen
+    void gotoExerciseScreenScreenNoTransition();
+
+    // RunningScreen
+    void gotoRunningScreenScreenNoTransition();
+
+    // OvenTempView
+    void gotoOvenTempViewScreenNoTransition();
+
+    // Coffee
+    void gotoCoffeeScreenNoTransition();
 
 protected:
     touchgfx::Callback<FrontendApplicationBase> transitionCallback;
     FrontendHeap& frontendHeap;
     Model& model;
 
-    // screen
-    void gotoscreenScreenNoTransitionImpl();
+    // Intro
+    void gotoIntroScreenNoTransitionImpl();
 
-    // screen_1
-    void gotoscreen_1ScreenNoTransitionImpl();
+    // MenuScreen
+    void gotoMenuScreenScreenNoTransitionImpl();
 
-    // screen_2
-    void gotoscreen_2ScreenNoTransitionImpl();
+    // Volume
+    void gotoVolumeScreenNoTransitionImpl();
+
+    // HobLevelScreen
+    void gotoHobLevelScreenScreenNoTransitionImpl();
+
+    // HobScreen
+    void gotoHobScreenScreenNoTransitionImpl();
+
+    // ExerciseScreen
+    void gotoExerciseScreenScreenNoTransitionImpl();
+
+    // RunningScreen
+    void gotoRunningScreenScreenNoTransitionImpl();
+
+    // OvenTempView
+    void gotoOvenTempViewScreenNoTransitionImpl();
+
+    // Coffee
+    void gotoCoffeeScreenNoTransitionImpl();
 };
 
 #endif // FRONTENDAPPLICATIONBASE_HPP

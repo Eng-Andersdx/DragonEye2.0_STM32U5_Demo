@@ -26,6 +26,7 @@
 /* USER CODE BEGIN Includes */
 #include "stm32u5x9j_discovery_ospi.h"
 #include "dragoneye_leds.h"
+#include "dragoneye_wifi.h"
 #include <stdio.h>
 #include <string.h>
 /* USER CODE END Includes */
@@ -287,6 +288,20 @@ int main(void)
   /* Call PreOsInit function */
   MX_TouchGFX_PreOSInit();
   /* USER CODE BEGIN 2 */
+
+
+  /////////////////////////////////////////////////////Set up Wifi and BT////////////////////////////////////////////
+  // NOTE: Wifi/BT takes few seconds start for the first time.
+  //  	//Set up Wifi
+  //  	BSP_WIFI_BT_Init(&huart2);
+  //  	BSP_WIFI_SetMode(AP_MODE);
+  //  	BSP_WIFI_Configure_SoftAP("ANDERS-DragonEye","123456789",5,WPS_PSK_ENCRYPTION);
+  //
+  //  	//BT-Initializion
+  //  	BSP_BT_BLEINIT(2);
+  //  	BSP_BT_BLE_Advertising_Data("0201061109414E444552532D447261676F6E457965");
+  //  	BSP_BT_BLE_Start_Advertising();
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
   // Enable PWN for BackLight
   BSP_BL_PWM_Init(&htim2, TIM_CHANNEL_1);

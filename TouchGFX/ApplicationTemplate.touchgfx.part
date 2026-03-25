@@ -1,0 +1,34 @@
+
+{
+  "Application": {
+    "Name": "DragonEyeU5_2.1R",
+    "TouchGfxPath": "../Middlewares/ST/touchgfx",
+    "AvailableColorDepths": [ 24 ],
+    "AvailableLCDs":
+    {
+      "24": "LCDGPU2D"
+    },
+    "AvailableResolutions": [
+      {
+        "Width": 480,
+        "Height": 480
+      }
+    ],
+    "PostGenerateTargetCommand": "touchgfx update_project",
+    "Family": "STM32U5",
+    "SubFamily": "STM32U5F9/5G9",
+    "Platform": "m33",
+    "Toolchain": "STM32CubeIDE",
+    "ProjectFile": "../DragonEyeU5_2.1R.ioc",
+    "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
+    "OptionalComponents": [
+      "GPU2D"
+    ],
+    "AdditionalFeatures": [
+      "GPU2DVector",
+      "VectorFonts",
+      "Video"
+    ]
+  },
+  "Version": "4.26.0"
+}

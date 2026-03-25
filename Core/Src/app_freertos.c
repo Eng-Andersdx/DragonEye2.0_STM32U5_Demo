@@ -42,7 +42,7 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
-
+volatile uint8_t haptic_feedback = 0;
 /* USER CODE END Variables */
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
@@ -129,10 +129,40 @@ void MX_FREERTOS_Init(void) {
 void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN defaultTask */
+	uint32_t haptic_timer = 0;
+	uint8_t  local_haptic;
   /* Infinite loop */
   for(;;)
   {
-    osDelay(1);
+	  /* Take a snapshot of the current haptic request */
+	  local_haptic = haptic_feedback;
+
+	  if (local_haptic == 1)
+	  {
+		  haptic_timer = 35;	// ms
+		  HAL_GPIO_WritePin(Vibration_Motor_GPIO_Port, Vibration_Motor_Pin, GPIO_PIN_SET);
+	  }
+	  else if (local_haptic == 2)
+	  {
+		  haptic_timer = 50;	// ms
+		  HAL_GPIO_WritePin(Vibration_Motor_GPIO_Port, Vibration_Motor_Pin, GPIO_PIN_SET);
+	  }
+
+	  /* Clear the consumed haptic request */
+	  if (local_haptic != 0)
+	  {
+		  haptic_feedback = 0;
+	  }
+
+	  if (haptic_timer > 0)
+	  {
+		  haptic_timer--;
+		  if (haptic_timer == 0)
+		  {
+			  HAL_GPIO_WritePin(Vibration_Motor_GPIO_Port, Vibration_Motor_Pin, GPIO_PIN_RESET);
+		  }
+	  }
+	  osDelay(1);
   }
   /* USER CODE END defaultTask */
 }

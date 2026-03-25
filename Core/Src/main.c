@@ -740,11 +740,11 @@ static void MX_GPU2D_Init(void)
 //{
 //
 //  /* USER CODE BEGIN HSPI1_Init 0 */
-//
+////
 //  /* USER CODE END HSPI1_Init 0 */
 //
 //  /* USER CODE BEGIN HSPI1_Init 1 */
-//
+////
 //  /* USER CODE END HSPI1_Init 1 */
 //  /* HSPI1 parameter configuration*/
 //  hxspi1.Instance = HSPI1;
@@ -767,7 +767,7 @@ static void MX_GPU2D_Init(void)
 //    Error_Handler();
 //  }
 //  /* USER CODE BEGIN HSPI1_Init 2 */
-//
+////
 //  /* USER CODE END HSPI1_Init 2 */
 //
 //}
@@ -1241,7 +1241,7 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(MPI_SDPT_SWITCH_GPIO_Port, MPI_SDPT_SWITCH_Pin, GPIO_PIN_RESET);
+  HAL_GPIO_WritePin(MPI_SDPT_SWITCH_GPIO_Port, MPI_SDPT_SWITCH_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(LCD_RESET_GPIO_Port, LCD_RESET_Pin, GPIO_PIN_RESET);

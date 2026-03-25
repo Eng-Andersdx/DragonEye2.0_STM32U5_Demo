@@ -1,0 +1,15 @@
+/*
+ * BSP.h
+ *
+ *  Created on: 25 Mar 2026
+ *      Author: HananHunain
+ */
+
+#ifndef APPLICATION_USER_TOUCHGFX_TARGET_DRAGONEYE_BSP_H_
+#define APPLICATION_USER_TOUCHGFX_TARGET_DRAGONEYE_BSP_H_
+
+#define st1x33i
+#define PWM_LED
+
+
+#endif /* APPLICATION_USER_TOUCHGFX_TARGET_DRAGONEYE_BSP_H_ */

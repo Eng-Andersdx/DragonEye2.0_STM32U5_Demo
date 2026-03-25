@@ -22,7 +22,7 @@
 ******************************************************************************
 ** @attention
 **
-** Copyright (c) 2026 STMicroelectronics.
+** Copyright (c) 2025 STMicroelectronics.
 ** All rights reserved.
 **
 ** This software is licensed under terms that can be found in the LICENSE file
@@ -46,6 +46,7 @@ MEMORY
 {
   RAM    (xrw)    : ORIGIN = 0x20000000,   LENGTH = 3008K
   FLASH    (rx)    : ORIGIN = 0x08000000,   LENGTH = 4096K
+  EXT_FLASH (r) 	: ORIGIN = 0x90000000, 	LENGTH = 64M
 }
 
 /* Sections */
@@ -185,4 +186,18 @@ SECTIONS
   }
 
   .ARM.attributes 0 : { *(.ARM.attributes) }
+  
+    FramebufferSection (NOLOAD) :
+  {
+    *(TouchGFX_Framebuffer TouchGFX_Framebuffer.*)
+    *(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+  } >RAM
+
+  ExtFlashSection :
+  {
+    *(ExtFlashSection ExtFlashSection.*)
+    *(.gnu.linkonce.r.*)
+    . = ALIGN(0x4);
+  } >EXT_FLASH
 }

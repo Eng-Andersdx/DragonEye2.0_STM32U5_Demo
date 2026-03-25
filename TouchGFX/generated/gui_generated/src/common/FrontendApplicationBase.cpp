@@ -13,6 +13,10 @@
 #endif
 #include <gui/screen_screen/screenView.hpp>
 #include <gui/screen_screen/screenPresenter.hpp>
+#include <gui/screen_1_screen/screen_1View.hpp>
+#include <gui/screen_1_screen/screen_1Presenter.hpp>
+#include <gui/screen_2_screen/screen_2View.hpp>
+#include <gui/screen_2_screen/screen_2Presenter.hpp>
 
 using namespace touchgfx;
 
@@ -45,4 +49,30 @@ void FrontendApplicationBase::gotoscreenScreenNoTransition()
 void FrontendApplicationBase::gotoscreenScreenNoTransitionImpl()
 {
     touchgfx::makeTransition<screenView, screenPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// screen_1
+
+void FrontendApplicationBase::gotoscreen_1ScreenNoTransition()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoscreen_1ScreenNoTransitionImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoscreen_1ScreenNoTransitionImpl()
+{
+    touchgfx::makeTransition<screen_1View, screen_1Presenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
+}
+
+// screen_2
+
+void FrontendApplicationBase::gotoscreen_2ScreenNoTransition()
+{
+    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoscreen_2ScreenNoTransitionImpl);
+    pendingScreenTransitionCallback = &transitionCallback;
+}
+
+void FrontendApplicationBase::gotoscreen_2ScreenNoTransitionImpl()
+{
+    touchgfx::makeTransition<screen_2View, screen_2Presenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }

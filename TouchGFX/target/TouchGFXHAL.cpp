@@ -23,7 +23,7 @@
 #include <TouchGFXHAL.hpp>
 
 /* USER CODE BEGIN TouchGFXHAL.cpp */
-
+#include <KeySampler.hpp>
 using namespace touchgfx;
 
 void TouchGFXHAL::initialize()
@@ -35,6 +35,10 @@ void TouchGFXHAL::initialize()
     // Please note, HAL::initialize() must be called to initialize the framework.
 
     TouchGFXGeneratedHAL::initialize();
+
+    // Create the button controller only after the HAL/framework has been initialized
+    static KeySampler btnctrl;
+    setButtonController(&btnctrl);
 }
 
 /**

@@ -24,7 +24,11 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "stm32u5x9j_discovery_ospi.h"
+#include "dragoneye_leds.h"
+#include "dragoneye_wifi.h"
+#include <stdio.h>
+#include <string.h>
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -104,7 +108,130 @@ static void MX_TIM3_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+void DSI_IO_WriteCmd(uint32_t NbrParams, uint8_t *pParams){
+	  if(NbrParams <= 1)
+	  {
+	   HAL_DSI_ShortWrite(&hdsi, 0, DSI_DCS_SHORT_PKT_WRITE_P1, pParams[0], pParams[1]);
+	  }
+	  else
+	  {
+	   HAL_DSI_LongWrite(&hdsi,  0, DSI_DCS_LONG_PKT_WRITE, NbrParams, pParams[NbrParams], pParams);
+	  }
+}
 
+void LCD_ST7701S_Init(void)
+{
+
+	const uint8_t ShortRegData1[]  = {0x01, 0x00};	//MIPI_DCS_SOFT_RESET
+	DSI_IO_WriteCmd(0, (uint8_t *)ShortRegData1);
+	//HAL_Delay(200);
+	HAL_Delay(50);
+	const uint8_t ShortRegData2[]  = {0x11, 0x00};	//MIPI_DCS_EXIT_SLEEP_MODE
+	DSI_IO_WriteCmd(0, (uint8_t *)ShortRegData2);
+	HAL_Delay(150);
+
+	//------------------------------------------Bank0 Setting----------------------------------------------------//
+	//------------------------------------Display Control setting------------------------------------------------//
+
+	const uint8_t Display_Control_0[] = {0x77,0x01,0x00,0x00,0x10,0xFF};	//DSI_CMD2BKX_SEL
+	const uint8_t Display_Control_1[] = {0x3B,0x00,0xC0}; // Display Line Control
+	const uint8_t Display_Control_2[] = {0x0B,0x02,0xC1}; // Porch Control
+	const uint8_t Display_Control_3[] =	{0x07,0x02,0xC2}; // Inversion selection & Frame Rate Control
+	const uint8_t Display_Control_4[] = {0xCC,0x10};
+	DSI_IO_WriteCmd(5, (uint8_t *)Display_Control_0);
+	DSI_IO_WriteCmd(2, (uint8_t *)Display_Control_1);
+	DSI_IO_WriteCmd(2, (uint8_t *)Display_Control_2);
+	DSI_IO_WriteCmd(2, (uint8_t *)Display_Control_3);
+	DSI_IO_WriteCmd(1, (uint8_t *)Display_Control_4);
+
+	//-------------------------------------Gamma Cluster Setting-------------------------------------------//
+
+	const uint8_t _B0[] = {0x00,0x11,0x16,0x0E,0x11,0x06,0x05,0x09,0x08,0x21,0x06,0x13,0x10,0x29,0x31,0x18,0xB0}; //{0x02,0x13,0x1B,0x0D,0x10,0x05,0x08,0x07,0x07,0x24,0x04,0x11,0x0E,0x2C,0x33,0x1D,DSI_CMD2_BK1_VRHS};
+	const uint8_t _B1[] = {0x00,0x11,0x16,0x0E,0x11,0x07,0x05,0x09,0x09,0x21,0x05,0x13,0x11,0x2A,0x31,0x18,0xB1}; //0x05,0x13,0x1B,0x0D,0x11,0x05,0x08,0x07,0x07,0x24,0x04,0x11,0x0E,0x2C,0x33,0x1D,DSI_CMD2_BK1_VCOM};
+	const uint8_t _FF1[] = {0x77,0x01,0x00,0x00,0x11,0xFF};	//DSI_CMD2BKX_SEL
+	DSI_IO_WriteCmd(16, (uint8_t *)_B0);
+	DSI_IO_WriteCmd(16, (uint8_t *)_B1);
+	DSI_IO_WriteCmd(5, (uint8_t *)_FF1);
+
+	const uint8_t ShortRegData3[]  = {0xB0,0x6D}; //0x5D
+	const uint8_t ShortRegData4[]  = {0xB1,0x37}; //0x43
+	const uint8_t ShortRegData5[]  = {0xB2,0x81}; //0x81
+	const uint8_t ShortRegData6[]  = {0xB3,0x80}; //0x80
+	const uint8_t ShortRegData7[]  = {0xB5,0x43}; //0x43
+	const uint8_t ShortRegData8[]  = {0xB7,0x85}; //0x85
+	const uint8_t ShortRegData9[]  = {0xB8,0x20}; //0x20
+	const uint8_t ShortRegData10[] = {0xC1,0x78}; //0x78
+	const uint8_t ShortRegData11[] = {0xC2,0x78}; //0x78
+	const uint8_t ShortRegData12[] = {0xD0,0x88}; //0x88
+	DSI_IO_WriteCmd(1, (uint8_t *)ShortRegData3);
+	DSI_IO_WriteCmd(1, (uint8_t *)ShortRegData4);
+	DSI_IO_WriteCmd(1, (uint8_t *)ShortRegData5);
+	DSI_IO_WriteCmd(1, (uint8_t *)ShortRegData6);
+	DSI_IO_WriteCmd(1, (uint8_t *)ShortRegData7);
+	DSI_IO_WriteCmd(1, (uint8_t *)ShortRegData8);
+	DSI_IO_WriteCmd(1, (uint8_t *)ShortRegData9);
+	DSI_IO_WriteCmd(1, (uint8_t *)ShortRegData10);
+	DSI_IO_WriteCmd(1, (uint8_t *)ShortRegData11);
+	DSI_IO_WriteCmd(1, (uint8_t *)ShortRegData12);
+
+	const uint8_t _E0[] = {0x00,0x00,0x02,0xE0};
+	DSI_IO_WriteCmd(3, (uint8_t *)_E0);
+
+	const uint8_t _E1[] = {0x03,0xA0,0x00,0x00,0x04,0xA0,0x00,0x00,0x00,0x20,0x20,0xE1};
+	const uint8_t _E2[] = {0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xE2};
+	DSI_IO_WriteCmd(11, (uint8_t *)_E1);
+	DSI_IO_WriteCmd(13, (uint8_t *)_E2);
+
+	const uint8_t _E3[] = {0x00,0x00,0x11,0x00,0xE3};
+	const uint8_t _E4[] = {0x22,0x00,0xE4};
+	DSI_IO_WriteCmd(4, (uint8_t *)_E3);
+	DSI_IO_WriteCmd(2, (uint8_t *)_E4);
+
+	const uint8_t _E5[] = {0x05,0xEC,0xA0,0xA0,0x07,0xEE,0xA0,0xA0,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xE5};
+	DSI_IO_WriteCmd(16, (uint8_t *)_E5);
+
+	const uint8_t _E6[] = {0x00,0x00,0x11,0x00,0xE6};
+	const uint8_t _E7[] = {0x22,0x00,0xE7};
+	DSI_IO_WriteCmd(4, (uint8_t *)_E6);
+	DSI_IO_WriteCmd(2, (uint8_t *)_E7);
+
+	const uint8_t _E8[] = {0x06,0xED,0xA0,0xA0,0x08,0xEF,0xA0,0xA0,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0x00,0xE8};
+	DSI_IO_WriteCmd(16, (uint8_t *)_E8);
+
+	const uint8_t _EB[] = {0xEB,0x00,0x00,0x40,0x40,0x00,0x00,0x00};
+	DSI_IO_WriteCmd(sizeof(_EB)-1, (uint8_t *)_EB);
+
+	const uint8_t _ED[] = {0xFF,0xFF,0xFF,0xBA,0x0A,0xBF,0x45,0xFF,0xFF,0x54,0xFB,0xA0,0xAB,0xFF,0xFF,0xFF,0xED};
+	const uint8_t _EF[] = {0x10,0x0D,0x04,0x08,0x3F,0x1F,0xEF};
+	DSI_IO_WriteCmd(16, (uint8_t *)_ED);
+	DSI_IO_WriteCmd(6, (uint8_t *)_EF);
+
+	const uint8_t _FF2[] = {0x77,0x01,0x00,0x00,0x13,0xFF};
+	DSI_IO_WriteCmd(5, (uint8_t *)_FF2);
+
+	const uint8_t ShortRegData13[]  = {0xEF,0x08};
+	DSI_IO_WriteCmd(1, (uint8_t *)ShortRegData13);
+
+	const uint8_t _FF3[] = {0x77,0x01,0x00,0x00,0x00,0xFF};
+	DSI_IO_WriteCmd(5, (uint8_t *)_FF3);
+
+	const uint8_t ShortRegData14[]  = {0x36,0x00};
+	//const uint8_t ShortRegData15[]  = {0x3A,0x70}; //24-bit
+	//const uint8_t ShortRegData15[]  = {0x3A,0x50}; // 16-bit
+	const uint8_t ShortRegData15[]  = {0x3A,0x70};
+	DSI_IO_WriteCmd(1, (uint8_t *)ShortRegData14);
+	DSI_IO_WriteCmd(1, (uint8_t *)ShortRegData15);
+	HAL_Delay(10);
+
+	const uint8_t ShortRegData16[]  = {0x11, 0x00};
+	DSI_IO_WriteCmd(0, (uint8_t *)ShortRegData16);
+	HAL_Delay(120);
+
+	const uint8_t ShortRegData17[]  = {0x29, 0x00};
+	DSI_IO_WriteCmd(0, (uint8_t *)ShortRegData17);
+	HAL_Delay(500);
+
+}
 /* USER CODE END 0 */
 
 /**
@@ -162,6 +289,27 @@ int main(void)
   MX_TouchGFX_PreOSInit();
   /* USER CODE BEGIN 2 */
 
+
+  /////////////////////////////////////////////////////Set up Wifi and BT////////////////////////////////////////////
+  // NOTE: Wifi/BT takes few seconds start for the first time.
+  //  	//Set up Wifi
+  //  	BSP_WIFI_BT_Init(&huart2);
+  //  	BSP_WIFI_SetMode(AP_MODE);
+  //  	BSP_WIFI_Configure_SoftAP("ANDERS-DragonEye","123456789",5,WPS_PSK_ENCRYPTION);
+  //
+  //  	//BT-Initializion
+  //  	BSP_BT_BLEINIT(2);
+  //  	BSP_BT_BLE_Advertising_Data("0201061109414E444552532D447261676F6E457965");
+  //  	BSP_BT_BLE_Start_Advertising();
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+  // Enable PWN for BackLight
+  BSP_BL_PWM_Init(&htim2, TIM_CHANNEL_1);
+  BSP_BL_SetIntensity(100); //Set Intensity to 100, Maximum Brightness
+
+  //Enable PWM for RGB Ring Light
+  BSP_LED_PWM_Init(&htim3,TIM_CHANNEL_3, TIM_CHANNEL_2, TIM_CHANNEL_1);
+  BSP_LED_SetColor(RGB_WHITE);
   /* USER CODE END 2 */
 
   /* Init scheduler */
@@ -418,7 +566,7 @@ static void MX_DSIHOST_DSI_Init(void)
 {
 
   /* USER CODE BEGIN DSIHOST_Init 0 */
-
+  HAL_Delay(10);
   /* USER CODE END DSIHOST_Init 0 */
 
   DSI_PLLInitTypeDef PLLInit = {0};
@@ -512,6 +660,17 @@ static void MX_DSIHOST_DSI_Init(void)
   }
   /* USER CODE BEGIN DSIHOST_Init 2 */
 
+  // Start DSI
+  if (HAL_DSI_Start(&hdsi) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /* Switch to DSI PHY PLL clock */
+  RCC_PeriphCLKInitTypeDef PeriphClkInit;
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_DSI;
+  PeriphClkInit.DsiClockSelection    = RCC_DSICLKSOURCE_DSIPHY;
+  HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit);
   /* USER CODE END DSIHOST_Init 2 */
 
 }
@@ -776,7 +935,22 @@ static void MX_LTDC_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN LTDC_Init 2 */
+  HAL_Delay(10);
+  HAL_DSI_EnterULPM(&hdsi);
+  HAL_Delay(10);
 
+  HAL_GPIO_WritePin(LCD_RESET_GPIO_Port, LCD_RESET_Pin, GPIO_PIN_RESET);
+  HAL_Delay(10);
+  HAL_GPIO_WritePin(LCD_RESET_GPIO_Port, LCD_RESET_Pin, GPIO_PIN_SET);
+  HAL_Delay(150);
+
+  HAL_DSI_ExitULPM(&hdsi);
+  HAL_Delay(10);
+
+  //LCD Intializion
+  LCD_ST7701S_Init();
+
+  HAL_Delay(120);
   /* USER CODE END LTDC_Init 2 */
 
 }
@@ -790,7 +964,7 @@ static void MX_OCTOSPI1_Init(void)
 {
 
   /* USER CODE BEGIN OCTOSPI1_Init 0 */
-
+#if 0 // Disable the HSPI initialization code generated by CubeMX
   /* USER CODE END OCTOSPI1_Init 0 */
 
   OSPIM_CfgTypeDef sOspiManagerCfg = {0};
@@ -836,7 +1010,35 @@ static void MX_OCTOSPI1_Init(void)
     Error_Handler();
   }
   /* USER CODE BEGIN OCTOSPI1_Init 2 */
+#endif
+  BSP_OSPI_NOR_Info_t sOSPI_NOR_Info;
+  BSP_OSPI_NOR_Init_t sOSPI_NOR_Init;
 
+  int32_t status;
+
+  memset(&sOSPI_NOR_Info, 0, sizeof(sOSPI_NOR_Info));
+  memset(&sOSPI_NOR_Init, 0, sizeof(sOSPI_NOR_Init));
+
+  sOSPI_NOR_Init.InterfaceMode = BSP_OSPI_NOR_OPI_MODE;
+  sOSPI_NOR_Init.TransferRate  = BSP_OSPI_NOR_DTR_TRANSFER;
+
+  status = BSP_OSPI_NOR_Init(0, &sOSPI_NOR_Init);
+
+  if (status != BSP_ERROR_NONE)
+  {
+    printf("\r\nOSPI NOR Initialization : Failed");
+    printf("\r\nOSPI NOR Test Aborted");
+    printf("\r\n");
+  }
+
+  BSP_OSPI_NOR_GetInfo(0, &sOSPI_NOR_Info);
+
+  if (BSP_OSPI_NOR_EnableMemoryMappedMode(0) != BSP_ERROR_NONE)
+  {
+    printf("\r\nOSPI NOR Mem-Mapped Cfg : Failed");
+    printf("\r\nOSPI NOR Test Aborted");
+    printf("\r\n");
+  }
   /* USER CODE END OCTOSPI1_Init 2 */
 
 }

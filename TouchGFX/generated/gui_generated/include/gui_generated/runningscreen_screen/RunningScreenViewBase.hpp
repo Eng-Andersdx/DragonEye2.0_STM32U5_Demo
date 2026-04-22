@@ -55,8 +55,6 @@ protected:
      */
     touchgfx::Box __background;
     touchgfx::IconButtonStyle< touchgfx::ClickButtonTrigger >  back_flex;
-    touchgfx::Circle Speed_bar_empty;
-    touchgfx::PainterRGB888Bitmap Speed_bar_emptyPainter;
     touchgfx::Circle Speed_bar_full;
     touchgfx::PainterRGB888Bitmap Speed_bar_fullPainter;
     touchgfx::TextArea Zero;

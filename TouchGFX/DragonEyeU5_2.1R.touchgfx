@@ -1387,25 +1387,6 @@
           },
           {
             "Type": "Circle",
-            "Name": "Speed_bar_empty",
-            "X": 39,
-            "Y": 36,
-            "Width": 402,
-            "Height": 238,
-            "FileNameImage": "Artboard 69Green_ticks.png",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "CenterX": 40.0,
-            "CenterY": 40.0,
-            "Radius": 480.0,
-            "EndAngle": 360.0,
-            "CapPrecision": "Butt"
-          },
-          {
-            "Type": "Circle",
             "Name": "Speed_bar_full",
             "X": 39,
             "Y": 36,

@@ -22,15 +22,6 @@ RunningScreenViewBase::RunningScreenViewBase() :
     back_flex.setPosition(189, 396, 110, 100);
     add(back_flex);
 
-    Speed_bar_empty.setPosition(39, 36, 402, 238);
-    Speed_bar_empty.setCenter(40, 40);
-    Speed_bar_empty.setRadius(480);
-    Speed_bar_empty.setLineWidth(0);
-    Speed_bar_empty.setArc(0, 360);
-    Speed_bar_emptyPainter.setBitmap(touchgfx::Bitmap(BITMAP_ARTBOARD_69GREEN_TICKS_ID));
-    Speed_bar_empty.setPainter(Speed_bar_emptyPainter);
-    add(Speed_bar_empty);
-
     Speed_bar_full.setPosition(39, 36, 402, 238);
     Speed_bar_full.setCenter(201, 201);
     Speed_bar_full.setRadius(201);

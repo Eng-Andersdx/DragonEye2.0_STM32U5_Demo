@@ -17,10 +17,6 @@ void RunningScreenView::setupScreen()
     currentSpeed = 0;
     updateDigits(currentSpeed);
 
-    // Bar visuals:
-    Speed_bar_empty.setAlpha(255);
-    Speed_bar_empty.invalidate();
-
     Speed_bar_full.setAlpha(255);   // make sure it’s visible
     currentArcEnd = -100;
     targetArcEnd  = -100;
@@ -100,9 +96,6 @@ uint8_t RunningScreenView::speedToFrame(uint8_t speed) const
 
 void RunningScreenView::requestBarFrameForSpeed(uint8_t speed)
 {
-    // Always show the empty ring
-    Speed_bar_empty.setAlpha(255);
-    Speed_bar_empty.invalidate();
 
     if (speed > 10)
         speed = 10;

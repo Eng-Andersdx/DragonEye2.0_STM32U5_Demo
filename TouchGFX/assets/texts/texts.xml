@@ -138,7 +138,7 @@
     </TextGroup>
     <TextGroup Id="Unsorted">
       <Text Id="__SingleUse_W9YR" Alignment="Left" TypographyId="Typography1">
-        <Translation Language="GB">v1.0</Translation>
+        <Translation Language="GB">v1.1</Translation>
       </Text>
       <Text Id="__SingleUse_G59J" Alignment="Center" TypographyId="OPENSANS">
         <Translation Language="GB">&lt;value&gt;°F</Translation>

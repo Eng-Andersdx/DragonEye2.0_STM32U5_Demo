@@ -145,9 +145,7 @@
 									<listOptionValue builtIn="false" value=":libnemagfx-float-abi-hard.a"/>
 									<listOptionValue builtIn="false" value=":libtouchgfxnema-float-abi-hard.a"/>
 								</option>
-								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.linker.option.additionalobjs.0354357391" name="Additional object files" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.linker.option.additionalobjs" useByScannerDiscovery="false" valueType="userObjs">
-									<listOptionValue builtIn="false" value="../../TouchGFX/generated/videos/obj/DRAGONEYE_logo.bin.o"/>
-								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.linker.option.additionalobjs.0354357391" name="Additional object files" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.linker.option.additionalobjs" useByScannerDiscovery="false" valueType="userObjs"/>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.linker.input.866378773" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>
@@ -300,9 +298,7 @@
 									<listOptionValue builtIn="false" value=":libnemagfx-float-abi-hard.a"/>
 									<listOptionValue builtIn="false" value=":libtouchgfxnema-float-abi-hard.a"/>
 								</option>
-								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.linker.option.additionalobjs.8911902333" name="Additional object files" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.linker.option.additionalobjs" useByScannerDiscovery="false" valueType="userObjs">
-									<listOptionValue builtIn="false" value="../../TouchGFX/generated/videos/obj/DRAGONEYE_logo.bin.o"/>
-								</option>
+								<option IS_BUILTIN_EMPTY="false" IS_VALUE_EMPTY="false" id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.linker.option.additionalobjs.8911902333" name="Additional object files" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.linker.option.additionalobjs" useByScannerDiscovery="false" valueType="userObjs"/>
 								<inputType id="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.linker.input.1761634684" superClass="com.st.stm32cube.ide.mcu.gnu.managedbuild.tool.cpp.linker.input">
 									<additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
 									<additionalInput kind="additionalinput" paths="$(LIBS)"/>

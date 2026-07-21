@@ -3,9 +3,6 @@
 
 #include <gui_generated/intro_screen/IntroViewBase.hpp>
 #include <gui/intro_screen/IntroPresenter.hpp>
-#include <touchgfx/widgets/AnimatedImage.hpp>
-#include <touchgfx/Callback.hpp>
-
 
 class IntroView : public IntroViewBase
 {
@@ -14,25 +11,43 @@ public:
     virtual ~IntroView() {}
     virtual void setupScreen();
     virtual void tearDownScreen();
-    virtual void handleTickEvent() override;
+
+    virtual void handleTickEvent();
+
+    virtual void screenIsEntered();
+
+    float floatEaseOut(float t, float b, float c, float d);
+    float floatBackEaseOut(float t, float b, float c, float d);
 
 protected:
-    // Callbacks for animation finished
-    touchgfx::Callback<IntroView, const touchgfx::AnimatedImage&> dragonDoneCallback;
-    touchgfx::Callback<IntroView, const touchgfx::AnimatedImage&> mainMenuDoneCallback;
+    enum AnimationSequence
+    {
+        ANIMATE_BACKGROUND,
+        ANIMATE_RING,
+        ANIMATE_CENTER_CIRCLE,
+        ANIMATE_FLOWER_SCALE_UP,
+        ANIMATE_FLOWER_ROTATE,
+        ANIMATE_FLOWER_SCALE_DOWN
+    } introAnimationSequence;
 
-    // Handlers
-    void onDragonAnimDone(const touchgfx::AnimatedImage& src);
-    void onMainMenuAnimDone(const touchgfx::AnimatedImage& src);
+    static const uint8_t ANIMATE_BACKGROUND_DURATION = 75;
+    static const uint8_t ANIMATE_RING_DURATION = 50;
+    static const uint8_t ANIMATE_CENTER_CIRCLE_DURATION = 50;
+    static const uint8_t ANIMATE_FLOWER_SCALE_UP_DURATION = 160;
+    static const uint8_t ANIMATE_FLOWER_ROTATE_DURATION = 120;
+    static const uint8_t ANIMATE_FLOWER_SCALE_DOWN_DURATION = 60;
 
-    // Called when the animation finishes
-    void onAnimDone(const touchgfx::AnimatedImage& src);
+    bool animate;
 
-    touchgfx::Callback<IntroView, const touchgfx::AnimatedImage&> animDoneCallback;
+    int stepCounter;
+    int steps;
+    int stepCounter2;
+    int steps2;
 
-    bool     holdActive;
-    uint16_t holdTicks;
-    static const uint16_t HOLD_TICKS;
+    float startValue;
+    float startValue2;
+    float stopValue;
+    float stopValue2;
 };
 
 #endif // INTROVIEW_HPP

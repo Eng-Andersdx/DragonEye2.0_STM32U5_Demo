@@ -23,29 +23,25 @@ public:
     // Intro
     void gotoIntroScreenNoTransition();
 
-    // MenuScreen
-    void gotoMenuScreenScreenNoTransition();
+    // Main
+    void gotoMainScreenNoTransition();
 
-    // Volume
-    void gotoVolumeScreenNoTransition();
+    void gotoMainScreenWipeTransitionEast();
 
-    // HobLevelScreen
-    void gotoHobLevelScreenScreenNoTransition();
+    // Watch
+    void gotoWatchScreenWipeTransitionEast();
 
-    // HobScreen
-    void gotoHobScreenScreenNoTransition();
+    // Compass
+    void gotoCompassScreenWipeTransitionEast();
 
-    // ExerciseScreen
-    void gotoExerciseScreenScreenNoTransition();
+    // Thermostat
+    void gotoThermostatScreenWipeTransitionEast();
 
-    // RunningScreen
-    void gotoRunningScreenScreenNoTransition();
+    // Dashboard
+    void gotoDashboardScreenWipeTransitionEast();
 
-    // OvenTempView
-    void gotoOvenTempViewScreenNoTransition();
-
-    // Coffee
-    void gotoCoffeeScreenNoTransition();
+    // Svg
+    void gotoSvgScreenWipeTransitionEast();
 
 protected:
     touchgfx::Callback<FrontendApplicationBase> transitionCallback;
@@ -55,29 +51,25 @@ protected:
     // Intro
     void gotoIntroScreenNoTransitionImpl();
 
-    // MenuScreen
-    void gotoMenuScreenScreenNoTransitionImpl();
+    // Main
+    void gotoMainScreenNoTransitionImpl();
 
-    // Volume
-    void gotoVolumeScreenNoTransitionImpl();
+    void gotoMainScreenWipeTransitionEastImpl();
 
-    // HobLevelScreen
-    void gotoHobLevelScreenScreenNoTransitionImpl();
+    // Watch
+    void gotoWatchScreenWipeTransitionEastImpl();
 
-    // HobScreen
-    void gotoHobScreenScreenNoTransitionImpl();
+    // Compass
+    void gotoCompassScreenWipeTransitionEastImpl();
 
-    // ExerciseScreen
-    void gotoExerciseScreenScreenNoTransitionImpl();
+    // Thermostat
+    void gotoThermostatScreenWipeTransitionEastImpl();
 
-    // RunningScreen
-    void gotoRunningScreenScreenNoTransitionImpl();
+    // Dashboard
+    void gotoDashboardScreenWipeTransitionEastImpl();
 
-    // OvenTempView
-    void gotoOvenTempViewScreenNoTransitionImpl();
-
-    // Coffee
-    void gotoCoffeeScreenNoTransitionImpl();
+    // Svg
+    void gotoSvgScreenWipeTransitionEastImpl();
 };
 
 #endif // FRONTENDAPPLICATIONBASE_HPP

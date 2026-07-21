@@ -13,27 +13,33 @@ class FlashDataReader;
 
 struct Typography
 {
-    static const touchgfx::FontId OPENSANS = 0;
-    static const touchgfx::FontId NUMBEROPEN = 1;
-    static const touchgfx::FontId HOB_NUMBER_MAIN = 2;
-    static const touchgfx::FontId HOB_MAIN_NUMBER = 3;
-    static const touchgfx::FontId COFFEE_TITLE_40PX = 4;
-    static const touchgfx::FontId EXERCISE_NO = 5;
-    static const touchgfx::FontId TYPOGRAPHY1 = 6;
-    static const touchgfx::FontId TYPOGRAPHY2 = 7;
+    static const touchgfx::FontId MAINSELECTEDSUBDEMO = 0;
+    static const touchgfx::FontId LARGENUMBER = 1;
+    static const touchgfx::FontId WATHDIGITALCLOCK = 2;
+    static const touchgfx::FontId VERYLARGENUMBER = 3;
+    static const touchgfx::FontId SMALLNUMBERSAIRA = 4;
+    static const touchgfx::FontId HUMONGOUSNUMBER = 5;
+    static const touchgfx::FontId MEDIUMNUMBER = 6;
+    static const touchgfx::FontId SMALLNUMBER = 7;
+    static const touchgfx::FontId SMALLTEXT = 8;
+    static const touchgfx::FontId LARGENUMBERSAIRA = 9;
+    static const touchgfx::FontId MEDIUMTEXT = 10;
 };
 
 struct TypographyFontIndex
 {
-    static const touchgfx::FontId OPENSANS = 0;          // OpenSans_ExtraBold_30_4bpp
-    static const touchgfx::FontId NUMBEROPEN = 1;        // OpenSans_ExtraBold_136_4bpp
-    static const touchgfx::FontId HOB_NUMBER_MAIN = 2;   // OpenSans_ExtraBold_40_4bpp
-    static const touchgfx::FontId HOB_MAIN_NUMBER = 3;   // OpenSans_ExtraBold_100_4bpp
-    static const touchgfx::FontId COFFEE_TITLE_40PX = 0; // OpenSans_ExtraBold_30_4bpp
-    static const touchgfx::FontId EXERCISE_NO = 4;       // verdana_21_4bpp
-    static const touchgfx::FontId TYPOGRAPHY1 = 5;       // verdana_20_4bpp
-    static const touchgfx::FontId TYPOGRAPHY2 = 5;       // verdana_20_4bpp
-    static const uint16_t NUMBER_OF_FONTS = 6;
+    static const touchgfx::FontId MAINSELECTEDSUBDEMO = 0; // Saira_SemiCondensed_SemiBold_32_4bpp
+    static const touchgfx::FontId LARGENUMBER = 1;         // ShareTechMono_Regular_42_4bpp
+    static const touchgfx::FontId WATHDIGITALCLOCK = 2;    // Saira_SemiCondensed_SemiBold_72_4bpp
+    static const touchgfx::FontId VERYLARGENUMBER = 3;     // Saira_SemiCondensed_SemiBold_150_4bpp
+    static const touchgfx::FontId SMALLNUMBERSAIRA = 4;    // Saira_SemiCondensed_SemiBold_24_4bpp
+    static const touchgfx::FontId HUMONGOUSNUMBER = 5;     // ShareTechMono_Regular_120_4bpp
+    static const touchgfx::FontId MEDIUMNUMBER = 6;        // ShareTechMono_Regular_26_4bpp
+    static const touchgfx::FontId SMALLNUMBER = 7;         // ShareTechMono_Regular_20_4bpp
+    static const touchgfx::FontId SMALLTEXT = 8;           // Saira_SemiCondensed_SemiBold_16_4bpp
+    static const touchgfx::FontId LARGENUMBERSAIRA = 9;    // Saira_SemiCondensed_SemiBold_42_4bpp
+    static const touchgfx::FontId MEDIUMTEXT = 10;          // Saira_SemiCondensed_SemiBold_20_4bpp
+    static const uint16_t NUMBER_OF_FONTS = 11;
 };
 
 class ApplicationFontProvider : public touchgfx::FontProvider

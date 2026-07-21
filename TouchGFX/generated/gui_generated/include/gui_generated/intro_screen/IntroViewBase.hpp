@@ -8,11 +8,11 @@
 #include <mvp/View.hpp>
 #include <gui/intro_screen/IntroPresenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
-#include <touchgfx/widgets/AnimatedImage.hpp>
-#include <touchgfx/EasingEquations.hpp>
-#include <touchgfx/mixins/FadeAnimator.hpp>
 #include <touchgfx/widgets/Image.hpp>
-#include <touchgfx/widgets/TextArea.hpp>
+#include <touchgfx/widgets/TextureMapper.hpp>
+#include <touchgfx/EasingEquations.hpp>
+#include <touchgfx/mixins/MoveAnimator.hpp>
+#include <touchgfx/mixins/FadeAnimator.hpp>
 
 class IntroViewBase : public touchgfx::View<IntroPresenter>
 {
@@ -20,6 +20,25 @@ public:
     IntroViewBase();
     virtual ~IntroViewBase();
     virtual void setupScreen();
+    virtual void afterTransition();
+
+    /*
+     * Custom Actions
+     */
+    virtual void goToMain()
+    {
+        // Override and implement this function in Screen1
+    }
+    
+    virtual void moveDot();
+
+    /*
+     * Virtual Action Handlers
+     */
+    virtual void screenIsEntered()
+    {
+        // Override and implement this function in Intro
+    }
 
 protected:
     FrontendApplication& application() {
@@ -30,11 +49,27 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
-    touchgfx::FadeAnimator< touchgfx::AnimatedImage > dragonAnim;
-    touchgfx::Image lastFrameImage;
-    touchgfx::TextArea Version;
+    touchgfx::Image backgroundImage;
+    touchgfx::Image backgroundPatternImage;
+    touchgfx::TextureMapper backgroundPattern;
+    touchgfx::TextureMapper shadow;
+    touchgfx::TextureMapper bottomFlower;
+    touchgfx::TextureMapper topFlower;
+    touchgfx::MoveAnimator< touchgfx::TextureMapper > dot;
+    touchgfx::FadeAnimator< touchgfx::TextureMapper > backgroundRingTextureMapper;
+    touchgfx::Image backgroundRingImage;
 
 private:
+
+    /*
+     * Callback Declarations
+     */
+    touchgfx::Callback < IntroViewBase, const touchgfx::MoveAnimator<touchgfx::TextureMapper>& > moveDotAnimationEndedCallback;
+
+    /*
+     * Callback Handler Declarations
+     */
+    void moveDotAnimationEndedCallbackHandler(const touchgfx::MoveAnimator<touchgfx::TextureMapper>& comp);
 
 };
 

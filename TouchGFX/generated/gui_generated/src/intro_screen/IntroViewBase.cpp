@@ -4,30 +4,107 @@
 #include <gui_generated/intro_screen/IntroViewBase.hpp>
 #include <touchgfx/Color.hpp>
 #include <images/BitmapDatabase.hpp>
-#include <texts/TextKeysAndLanguages.hpp>
 
-IntroViewBase::IntroViewBase()
+IntroViewBase::IntroViewBase() :
+    moveDotAnimationEndedCallback(this, &IntroViewBase::moveDotAnimationEndedCallbackHandler)
 {
     __background.setPosition(0, 0, 480, 480);
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
 
-    dragonAnim.setXY(20, 40);
-    dragonAnim.setBitmaps(BITMAP_COMP_4_00000_ID, BITMAP_COMP_4_00027_ID);
-    dragonAnim.setUpdateTicksInterval(2);
-    dragonAnim.startAnimation(false, true, false);
-    add(dragonAnim);
+    backgroundImage.setXY(0, 0);
+    backgroundImage.setBitmap(touchgfx::Bitmap(BITMAP_INTRO_FULL_BACKGROUND_480_ID));
+    add(backgroundImage);
 
-    lastFrameImage.setXY(20, 40);
-    lastFrameImage.setBitmap(touchgfx::Bitmap(BITMAP_COMP_4_00027_ID));
-    lastFrameImage.setAlpha(0);
-    add(lastFrameImage);
+    backgroundPatternImage.setXY(0, 0);
+    backgroundPatternImage.setBitmap(touchgfx::Bitmap(BITMAP_INTRO_BACKGROUND_PATTERN_480_ID));
+    backgroundPatternImage.setVisible(false);
+    add(backgroundPatternImage);
 
-    Version.setXY(218, 440);
-    Version.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
-    Version.setLinespacing(0);
-    Version.setTypedText(touchgfx::TypedText(T___SINGLEUSE_W9YR));
-    add(Version);
+    backgroundPattern.setXY(0, 0);
+    backgroundPattern.setBitmap(touchgfx::Bitmap(BITMAP_INTRO_BACKGROUND_PATTERN_480_ID));
+    backgroundPattern.setWidth(480);
+    backgroundPattern.setHeight(480);
+    backgroundPattern.setBitmapPosition(0.0f, 0.0f);
+    backgroundPattern.setScale(1.0f);
+    backgroundPattern.setCameraDistance(1000.0f);
+    backgroundPattern.setOrigo(240.0f, 240.0f, 1000.0f);
+    backgroundPattern.setCamera(240.0f, 240.0f);
+    backgroundPattern.setAngles(0.0f, 0.0f, 0.0f);
+    backgroundPattern.setRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
+    backgroundPattern.setVisible(false);
+    add(backgroundPattern);
+
+    shadow.setXY(23, 40);
+    shadow.setBitmap(touchgfx::Bitmap(BITMAP_FLOWER_SHADOW_ID));
+    shadow.setWidth(426);
+    shadow.setHeight(400);
+    shadow.setBitmapPosition(-24.0f, -37.0f);
+    shadow.setScale(1.0f);
+    shadow.setCameraDistance(1000.0f);
+    shadow.setOrigo(213.0f, 200.0f, 1000.0f);
+    shadow.setCamera(213.0f, 200.0f);
+    shadow.setAngles(0.0f, 0.0f, 0.0f);
+    shadow.setRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
+    add(shadow);
+
+    bottomFlower.setXY(50, 50);
+    bottomFlower.setBitmap(touchgfx::Bitmap(BITMAP_FLOWER_LAYER_2ND_ID));
+    bottomFlower.setWidth(380);
+    bottomFlower.setHeight(380);
+    bottomFlower.setBitmapPosition(10.0f, 10.0f);
+    bottomFlower.setScale(-1.0f);
+    bottomFlower.setCameraDistance(1000.0f);
+    bottomFlower.setOrigo(190.0f, 190.0f, 1000.0f);
+    bottomFlower.setCamera(190.0f, 190.0f);
+    bottomFlower.setAngles(0.0f, 0.0f, 0.0f);
+    bottomFlower.setRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
+    add(bottomFlower);
+
+    topFlower.setXY(50, 50);
+    topFlower.setBitmap(touchgfx::Bitmap(BITMAP_FLOWER_LAYER_1ST_ID));
+    topFlower.setWidth(380);
+    topFlower.setHeight(380);
+    topFlower.setBitmapPosition(22.0f, 22.0f);
+    topFlower.setScale(1.0f);
+    topFlower.setCameraDistance(1000.0f);
+    topFlower.setOrigo(190.0f, 190.0f, 1000.0f);
+    topFlower.setCamera(190.0f, 190.0f);
+    topFlower.setAngles(0.0f, 0.0f, 0.0f);
+    topFlower.setRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
+    add(topFlower);
+
+    dot.setXY(207, 207);
+    dot.setBitmap(touchgfx::Bitmap(BITMAP_FLOWER_DOT_ID));
+    dot.setWidth(66);
+    dot.setHeight(66);
+    dot.setBitmapPosition(0.0f, 0.0f);
+    dot.setScale(1.0f);
+    dot.setCameraDistance(1000.0f);
+    dot.setOrigo(33.0f, 33.0f, 1000.0f);
+    dot.setCamera(33.0f, 33.0f);
+    dot.setAngles(0.0f, 0.0f, 0.0f);
+    dot.setRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
+    add(dot);
+
+    backgroundRingTextureMapper.setXY(0, 0);
+    backgroundRingTextureMapper.setBitmap(touchgfx::Bitmap(BITMAP_INTRO_PATTERN_ROUND_FRAME_480_ID));
+    backgroundRingTextureMapper.setWidth(480);
+    backgroundRingTextureMapper.setHeight(480);
+    backgroundRingTextureMapper.setBitmapPosition(0.0f, 0.0f);
+    backgroundRingTextureMapper.setScale(0.85f);
+    backgroundRingTextureMapper.setCameraDistance(1000.0f);
+    backgroundRingTextureMapper.setOrigo(240.0f, 240.0f, 1000.0f);
+    backgroundRingTextureMapper.setCamera(240.0f, 240.0f);
+    backgroundRingTextureMapper.setAngles(0.0f, 0.0f, 0.0f);
+    backgroundRingTextureMapper.setRenderingAlgorithm(touchgfx::TextureMapper::BILINEAR_INTERPOLATION);
+    backgroundRingTextureMapper.setVisible(false);
+    add(backgroundRingTextureMapper);
+
+    backgroundRingImage.setXY(0, 0);
+    backgroundRingImage.setBitmap(touchgfx::Bitmap(BITMAP_INTRO_PATTERN_ROUND_FRAME_480_ID));
+    backgroundRingImage.setVisible(false);
+    add(backgroundRingImage);
 }
 
 IntroViewBase::~IntroViewBase()
@@ -38,4 +115,31 @@ IntroViewBase::~IntroViewBase()
 void IntroViewBase::setupScreen()
 {
 
+}
+
+void IntroViewBase::moveDotAnimationEndedCallbackHandler(const touchgfx::MoveAnimator<touchgfx::TextureMapper>& comp)
+{
+    //ChangeScreenToMain
+    //When MoveDotAnimation completed change screen to Main
+    //Go to Main with no screen transition
+    application().gotoMainScreenNoTransition();
+
+}
+
+void IntroViewBase::moveDot()
+{
+    //MoveDotAnimation
+    //When moveDot is called move dot
+    //Move dot to x:480, y:215 with LinearIn easing in 250 ms (15 Ticks)
+    dot.clearMoveAnimationEndedAction();
+    dot.startMoveAnimation(480, 215, 15, touchgfx::EasingEquations::linearEaseIn, touchgfx::EasingEquations::linearEaseIn);
+    dot.setMoveAnimationEndedAction(moveDotAnimationEndedCallback);
+}
+
+void IntroViewBase::afterTransition()
+{
+    //ScreenIsEnteredInteraction
+    //When screen transition ends call virtual function
+    //Call screenIsEntered
+    screenIsEntered();
 }

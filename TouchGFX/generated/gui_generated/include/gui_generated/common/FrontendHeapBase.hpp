@@ -9,27 +9,25 @@
 #include <mvp/MVPHeap.hpp>
 
 #include <touchgfx/transitions/NoTransition.hpp>
+#include <touchgfx/transitions/WipeTransition.hpp>
+
 #include <gui/common/FrontendApplication.hpp>
 #include <gui/model/Model.hpp>
 
 #include <gui/intro_screen/IntroView.hpp>
 #include <gui/intro_screen/IntroPresenter.hpp>
-#include <gui/menuscreen_screen/MenuScreenView.hpp>
-#include <gui/menuscreen_screen/MenuScreenPresenter.hpp>
-#include <gui/volume_screen/VolumeView.hpp>
-#include <gui/volume_screen/VolumePresenter.hpp>
-#include <gui/hoblevelscreen_screen/HobLevelScreenView.hpp>
-#include <gui/hoblevelscreen_screen/HobLevelScreenPresenter.hpp>
-#include <gui/hobscreen_screen/HobScreenView.hpp>
-#include <gui/hobscreen_screen/HobScreenPresenter.hpp>
-#include <gui/exercisescreen_screen/ExerciseScreenView.hpp>
-#include <gui/exercisescreen_screen/ExerciseScreenPresenter.hpp>
-#include <gui/runningscreen_screen/RunningScreenView.hpp>
-#include <gui/runningscreen_screen/RunningScreenPresenter.hpp>
-#include <gui/oventempview_screen/OvenTempViewView.hpp>
-#include <gui/oventempview_screen/OvenTempViewPresenter.hpp>
-#include <gui/coffee_screen/CoffeeView.hpp>
-#include <gui/coffee_screen/CoffeePresenter.hpp>
+#include <gui/main_screen/MainView.hpp>
+#include <gui/main_screen/MainPresenter.hpp>
+#include <gui/watch_screen/WatchView.hpp>
+#include <gui/watch_screen/WatchPresenter.hpp>
+#include <gui/compass_screen/CompassView.hpp>
+#include <gui/compass_screen/CompassPresenter.hpp>
+#include <gui/thermostat_screen/ThermostatView.hpp>
+#include <gui/thermostat_screen/ThermostatPresenter.hpp>
+#include <gui/dashboard_screen/DashboardView.hpp>
+#include <gui/dashboard_screen/DashboardPresenter.hpp>
+#include <gui/svg_screen/SvgView.hpp>
+#include <gui/svg_screen/SvgPresenter.hpp>
 
 
 /**
@@ -53,15 +51,13 @@ public:
      * @note All view types used in the application MUST be added to this list!
      */
     typedef touchgfx::meta::TypeList< IntroView,
-            touchgfx::meta::TypeList< MenuScreenView,
-            touchgfx::meta::TypeList< VolumeView,
-            touchgfx::meta::TypeList< HobLevelScreenView,
-            touchgfx::meta::TypeList< HobScreenView,
-            touchgfx::meta::TypeList< ExerciseScreenView,
-            touchgfx::meta::TypeList< RunningScreenView,
-            touchgfx::meta::TypeList< OvenTempViewView,
-            touchgfx::meta::TypeList< CoffeeView,
-            touchgfx::meta::Nil > > > > > > > >
+            touchgfx::meta::TypeList< MainView,
+            touchgfx::meta::TypeList< WatchView,
+            touchgfx::meta::TypeList< CompassView,
+            touchgfx::meta::TypeList< ThermostatView,
+            touchgfx::meta::TypeList< DashboardView,
+            touchgfx::meta::TypeList< SvgView,
+            touchgfx::meta::Nil > > > > > >
             > GeneratedViewTypes;
 
     /**
@@ -74,15 +70,13 @@ public:
      * @note All presenter types used in the application MUST be added to this list!
      */
     typedef touchgfx::meta::TypeList< IntroPresenter,
-            touchgfx::meta::TypeList< MenuScreenPresenter,
-            touchgfx::meta::TypeList< VolumePresenter,
-            touchgfx::meta::TypeList< HobLevelScreenPresenter,
-            touchgfx::meta::TypeList< HobScreenPresenter,
-            touchgfx::meta::TypeList< ExerciseScreenPresenter,
-            touchgfx::meta::TypeList< RunningScreenPresenter,
-            touchgfx::meta::TypeList< OvenTempViewPresenter,
-            touchgfx::meta::TypeList< CoffeePresenter,
-            touchgfx::meta::Nil > > > > > > > >
+            touchgfx::meta::TypeList< MainPresenter,
+            touchgfx::meta::TypeList< WatchPresenter,
+            touchgfx::meta::TypeList< CompassPresenter,
+            touchgfx::meta::TypeList< ThermostatPresenter,
+            touchgfx::meta::TypeList< DashboardPresenter,
+            touchgfx::meta::TypeList< SvgPresenter,
+            touchgfx::meta::Nil > > > > > >
             > GeneratedPresenterTypes;
 
     /**
@@ -95,7 +89,8 @@ public:
      * @note All transition types used in the application MUST be added to this list!
      */
     typedef touchgfx::meta::TypeList< touchgfx::NoTransition,
-            touchgfx::meta::Nil
+            touchgfx::meta::TypeList< WipeTransition<EAST>,
+            touchgfx::meta::Nil >
             > GeneratedTransitionTypes;
 
     /**

@@ -25,7 +25,7 @@ public:
      */
     virtual void deactivate();
 
-    virtual ~IntroPresenter() {}
+    virtual ~IntroPresenter() {};
 
 private:
     IntroPresenter();

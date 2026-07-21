@@ -5,1465 +5,539 @@
         "Name": "Intro",
         "Components": [
           {
-            "Type": "AnimatedImage",
-            "Name": "dragonAnim",
-            "X": 20,
-            "Y": 40,
-            "Width": 440,
-            "Height": 400,
-            "FileNameFirst": "DA_10FPS_PNG_V2\\Comp 4_00000.png",
-            "FileNameLast": "DA_10FPS_PNG_V2\\Comp 4_00027.png",
-            "UpdateTicksInterval": 40,
-            "StartOnLoad": true,
-            "Fadeable": true
-          },
-          {
             "Type": "Image",
-            "Name": "lastFrameImage",
-            "X": 20,
-            "Y": 40,
-            "Width": 440,
-            "Height": 400,
-            "RelativeFilename": "DA_10FPS_PNG_V2\\Comp 4_00027.png",
-            "Alpha": 0
-          },
-          {
-            "Type": "TextArea",
-            "Name": "Version",
-            "X": 218,
-            "Y": 440,
-            "Width": 45,
-            "Height": 20,
-            "TextId": "__SingleUse_W9YR",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "AutoSize": true
-          }
-        ],
-        "Interactions": []
-      },
-      {
-        "Name": "MenuScreen",
-        "Components": [
-          {
-            "Type": "Image",
-            "Name": "bgBack",
-            "X": -1,
-            "Width": 481,
-            "Height": 176,
-            "RelativeFilename": "new_main\\hob_vert_bg.png",
-            "Fadeable": true
-          },
-          {
-            "Type": "Image",
-            "Name": "bgFront",
-            "X": -1,
-            "Width": 481,
-            "Height": 176,
-            "RelativeFilename": "new_main\\volume_vert_bg.png",
-            "Fadeable": true
-          },
-          {
-            "Type": "TextArea",
-            "Name": "menu_title",
-            "X": 136,
-            "Y": 222,
-            "Width": 209,
-            "Height": 37,
-            "TextId": "main_menu_text",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "AutoSize": true,
-            "Fadeable": true
-          },
-          {
-            "Type": "CustomContainerInstance",
-            "Name": "menuWheel1",
+            "Name": "backgroundImage",
             "Width": 480,
             "Height": 480,
-            "CustomContainerDefinitionName": "MenuWheel"
+            "RelativeFilename": "Intro\\intro_full_background_480.png"
           },
           {
-            "Type": "ButtonWithIcon",
-            "Name": "buttonWithIcon1",
-            "Width": 50,
-            "Height": 50,
+            "Type": "Image",
+            "Name": "backgroundPatternImage",
+            "Width": 480,
+            "Height": 480,
             "Visible": false,
-            "Pressed": "Buttons\\Plus_whole.png",
-            "Released": "Buttons\\Plus_whole.png",
-            "IconPressed": "__generated\\icon_theme_images_action_done_50_50_E8F6FB.svg.png",
-            "IconReleased": "__generated\\icon_theme_images_action_done_50_50_E8F6FB.svg.png",
-            "IconX": 97,
-            "IconHeight": 50,
-            "IconWidth": 50
-          },
-          {
-            "Type": "ButtonWithIcon",
-            "Name": "buttonWithIcon1_1",
-            "Width": 50,
-            "Height": 50,
-            "Visible": false,
-            "Pressed": "Buttons\\Plus_whole.png",
-            "Released": "Buttons\\Plus_whole.png",
-            "IconPressed": "__generated\\icon_theme_images_action_done_50_50_E8F6FB.svg.png",
-            "IconReleased": "__generated\\icon_theme_images_action_done_50_50_E8F6FB.svg.png",
-            "IconX": 97,
-            "IconHeight": 50,
-            "IconWidth": 50
-          },
-          {
-            "Type": "ButtonWithIcon",
-            "Name": "buttonWithIcon1_1_1",
-            "Width": 50,
-            "Height": 50,
-            "Visible": false,
-            "Pressed": "Buttons\\Plus_whole.png",
-            "Released": "Buttons\\Plus_whole.png",
-            "IconPressed": "__generated\\icon_theme_images_action_done_50_50_E8F6FB.svg.png",
-            "IconReleased": "__generated\\icon_theme_images_action_done_50_50_E8F6FB.svg.png",
-            "IconX": 97,
-            "IconHeight": 50,
-            "IconWidth": 50
+            "RelativeFilename": "Intro\\intro_background_pattern_480.png"
           },
           {
             "Type": "TextureMapper",
-            "Name": "iconCenter",
-            "X": 164,
-            "Y": 50,
-            "Width": 152,
-            "Height": 272,
+            "Name": "backgroundPattern",
+            "Width": 480,
+            "Height": 480,
             "Visible": false,
             "RenderingAlgorithm": "Bilinear Interpolation",
-            "FileNameImage": "Main menu icons\\Speaker_icon_main.png",
+            "FileNameImage": "Intro\\intro_background_pattern_480.png",
             "LockBitmapToCenter": true,
-            "XBitmapPosition": 35.5,
-            "YBitmapPosition": 95.5,
             "Scale": 1.0,
             "LockOrigoToCenter": true,
-            "XOrigo": 76.0,
-            "YOrigo": 136.0,
+            "XOrigo": 240.0,
+            "YOrigo": 240.0,
+            "ZOrigo": 1000.0,
+            "CameraDistance": 1000.0
+          },
+          {
+            "Type": "TextureMapper",
+            "Name": "shadow",
+            "X": 23,
+            "Y": 40,
+            "Width": 426,
+            "Height": 400,
+            "RenderingAlgorithm": "Bilinear Interpolation",
+            "FileNameImage": "Intro\\flower_shadow.png",
+            "LockBitmapToCenter": true,
+            "XBitmapPosition": -24.0,
+            "YBitmapPosition": -37.0,
+            "Scale": 1.0,
+            "LockOrigoToCenter": true,
+            "XOrigo": 213.0,
+            "YOrigo": 200.0,
+            "ZOrigo": 1000.0,
+            "CameraDistance": 1000.0
+          },
+          {
+            "Type": "TextureMapper",
+            "Name": "bottomFlower",
+            "X": 50,
+            "Y": 50,
+            "Width": 380,
+            "Height": 380,
+            "RenderingAlgorithm": "Bilinear Interpolation",
+            "FileNameImage": "Intro\\flower_layer_2nd.png",
+            "LockBitmapToCenter": true,
+            "XBitmapPosition": 10.0,
+            "YBitmapPosition": 10.0,
+            "Scale": -1.0,
+            "LockOrigoToCenter": true,
+            "XOrigo": 190.0,
+            "YOrigo": 190.0,
+            "ZOrigo": 1000.0,
+            "CameraDistance": 1000.0
+          },
+          {
+            "Type": "TextureMapper",
+            "Name": "topFlower",
+            "X": 50,
+            "Y": 50,
+            "Width": 380,
+            "Height": 380,
+            "RenderingAlgorithm": "Bilinear Interpolation",
+            "FileNameImage": "Intro\\flower_layer_1st.png",
+            "LockBitmapToCenter": true,
+            "XBitmapPosition": 22.0,
+            "YBitmapPosition": 22.0,
+            "Scale": 1.0,
+            "LockOrigoToCenter": true,
+            "XOrigo": 190.0,
+            "YOrigo": 190.0,
+            "ZOrigo": 1000.0,
+            "CameraDistance": 1000.0
+          },
+          {
+            "Type": "TextureMapper",
+            "Name": "dot",
+            "X": 207,
+            "Y": 207,
+            "Width": 66,
+            "Height": 66,
+            "RenderingAlgorithm": "Bilinear Interpolation",
+            "FileNameImage": "Intro\\flower_dot.png",
+            "LockBitmapToCenter": true,
+            "Scale": 1.0,
+            "LockOrigoToCenter": true,
+            "XOrigo": 33.0,
+            "YOrigo": 33.0,
+            "ZOrigo": 1000.0,
+            "CameraDistance": 1000.0,
+            "Moveable": true
+          },
+          {
+            "Type": "TextureMapper",
+            "Name": "backgroundRingTextureMapper",
+            "Width": 480,
+            "Height": 480,
+            "Visible": false,
+            "RenderingAlgorithm": "Bilinear Interpolation",
+            "FileNameImage": "Intro\\intro_pattern_round_frame_480.png",
+            "LockBitmapToCenter": true,
+            "Scale": 0.85,
+            "LockOrigoToCenter": true,
+            "XOrigo": 240.0,
+            "YOrigo": 240.0,
             "ZOrigo": 1000.0,
             "CameraDistance": 1000.0,
             "Fadeable": true
-          }
-        ],
-        "Interactions": [
-          {
-            "InteractionName": "Interaction1",
-            "Trigger": {
-              "Type": "TriggerPhysicalButtonClicked"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "goRight"
-            }
-          },
-          {
-            "InteractionName": "Interaction2",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "buttonWithIcon1"
-            },
-            "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "Volume"
-            }
-          },
-          {
-            "InteractionName": "Interaction3",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "buttonWithIcon1_1"
-            },
-            "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "Coffee"
-            }
-          },
-          {
-            "InteractionName": "Interaction4",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "buttonWithIcon1_1_1"
-            },
-            "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "OvenTempView"
-            }
-          },
-          {
-            "InteractionName": "Interaction5",
-            "Trigger": {
-              "Type": "TriggerPhysicalButtonClicked",
-              "ButtonKey": 1
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "goLeft"
-            }
-          },
-          {
-            "InteractionName": "Interaction6",
-            "Trigger": {
-              "Type": "TriggerPhysicalButtonClicked",
-              "ButtonKey": 2
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "H_Press"
-            }
-          }
-        ]
-      },
-      {
-        "Name": "Volume",
-        "CanvasBufferSize": 7200,
-        "Components": [
-          {
-            "Type": "CircleProgress",
-            "Name": "volRing_1",
-            "X": 47,
-            "Y": 50,
-            "Width": 386,
-            "Height": 282,
-            "Visible": false,
-            "Color": {
-              "Green": 174,
-              "Blue": 242
-            },
-            "CenterX": 192.7,
-            "CenterY": 192.6,
-            "Radius": 180.0,
-            "LineWidth": 21.0,
-            "StartAngle": 245.0,
-            "EndAngle": 475.0,
-            "CapPrecision": "Round",
-            "FileNameBackground": "Speaker\\volume_bg.png",
-            "ProgressRangeMax": 100,
-            "ProgressRangeSteps": 100,
-            "ProgressInitialValue": 100
-          },
-          {
-            "Type": "CircleProgress",
-            "Name": "volRing",
-            "X": 47,
-            "Y": 50,
-            "Width": 386,
-            "Height": 282,
-            "Color": {
-              "Green": 174,
-              "Blue": 242
-            },
-            "CenterX": 192.7,
-            "CenterY": 192.6,
-            "Radius": 180.0,
-            "LineWidth": 21.0,
-            "StartAngle": 245.0,
-            "EndAngle": 475.0,
-            "CapPrecision": "Round",
-            "FileNameBackground": "Speaker\\volume_bg.png",
-            "ProgressRangeMax": 100,
-            "ProgressRangeSteps": 100,
-            "ProgressInitialValue": 50
-          },
-          {
-            "Type": "FlexButton",
-            "Name": "back_flex",
-            "X": 185,
-            "Y": 398,
-            "Width": 110,
-            "Height": 100,
-            "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
-            },
-            "ButtonStyles": [
-              {
-                "Type": "IconButtonStyle",
-                "X": 28,
-                "Y": 23,
-                "IconReleased": "Buttons\\Back_icon.png",
-                "IconPressed": "Buttons\\Back_icon.png"
-              }
-            ]
           },
           {
             "Type": "Image",
-            "Name": "blue_select",
-            "X": 120,
-            "Y": 5,
-            "Width": 241,
-            "Height": 45,
-            "RelativeFilename": "Selects\\v_select.png"
-          },
-          {
-            "Type": "FlexButton",
-            "Name": "minus_flex",
-            "X": 65,
-            "Y": 318,
-            "Width": 90,
-            "Height": 90,
-            "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
-            },
-            "ButtonStyles": [
-              {
-                "Type": "IconButtonStyle",
-                "X": 20,
-                "Y": 20,
-                "IconReleased": "Buttons\\Minus_whole.png",
-                "IconPressed": "Buttons\\Minus_whole.png"
-              }
-            ]
-          },
-          {
-            "Type": "FlexButton",
-            "Name": "plus_flex",
-            "X": 328,
-            "Y": 323,
-            "Width": 90,
-            "Height": 90,
-            "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
-            },
-            "ButtonStyles": [
-              {
-                "Type": "IconButtonStyle",
-                "X": 20,
-                "Y": 20,
-                "IconReleased": "Buttons\\Plus_whole.png",
-                "IconPressed": "Buttons\\Plus_whole.png"
-              }
-            ]
-          },
-          {
-            "Type": "Image",
-            "Name": "vol_0",
-            "X": 175,
-            "Y": 181,
-            "Width": 131,
-            "Height": 118,
-            "RelativeFilename": "Speaker\\speaker_icon_0.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "vol_1",
-            "X": 182,
-            "Y": 181,
-            "Width": 117,
-            "Height": 118,
-            "RelativeFilename": "Speaker\\speaker_icon_1.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "vol_33",
-            "X": 169,
-            "Y": 181,
-            "Width": 143,
-            "Height": 118,
-            "RelativeFilename": "Speaker\\speaker_icon_33.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "vol_66",
-            "X": 155,
-            "Y": 175,
-            "Width": 170,
-            "Height": 130,
-            "RelativeFilename": "Speaker\\speaker_icon_66.png"
-          }
-        ],
-        "Interactions": [
-          {
-            "InteractionName": "Interaction1",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "plus_flex"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "onPlusClicked"
-            }
-          },
-          {
-            "InteractionName": "Interaction2",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "minus_flex"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "onMinusClicked"
-            }
-          },
-          {
-            "InteractionName": "Interaction3",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "back_flex"
-            },
-            "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "MenuScreen"
-            }
-          },
-          {
-            "InteractionName": "Interaction4",
-            "Trigger": {
-              "Type": "TriggerPhysicalButtonClicked",
-              "ButtonKey": 1
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "goRight"
-            }
-          },
-          {
-            "InteractionName": "Interaction5",
-            "Trigger": {
-              "Type": "TriggerPhysicalButtonClicked"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "goLeft"
-            }
-          }
-        ]
-      },
-      {
-        "Name": "HobLevelScreen",
-        "CanvasBufferSize": 7200,
-        "Components": [
-          {
-            "Type": "Circle",
-            "Name": "Black_circle",
+            "Name": "backgroundRingImage",
             "Width": 480,
             "Height": 480,
             "Visible": false,
-            "LockPosition": true,
-            "CenterX": 240.0,
-            "CenterY": 240.0,
-            "Radius": 240.0,
-            "EndAngle": 360.0,
-            "CapPrecision": "Butt"
-          },
-          {
-            "Type": "Image",
-            "Name": "red_select",
-            "X": 293,
-            "Y": 12,
-            "Width": 177,
-            "Height": 176,
-            "RelativeFilename": "Selects\\h_select2.png"
-          },
-          {
-            "Type": "FlexButton",
-            "Name": "back_flex",
-            "X": 189,
-            "Y": 396,
-            "Width": 110,
-            "Height": 100,
-            "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
-            },
-            "ButtonStyles": [
-              {
-                "Type": "IconButtonStyle",
-                "X": 28,
-                "Y": 23,
-                "IconReleased": "Buttons\\Back_icon.png",
-                "IconPressed": "Buttons\\Back_icon.png"
-              }
-            ]
-          },
-          {
-            "Type": "FlexButton",
-            "Name": "minus_flex",
-            "X": 91,
-            "Y": 356,
-            "Width": 90,
-            "Height": 90,
-            "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
-            },
-            "ButtonStyles": [
-              {
-                "Type": "IconButtonStyle",
-                "X": 20,
-                "Y": 20,
-                "IconReleased": "Buttons\\Minus_whole.png",
-                "IconPressed": "Buttons\\Minus_whole.png"
-              }
-            ]
-          },
-          {
-            "Type": "FlexButton",
-            "Name": "plus_flex",
-            "X": 302,
-            "Y": 356,
-            "Width": 90,
-            "Height": 90,
-            "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
-            },
-            "ButtonStyles": [
-              {
-                "Type": "IconButtonStyle",
-                "X": 20,
-                "Y": 20,
-                "IconReleased": "Buttons\\Plus_whole.png",
-                "IconPressed": "Buttons\\Plus_whole.png"
-              }
-            ]
-          },
-          {
-            "Type": "TextArea",
-            "Name": "lvl_value",
-            "X": 195,
-            "Y": 240,
-            "Width": 100,
-            "Height": 101,
-            "TextId": "lvl_value",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "Wildcard1": {
-              "TextId": "WILDCARD_lvl_value",
-              "UseBuffer": true,
-              "BufferSize": 3
-            }
-          },
-          {
-            "Type": "Image",
-            "Name": "hob_bl",
-            "X": 84,
-            "Y": 244,
-            "Width": 105,
-            "Height": 105,
-            "RelativeFilename": "Hob\\hob_BL.png",
-            "Alpha": 55,
-            "Fadeable": true
-          },
-          {
-            "Type": "Image",
-            "Name": "hob_tl",
-            "X": 92,
-            "Y": 134,
-            "Width": 89,
-            "Height": 89,
-            "RelativeFilename": "Hob\\hob_TL.png",
-            "Alpha": 55,
-            "Fadeable": true
-          },
-          {
-            "Type": "Image",
-            "Name": "hob_m",
-            "X": 208,
-            "Y": 134,
-            "Width": 74,
-            "Height": 96,
-            "RelativeFilename": "Hob\\hob_middle.png",
-            "Alpha": 55,
-            "Fadeable": true
-          },
-          {
-            "Type": "Image",
-            "Name": "hob_tr",
-            "X": 310,
-            "Y": 134,
-            "Width": 74,
-            "Height": 96,
-            "RelativeFilename": "Hob\\hob_TR.png",
-            "Alpha": 55,
-            "Fadeable": true
-          },
-          {
-            "Type": "Image",
-            "Name": "hob_br",
-            "X": 299,
-            "Y": 247,
-            "Width": 96,
-            "Height": 96,
-            "RelativeFilename": "Hob\\hob_BR.png",
-            "Alpha": 55,
-            "Fadeable": true
-          },
-          {
-            "Type": "ButtonWithIcon",
-            "Name": "Debug",
-            "X": 430,
-            "Width": 50,
-            "Height": 50,
-            "Visible": false,
-            "Pressed": "Buttons\\Minus_Alone.png",
-            "Released": "Buttons\\Minus_Alone.png",
-            "IconPressed": "__generated\\icon_theme_images_action_done_50_50_E8F6FB.svg.png",
-            "IconReleased": "__generated\\icon_theme_images_action_done_50_50_E8F6FB.svg.png",
-            "IconX": 97,
-            "IconHeight": 50,
-            "IconWidth": 50
+            "RelativeFilename": "Intro\\intro_pattern_round_frame_480.png"
           }
         ],
         "Interactions": [
           {
-            "InteractionName": "Interaction1",
+            "InteractionName": "ChangeScreenToMain",
             "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "back_flex"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "onDoneClicked"
-            }
-          },
-          {
-            "InteractionName": "Interaction2",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "plus_flex"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "onPlusClicked"
-            }
-          },
-          {
-            "InteractionName": "Interaction3",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "minus_flex"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "onMinusClicked"
-            }
-          },
-          {
-            "InteractionName": "Interaction4",
-            "Trigger": {
-              "Type": "TriggerPhysicalButtonClicked",
-              "ButtonKey": 3
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "MoveDotAnimation"
             },
             "Action": {
               "Type": "ActionGotoScreen",
               "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "HobScreen"
+              "ActionComponent": "Main"
             }
           },
           {
-            "InteractionName": "Interaction5",
-            "Trigger": {
-              "Type": "TriggerPhysicalButtonClicked"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "goLeft"
-            }
-          },
-          {
-            "InteractionName": "Interaction6",
-            "Trigger": {
-              "Type": "TriggerPhysicalButtonClicked",
-              "ButtonKey": 1
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "goRight"
-            }
-          }
-        ]
-      },
-      {
-        "Name": "HobScreen",
-        "CanvasBufferSize": 7200,
-        "Components": [
-          {
-            "Type": "Circle",
-            "Name": "Black_circle",
-            "Width": 480,
-            "Height": 480,
-            "Visible": false,
-            "LockPosition": true,
-            "CenterX": 240.0,
-            "CenterY": 240.0,
-            "Radius": 240.0,
-            "EndAngle": 360.0,
-            "CapPrecision": "Butt"
-          },
-          {
-            "Type": "Image",
-            "Name": "red_select",
-            "X": 120,
-            "Y": 5,
-            "Width": 241,
-            "Height": 45,
-            "RelativeFilename": "Selects\\h_select.png"
-          },
-          {
-            "Type": "Image",
-            "Name": "hob_main",
-            "X": 84,
-            "Y": 134,
-            "Width": 312,
-            "Height": 215,
-            "Visible": false,
-            "RelativeFilename": "Hob\\hob_main.png"
-          },
-          {
-            "Type": "FlexButton",
-            "Name": "back_flex",
-            "X": 189,
-            "Y": 396,
-            "Width": 110,
-            "Height": 100,
-            "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
-            },
-            "ButtonStyles": [
-              {
-                "Type": "IconButtonStyle",
-                "X": 28,
-                "Y": 23,
-                "IconReleased": "Buttons\\Back_icon.png",
-                "IconPressed": "Buttons\\Back_icon.png"
-              }
-            ]
-          },
-          {
-            "Type": "Image",
-            "Name": "hob_bl",
-            "X": 84,
-            "Y": 244,
-            "Width": 105,
-            "Height": 105,
-            "RelativeFilename": "Hob\\hob_BL.png",
-            "Alpha": 55,
-            "Fadeable": true
-          },
-          {
-            "Type": "Image",
-            "Name": "hob_tl",
-            "X": 92,
-            "Y": 134,
-            "Width": 89,
-            "Height": 89,
-            "RelativeFilename": "Hob\\hob_TL.png",
-            "Alpha": 55,
-            "Fadeable": true
-          },
-          {
-            "Type": "Image",
-            "Name": "hob_m",
-            "X": 208,
-            "Y": 134,
-            "Width": 74,
-            "Height": 96,
-            "RelativeFilename": "Hob\\hob_middle.png",
-            "Alpha": 55,
-            "Fadeable": true
-          },
-          {
-            "Type": "Image",
-            "Name": "hob_tr",
-            "X": 310,
-            "Y": 134,
-            "Width": 74,
-            "Height": 96,
-            "RelativeFilename": "Hob\\hob_TR.png",
-            "Alpha": 55,
-            "Fadeable": true
-          },
-          {
-            "Type": "Image",
-            "Name": "hob_br",
-            "X": 299,
-            "Y": 247,
-            "Width": 96,
-            "Height": 96,
-            "RelativeFilename": "Hob\\hob_BR.png",
-            "Alpha": 55,
-            "Fadeable": true
-          },
-          {
-            "Type": "FlexButton",
-            "Name": "fb_hob_BL",
-            "X": 86,
-            "Y": 243,
-            "Width": 107,
-            "Height": 105,
-            "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
-            },
-            "ButtonStyles": [
-              {
-                "Type": "BoxWithBorderButtonStyle",
-                "ColorReleased": {
-                  "Green": 102,
-                  "Blue": 153
-                },
-                "ColorPressed": {
-                  "Green": 153,
-                  "Blue": 204
-                },
-                "ColorBorderReleased": {
-                  "Green": 51,
-                  "Blue": 102
-                },
-                "ColorBorderPressed": {
-                  "Red": 51,
-                  "Green": 102,
-                  "Blue": 153
-                }
-              }
-            ]
-          },
-          {
-            "Type": "FlexButton",
-            "Name": "fb_hob_TL",
-            "X": 86,
-            "Y": 126,
-            "Width": 103,
-            "Height": 105,
-            "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
-            },
-            "ButtonStyles": [
-              {
-                "Type": "BoxWithBorderButtonStyle",
-                "ColorReleased": {
-                  "Green": 102,
-                  "Blue": 137
-                },
-                "ColorPressed": {
-                  "Green": 153,
-                  "Blue": 204
-                },
-                "ColorBorderReleased": {
-                  "Green": 51,
-                  "Blue": 102
-                },
-                "ColorBorderPressed": {
-                  "Red": 51,
-                  "Green": 102,
-                  "Blue": 153
-                }
-              }
-            ]
-          },
-          {
-            "Type": "FlexButton",
-            "Name": "fb_hob_M",
-            "X": 198,
-            "Y": 128,
-            "Width": 93,
-            "Height": 106,
-            "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
-            },
-            "ButtonStyles": [
-              {
-                "Type": "BoxWithBorderButtonStyle",
-                "ColorReleased": {
-                  "Green": 102,
-                  "Blue": 137
-                },
-                "ColorPressed": {
-                  "Green": 153,
-                  "Blue": 204
-                },
-                "ColorBorderReleased": {
-                  "Green": 51,
-                  "Blue": 102
-                },
-                "ColorBorderPressed": {
-                  "Red": 51,
-                  "Green": 102,
-                  "Blue": 153
-                }
-              }
-            ]
-          },
-          {
-            "Type": "FlexButton",
-            "Name": "fb_hob_TR",
-            "X": 299,
-            "Y": 130,
-            "Width": 96,
-            "Height": 105,
-            "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
-            },
-            "ButtonStyles": [
-              {
-                "Type": "BoxWithBorderButtonStyle",
-                "ColorReleased": {
-                  "Green": 102,
-                  "Blue": 137
-                },
-                "ColorPressed": {
-                  "Green": 153,
-                  "Blue": 204
-                },
-                "ColorBorderReleased": {
-                  "Green": 51,
-                  "Blue": 102
-                },
-                "ColorBorderPressed": {
-                  "Red": 51,
-                  "Green": 102,
-                  "Blue": 153
-                }
-              }
-            ]
-          },
-          {
-            "Type": "FlexButton",
-            "Name": "fb_hob_BR",
-            "X": 296,
-            "Y": 243,
-            "Width": 103,
-            "Height": 105,
-            "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
-            },
-            "ButtonStyles": [
-              {
-                "Type": "BoxWithBorderButtonStyle",
-                "ColorReleased": {
-                  "Green": 102,
-                  "Blue": 137
-                },
-                "ColorPressed": {
-                  "Green": 153,
-                  "Blue": 204
-                },
-                "ColorBorderReleased": {
-                  "Green": 51,
-                  "Blue": 102
-                },
-                "ColorBorderPressed": {
-                  "Red": 51,
-                  "Green": 102,
-                  "Blue": 153
-                }
-              }
-            ]
-          },
-          {
-            "Type": "TextArea",
-            "Name": "lvl_BL",
-            "X": 125,
-            "Y": 271,
-            "Width": 23,
-            "Height": 40,
-            "TextId": "lvl_BL",
-            "TextRotation": "0",
-            "AutoSize": true,
-            "Wildcard1": {
-              "TextId": "WILDCARD_LVL_BL",
-              "UseBuffer": true,
-              "BufferSize": 2
-            },
-            "Fadeable": true
-          },
-          {
-            "Type": "TextArea",
-            "Name": "lvl_TL",
-            "X": 125,
-            "Y": 155,
-            "Width": 23,
-            "Height": 40,
-            "TextId": "lvl_TL",
-            "TextRotation": "0",
-            "Wildcard1": {
-              "TextId": "WILDCARD_LVL_TL",
-              "UseBuffer": true,
-              "BufferSize": 3
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "lvl_M",
-            "X": 233,
-            "Y": 155,
-            "Width": 23,
-            "Height": 40,
-            "TextId": "lvl_M",
-            "TextRotation": "0",
-            "Wildcard1": {
-              "TextId": "WILDCARD_LVL_M",
-              "UseBuffer": true,
-              "BufferSize": 3
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "lvl_TR",
-            "X": 336,
-            "Y": 155,
-            "Width": 23,
-            "Height": 40,
-            "TextId": "lvl_TR",
-            "TextRotation": "0",
-            "Wildcard1": {
-              "TextId": "WILDCARD_LVL_TR",
-              "UseBuffer": true,
-              "BufferSize": 3
-            }
-          },
-          {
-            "Type": "TextArea",
-            "Name": "lvl_BR",
-            "X": 335,
-            "Y": 271,
-            "Width": 23,
-            "Height": 40,
-            "TextId": "lvl_BR",
-            "TextRotation": "0",
-            "Wildcard1": {
-              "TextId": "WILDCARD_LVL_BR"
-            }
-          },
-          {
-            "Type": "ButtonWithIcon",
-            "Name": "plus_button",
-            "Width": 50,
-            "Height": 50,
-            "Visible": false,
-            "Pressed": "Buttons\\Minus_Alone.png",
-            "Released": "Buttons\\Minus_Alone.png",
-            "IconPressed": "__generated\\icon_theme_images_action_done_50_50_000000.svg.png",
-            "IconReleased": "__generated\\icon_theme_images_action_done_50_50_000000.svg.png",
-            "IconX": 97,
-            "IconHeight": 50,
-            "IconWidth": 50
-          }
-        ],
-        "Interactions": [
-          {
-            "InteractionName": "Interaction1",
-            "Trigger": {
-              "Type": "TriggerPhysicalButtonClicked",
-              "ButtonKey": 1
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "onHobBLClicked1"
-            }
-          },
-          {
-            "InteractionName": "Interaction3",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "fb_hob_BL"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "onHobBLClicked"
-            }
-          },
-          {
-            "InteractionName": "Interaction4",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "fb_hob_TL"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "onHobTLClicked"
-            }
-          },
-          {
-            "InteractionName": "Interaction5",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "fb_hob_M"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "onHobMClicked"
-            }
-          },
-          {
-            "InteractionName": "Interaction6",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "fb_hob_TR"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "onHobTRClicked"
-            }
-          },
-          {
-            "InteractionName": "Interaction7",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "fb_hob_BR"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "onHobBRClicked"
-            }
-          },
-          {
-            "InteractionName": "Interaction8",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "back_flex"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "onBackClicked"
-            }
-          },
-          {
-            "InteractionName": "Interaction9",
+            "InteractionName": "MoveDotAnimation",
             "HasCompletedTrigger": true,
             "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "plus_button"
+              "Type": "TriggerWhen",
+              "ActionCustomTypeName": "Call Intro moveDot"
             },
             "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "HobLevelScreen"
+              "Type": "ActionMove",
+              "X": 480,
+              "Y": 215,
+              "Easing": "Linear",
+              "EasingOption": "In",
+              "Duration": 250,
+              "ActionComponent": "dot"
             }
           },
           {
-            "InteractionName": "Interaction10",
+            "InteractionName": "ScreenIsEnteredInteraction",
             "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "back_flex"
+              "Type": "TriggerScreenEntered"
             },
             "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "MenuScreen"
+              "Type": "ActionCustom",
+              "FunctionName": "screenIsEntered"
             }
+          }
+        ],
+        "CustomActions": [
+          {
+            "Name": "goToMain",
+            "Description": "when action is invoked the application will change screen to the Main screen"
+          },
+          {
+            "Name": "moveDot",
+            "Description": "Action to move the center image called \"dot\""
           }
         ]
       },
       {
-        "Name": "ExerciseScreen",
+        "Name": "Main",
         "Components": [
           {
-            "Type": "FlexButton",
-            "Name": "back_flex",
-            "X": 189,
-            "Y": 396,
-            "Width": 110,
-            "Height": 100,
-            "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
-            },
-            "ButtonStyles": [
-              {
-                "Type": "IconButtonStyle",
-                "X": 28,
-                "Y": 23,
-                "IconReleased": "Buttons\\Back_icon.png",
-                "IconPressed": "Buttons\\Back_icon.png"
-              }
-            ]
+            "Type": "Image",
+            "Name": "background",
+            "Width": 480,
+            "Height": 480,
+            "RelativeFilename": "Main\\main_background_pattern_480.png"
           },
           {
-            "Type": "FlexButton",
-            "Name": "Left_flex",
-            "X": 42,
-            "Y": 312,
-            "Width": 110,
-            "Height": 100,
-            "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
-            },
-            "ButtonStyles": [
-              {
-                "Type": "IconButtonStyle",
-                "X": 28,
-                "Y": 23,
-                "IconReleased": "Buttons\\chevron_left.png",
-                "IconPressed": "Buttons\\chevron_left.png"
-              }
-            ]
-          },
-          {
-            "Type": "FlexButton",
-            "Name": "right_flex",
-            "X": 333,
-            "Y": 312,
-            "Width": 110,
-            "Height": 100,
-            "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
-            },
-            "ButtonStyles": [
-              {
-                "Type": "IconButtonStyle",
-                "X": 28,
-                "Y": 23,
-                "IconReleased": "Buttons\\chevron_right.png",
-                "IconPressed": "Buttons\\chevron_right.png"
-              }
-            ]
-          },
-          {
-            "Type": "TextArea",
-            "Name": "label",
-            "X": 178,
-            "Y": 282,
-            "Width": 129,
-            "Height": 37,
-            "TextId": "T_EXERCISE",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "AutoSize": true
+            "Type": "CustomContainerInstance",
+            "Name": "wheel",
+            "Width": 480,
+            "Height": 480,
+            "CustomContainerDefinitionName": "MainWheel"
           },
           {
             "Type": "Image",
-            "Name": "Green_select",
-            "X": 120,
-            "Y": 5,
-            "Width": 241,
-            "Height": 45,
-            "RelativeFilename": "Selects\\g_select.png"
+            "Name": "frame",
+            "Width": 480,
+            "Height": 480,
+            "RelativeFilename": "Main\\main_pattern_round_frame_480.png"
           },
           {
             "Type": "FlexButton",
-            "Name": "flexButton1",
-            "X": 188,
-            "Y": 145,
-            "Width": 109,
-            "Height": 113,
-            "Alpha": 0,
+            "Name": "backButton",
+            "X": 128,
+            "Y": 431,
+            "Width": 224,
+            "Height": 49,
             "ButtonTrigger": {
               "Type": "ClickButtonTrigger"
             },
             "ButtonStyles": [
               {
-                "Type": "BoxWithBorderButtonStyle",
-                "Width": 109,
-                "Height": 113,
-                "LockToFlexButtonSize": true,
-                "ColorPressed": {
-                  "Green": 153,
-                  "Blue": 204
-                },
-                "ColorBorderReleased": {
-                  "Green": 51,
-                  "Blue": 102
-                },
-                "ColorBorderPressed": {
-                  "Red": 51,
-                  "Green": 102,
-                  "Blue": 153
-                }
+                "Type": "IconButtonStyle",
+                "X": 92,
+                "Y": -5,
+                "IconReleased": "ReturnButton\\icon_back_24_normal_blue.png",
+                "IconPressed": "ReturnButton\\icon_back_24_pressed.png"
               }
             ]
           }
         ],
         "Interactions": [
           {
-            "InteractionName": "Interaction1",
+            "InteractionName": "ChangeScreenToWatchScreen",
             "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "right_flex"
+              "Type": "TriggerWhen",
+              "ActionCustomTypeName": "Call Main goToWatch"
             },
             "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "goRight"
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "Watch"
             }
           },
           {
-            "InteractionName": "Interaction2",
+            "InteractionName": "ChangeScreenToCompassScreen",
             "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "Left_flex"
+              "Type": "TriggerWhen",
+              "ActionCustomTypeName": "Call Main goToCompass"
             },
             "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "goLeft"
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "Compass"
             }
           },
           {
-            "InteractionName": "Interaction3",
+            "InteractionName": "ChangeScreenToThermostatScreen",
+            "Trigger": {
+              "Type": "TriggerWhen",
+              "ActionCustomTypeName": "Call Main goToThermostat"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "Thermostat"
+            }
+          },
+          {
+            "InteractionName": "ChangeScreenToDashboardScreen",
+            "Trigger": {
+              "Type": "TriggerWhen",
+              "ActionCustomTypeName": "Call Main goToDashboard"
+            },
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "Dashboard"
+            }
+          },
+          {
+            "InteractionName": "StartFlowerAnimation",
+            "Trigger": {
+              "Type": "TriggerScreenEntered"
+            },
+            "Action": {
+              "Type": "ActionCustom2",
+              "ActionCustomTypeName": "Call Main startFlowerAnimation",
+              "ActionComponent": "Main"
+            }
+          },
+          {
+            "InteractionName": "ChangeScreen",
+            "Trigger": {
+              "Type": "TriggerCustom",
+              "TriggerCustomTypeName": "MainWheel changeScreen happens",
+              "TriggerComponent": "wheel"
+            },
+            "Action": {
+              "Type": "ActionCustom2",
+              "ActionCustomTypeName": "Call Main changeScreen",
+              "ParameterValue": "value",
+              "ActionComponent": "Main"
+            }
+          },
+          {
+            "InteractionName": "GoToIntro",
             "Trigger": {
               "Type": "TriggerClicked",
-              "TriggerComponent": "flexButton1"
+              "TriggerComponent": "backButton"
             },
             "Action": {
               "Type": "ActionGotoScreen",
               "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "RunningScreen"
+              "ActionComponent": "Intro"
             }
           },
           {
-            "InteractionName": "Interaction5",
+            "InteractionName": "ChangeScreenToSVGScreen",
             "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "back_flex"
+              "Type": "TriggerWhen",
+              "ActionCustomTypeName": "Call Main goToSvg"
             },
             "Action": {
               "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "MenuScreen"
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "Svg"
             }
+          }
+        ],
+        "CustomActions": [
+          {
+            "Name": "goToWatch",
+            "Description": "when action is invoked the application will change screen to the Watch screen"
           },
           {
-            "InteractionName": "Interaction6",
-            "Trigger": {
-              "Type": "TriggerPhysicalButtonClicked"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "Left"
-            }
+            "Name": "goToCompass",
+            "Description": "when action is invoked the application will change screen to the Compass screen"
           },
           {
-            "InteractionName": "Interaction7",
-            "Trigger": {
-              "Type": "TriggerPhysicalButtonClicked",
-              "ButtonKey": 1
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "Right"
-            }
+            "Name": "goToThermostat",
+            "Description": "when action is invoked the application will change screen to the Thermostat screen"
           },
           {
-            "InteractionName": "Interaction8",
-            "Trigger": {
-              "Type": "TriggerPhysicalButtonClicked",
-              "ButtonKey": 2
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "H_Select"
-            }
+            "Name": "goToDashboard",
+            "Description": "when action is invoked the application will change screen to the Dashboard screen"
+          },
+          {
+            "Name": "startFlowerAnimation",
+            "Description": "This action is called after the screen transition is endded to strat the flower animation"
+          },
+          {
+            "Name": "changeScreen",
+            "Description": "called from wheel when a sube demo is selected",
+            "HasValue": true,
+            "ValueType": "uint8_t"
+          },
+          {
+            "Name": "goToSvg",
+            "Description": "when action is invoked the application will change screen to the SVG screen"
           }
         ]
       },
       {
-        "Name": "RunningScreen",
-        "CanvasBufferSize": 7200,
+        "Name": "Watch",
         "Components": [
           {
+            "Type": "Image",
+            "Name": "background",
+            "Width": 480,
+            "Height": 480,
+            "RelativeFilename": "Watch\\watch_background_pattern_480.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "backgroundRingImage",
+            "X": 16,
+            "Y": 16,
+            "Width": 448,
+            "Height": 448,
+            "Visible": false,
+            "RelativeFilename": "Watch\\clock_frame.png"
+          },
+          {
+            "Type": "TextureMapper",
+            "Name": "backgroundRingTextureMapper",
+            "Width": 480,
+            "Height": 480,
+            "RenderingAlgorithm": "Nearest-neighbor",
+            "FileNameImage": "Watch\\clock_frame.png",
+            "LockBitmapToCenter": true,
+            "XBitmapPosition": 16.0,
+            "YBitmapPosition": 16.0,
+            "Scale": 1.2,
+            "LockOrigoToCenter": true,
+            "XOrigo": 240.0,
+            "YOrigo": 240.0,
+            "ZOrigo": 1000.0,
+            "CameraDistance": 1000.0
+          },
+          {
+            "Type": "Image",
+            "Name": "boxImage",
+            "X": 132,
+            "Y": 132,
+            "Width": 216,
+            "Height": 216,
+            "Visible": false,
+            "RelativeFilename": "Watch\\background_box.png"
+          },
+          {
+            "Type": "TextureMapper",
+            "Name": "boxTextureMapper",
+            "X": 132,
+            "Y": 132,
+            "Width": 216,
+            "Height": 216,
+            "RenderingAlgorithm": "Bilinear Interpolation",
+            "FileNameImage": "Watch\\background_box.png",
+            "LockBitmapToCenter": true,
+            "LockOrigoToCenter": true,
+            "XOrigo": 108.0,
+            "YOrigo": 108.0,
+            "ZOrigo": 1000.0,
+            "CameraDistance": 1000.0
+          },
+          {
+            "Type": "Image",
+            "Name": "backgroundFrame",
+            "Width": 480,
+            "Height": 480,
+            "RelativeFilename": "Watch\\pattern_round_frame_480.png"
+          },
+          {
+            "Type": "CustomContainerInstance",
+            "Name": "cube",
+            "Width": 480,
+            "Height": 480,
+            "CustomContainerDefinitionName": "WatchCube"
+          },
+          {
             "Type": "FlexButton",
-            "Name": "back_flex",
-            "X": 189,
-            "Y": 396,
-            "Width": 110,
-            "Height": 100,
+            "Name": "backButton",
+            "X": 128,
+            "Y": 429,
+            "Width": 220,
+            "Height": 51,
             "ButtonTrigger": {
               "Type": "ClickButtonTrigger"
             },
             "ButtonStyles": [
               {
                 "Type": "IconButtonStyle",
-                "X": 28,
-                "Y": 23,
-                "IconReleased": "Buttons\\Back_icon.png",
-                "IconPressed": "Buttons\\Back_icon.png"
+                "X": 92,
+                "Y": -1,
+                "IconReleased": "ReturnButton\\icon_back_24_normal_blue.png",
+                "IconPressed": "ReturnButton\\icon_back_24_pressed.png"
               }
             ]
-          },
+          }
+        ],
+        "Interactions": [
           {
-            "Type": "Circle",
-            "Name": "Speed_bar_empty",
-            "X": 39,
-            "Y": 36,
-            "Width": 402,
-            "Height": 238,
-            "FileNameImage": "Artboard 69Green_ticks.png",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
+            "InteractionName": "ChangeScreenToMain",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "backButton"
             },
-            "CenterX": 40.0,
-            "CenterY": 40.0,
-            "Radius": 480.0,
-            "EndAngle": 360.0,
-            "CapPrecision": "Butt"
+            "Action": {
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "Main"
+            }
           },
           {
-            "Type": "Circle",
-            "Name": "Speed_bar_full",
-            "X": 39,
-            "Y": 36,
-            "Width": 402,
-            "Height": 238,
-            "FileNameImage": "Artboard 68Green_ticks.png",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
+            "InteractionName": "StartIntroAnimation",
+            "Trigger": {
+              "Type": "TriggerScreenEntered"
             },
-            "CenterX": 201.0,
-            "CenterY": 201.0,
-            "Radius": 201.0,
-            "LineWidth": 80.0,
-            "StartAngle": -100.0,
-            "EndAngle": 100.0,
-            "CapPrecision": "Butt"
+            "Action": {
+              "Type": "ActionCustom2",
+              "ActionCustomTypeName": "Call Watch startIntroAnimation",
+              "ActionComponent": "Watch"
+            }
+          }
+        ],
+        "CustomActions": [
+          {
+            "Name": "goToMain",
+            "Description": "when action is invoked the application will change screen to the Main screen"
           },
           {
-            "Type": "TextArea",
-            "Name": "Zero",
-            "X": 60,
-            "Y": 278,
-            "Width": 13,
-            "Height": 21,
-            "TextId": "__SingleUse_M26G",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "AutoSize": true
-          },
+            "Name": "startIntroAnimation"
+          }
+        ]
+      },
+      {
+        "Name": "Compass",
+        "Components": [
           {
-            "Type": "TextArea",
-            "Name": "Ten",
-            "X": 400,
-            "Y": 278,
-            "Width": 26,
-            "Height": 21,
-            "TextId": "__SingleUse_THQY",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "AutoSize": true
-          },
-          {
-            "Type": "TextArea",
-            "Name": "Speed_value",
-            "Y": 178,
+            "Type": "Image",
+            "Name": "background",
             "Width": 480,
-            "Height": 146,
-            "TextId": "Speed_value",
+            "Height": 480,
+            "RelativeFilename": "compass\\compass_background_480.png"
+          },
+          {
+            "Type": "TextureMapper",
+            "Name": "wheel",
+            "X": 30,
+            "Y": 30,
+            "Width": 420,
+            "Height": 420,
+            "RenderingAlgorithm": "Bilinear Interpolation",
+            "FileNameImage": "compass\\compass_disc.png",
+            "Scale": 1.0,
+            "LockOrigoToCenter": true,
+            "XOrigo": 210.0,
+            "YOrigo": 210.0,
+            "ZOrigo": 1000.0,
+            "CameraDistance": 1000.0
+          },
+          {
+            "Type": "TextArea",
+            "Name": "angleVerbose",
+            "X": 215,
+            "Y": 240,
+            "Width": 50,
+            "Height": 51,
+            "TextId": "__SingleUse_XNFY",
             "TextRotation": "0",
             "Color": {
               "Red": 255,
@@ -1471,194 +545,230 @@
               "Blue": 255
             },
             "Wildcard1": {
-              "TextId": "WILDCARD_SPEED"
+              "TextId": "__SingleUse_VVZP",
+              "UseBuffer": true,
+              "BufferSize": 3
             }
           },
           {
             "Type": "TextArea",
-            "Name": "speed",
+            "Name": "angleNumeric",
             "X": 194,
-            "Y": 133,
-            "Width": 93,
-            "Height": 37,
-            "TextId": "Speed",
+            "Y": 192,
+            "Width": 92,
+            "Height": 48,
+            "TextId": "__SingleUse_60VL",
             "TextRotation": "0",
             "Color": {
               "Red": 255,
               "Green": 255,
               "Blue": 255
             },
-            "AutoSize": true,
-            "Fadeable": true
+            "Wildcard1": {
+              "TextId": "__SingleUse_MUJS",
+              "UseBuffer": true,
+              "BufferSize": 4
+            }
           },
           {
             "Type": "FlexButton",
-            "Name": "minus_flex",
-            "X": 61,
-            "Y": 295,
-            "Width": 90,
-            "Height": 90,
+            "Name": "backButton",
+            "X": 128,
+            "Y": 429,
+            "Width": 220,
+            "Height": 51,
             "ButtonTrigger": {
               "Type": "ClickButtonTrigger"
             },
             "ButtonStyles": [
               {
                 "Type": "IconButtonStyle",
-                "X": 20,
-                "Y": 20,
-                "IconReleased": "Buttons\\Minus_whole.png",
-                "IconPressed": "Buttons\\Minus_whole.png"
+                "X": 92,
+                "Y": -5,
+                "IconReleased": "ReturnButton\\icon_back_24_normal_blue.png",
+                "IconPressed": "ReturnButton\\icon_back_24_pressed.png"
               }
             ]
-          },
-          {
-            "Type": "FlexButton",
-            "Name": "plus_flex",
-            "X": 334,
-            "Y": 295,
-            "Width": 90,
-            "Height": 90,
-            "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
-            },
-            "ButtonStyles": [
-              {
-                "Type": "IconButtonStyle",
-                "X": 20,
-                "Y": 20,
-                "IconReleased": "Buttons\\Plus_whole.png",
-                "IconPressed": "Buttons\\Plus_whole.png"
-              }
-            ]
-          },
-          {
-            "Type": "Image",
-            "Name": "Green_select_right",
-            "X": 293,
-            "Y": 12,
-            "Width": 176,
-            "Height": 176,
-            "RelativeFilename": "Selects\\g_select2.png"
           }
         ],
         "Interactions": [
           {
-            "InteractionName": "onPlusClicked",
+            "InteractionName": "ChangeScreenToMain",
             "Trigger": {
               "Type": "TriggerClicked",
-              "TriggerComponent": "plus_flex"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "onPlusClicked"
-            }
-          },
-          {
-            "InteractionName": "onMinusClicked",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "minus_flex"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "onMinusClicked"
-            }
-          },
-          {
-            "InteractionName": "Interaction1",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "back_flex"
+              "TriggerComponent": "backButton"
             },
             "Action": {
               "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "ExerciseScreen"
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "Main"
             }
-          },
+          }
+        ],
+        "CustomActions": [
           {
-            "InteractionName": "Interaction2",
-            "Trigger": {
-              "Type": "TriggerPhysicalButtonClicked",
-              "ButtonKey": 1
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "H_Right"
-            }
-          },
-          {
-            "InteractionName": "Interaction3",
-            "Trigger": {
-              "Type": "TriggerPhysicalButtonClicked"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "H_Left"
-            }
+            "Name": "goToMain",
+            "Description": "when action is invoked the application will change screen to the Main screen"
           }
         ]
       },
       {
-        "Name": "OvenTempView",
+        "Name": "Thermostat",
         "Components": [
           {
             "Type": "Box",
-            "Name": "overlayBox",
+            "Name": "background",
             "Width": 480,
             "Height": 480,
-            "Visible": false
+            "Color": {
+              "Red": 138,
+              "Green": 86,
+              "Blue": 200
+            }
           },
           {
             "Type": "Image",
-            "Name": "Oven_gradient_2",
+            "Name": "gradient",
             "Width": 480,
-            "Height": 481,
-            "RelativeFilename": "Oventemp_3.png"
+            "Height": 480,
+            "RelativeFilename": "thermostat\\gradient_blue_red_background.png"
           },
           {
-            "Type": "Container",
-            "Name": "blackContainer",
-            "Y": 115,
+            "Type": "TextureMapper",
+            "Name": "handle",
             "Width": 480,
-            "Height": 700,
-            "Moveable": true,
-            "Components": [
-              {
-                "Type": "ScalableImage",
-                "Name": "Black_gradient_big",
-                "Width": 480,
-                "Height": 700,
-                "Filename": "Gradient_black_big_3.png",
-                "ScalingAlgorithm": "Nearest-neighbor",
-                "Moveable": true
-              }
-            ]
+            "Height": 480,
+            "RenderingAlgorithm": "Bilinear Interpolation",
+            "FileNameImage": "thermostat\\thermostat_gradient.png",
+            "Scale": 1.0,
+            "LockOrigoToCenter": true,
+            "XOrigo": 240.0,
+            "YOrigo": 240.0,
+            "ZOrigo": 1000.0,
+            "CameraDistance": 1000.0
+          },
+          {
+            "Type": "TextureMapper",
+            "Name": "fanMotionBlur",
+            "X": 89,
+            "Y": 89,
+            "Width": 302,
+            "Height": 302,
+            "Visible": false,
+            "RenderingAlgorithm": "Bilinear Interpolation",
+            "FileNameImage": "thermostat\\fan_motion_blur.png",
+            "Scale": 1.0,
+            "LockOrigoToCenter": true,
+            "XOrigo": 151.0,
+            "YOrigo": 151.0,
+            "ZOrigo": 1000.0,
+            "CameraDistance": 1000.0
+          },
+          {
+            "Type": "TextureMapper",
+            "Name": "fan",
+            "X": 89,
+            "Y": 89,
+            "Width": 302,
+            "Height": 302,
+            "RenderingAlgorithm": "Bilinear Interpolation",
+            "FileNameImage": "thermostat\\active_fan_overlay.png",
+            "Scale": 1.0,
+            "LockOrigoToCenter": true,
+            "XOrigo": 151.0,
+            "YOrigo": 151.0,
+            "ZOrigo": 1000.0,
+            "CameraDistance": 1000.0
+          },
+          {
+            "Type": "Image",
+            "Name": "foreground",
+            "Width": 480,
+            "Height": 480,
+            "RelativeFilename": "thermostat\\foreground.png"
+          },
+          {
+            "Type": "Button",
+            "Name": "buttonFahrenheit",
+            "X": 204,
+            "Y": 313,
+            "Width": 72,
+            "Height": 72,
+            "Pressed": "thermostat\\fahrenheit_change_unit_pressed.png",
+            "Released": "thermostat\\fahrenheit_change_unit_normal.png"
+          },
+          {
+            "Type": "Button",
+            "Name": "buttonCelsius",
+            "X": 204,
+            "Y": 313,
+            "Width": 72,
+            "Height": 72,
+            "Visible": false,
+            "Pressed": "thermostat\\celsius_change_unit_pressed.png",
+            "Released": "thermostat\\celsius_change_unit_normal.png"
           },
           {
             "Type": "TextArea",
-            "Name": "Temperature",
-            "X": 107,
-            "Y": 141,
-            "Width": 267,
-            "Height": 37,
-            "TextId": "TEMPERATURE_LABEL",
+            "Name": "temperatureCurrent",
+            "X": 89,
+            "Y": 113,
+            "Width": 172,
+            "Height": 200,
+            "TextId": "__SingleUse_5H87",
             "TextRotation": "0",
             "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
+              "Red": 5,
+              "Blue": 66
             },
-            "AutoSize": true,
-            "Fadeable": true
+            "Wildcard1": {
+              "TextId": "__SingleUse_MWN2",
+              "UseBuffer": true,
+              "BufferSize": 3
+            }
           },
           {
             "Type": "TextArea",
-            "Name": "Degree",
-            "Y": 178,
-            "Width": 480,
-            "Height": 146,
-            "TextId": "Temp_Value",
+            "Name": "temperatureCurrentDot",
+            "X": 243,
+            "Y": 113,
+            "Width": 54,
+            "Height": 200,
+            "TextId": "__SingleUse_CQWY",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 5,
+              "Blue": 66
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "temperatureCurrentFractional",
+            "X": 292,
+            "Y": 113,
+            "Width": 146,
+            "Height": 200,
+            "TextId": "__SingleUse_H5WB",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 5,
+              "Blue": 66
+            },
+            "Wildcard1": {
+              "TextId": "__SingleUse_D90K",
+              "UseBuffer": true,
+              "BufferSize": 2
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "temperatureNominal",
+            "X": 199,
+            "Y": 40,
+            "Width": 83,
+            "Height": 34,
+            "TextId": "__SingleUse_SU0H",
             "TextRotation": "0",
             "Color": {
               "Red": 255,
@@ -1666,386 +776,852 @@
               "Blue": 255
             },
             "Wildcard1": {
-              "TextId": "WILDCARD_TEMP"
+              "TextId": "__SingleUse_WTII",
+              "UseBuffer": true,
+              "BufferSize": 5
             }
           },
           {
-            "Type": "ButtonWithIcon",
-            "Name": "btnPlus",
-            "X": 343,
-            "Y": 338,
-            "Width": 50,
-            "Height": 50,
-            "Pressed": "Buttons\\Plus_whole.png",
-            "Released": "Buttons\\Plus_whole.png",
-            "IconPressed": "__generated\\icon_theme_images_action_done_1_1_E8F6FB.svg.png",
-            "IconReleased": "__generated\\icon_theme_images_action_done_1_1_E8F6FB.svg.png",
-            "IconX": 6,
-            "IconY": 6,
-            "IconHeight": 1,
-            "IconWidth": 1
-          },
-          {
-            "Type": "ButtonWithIcon",
-            "Name": "btnMinus",
-            "X": 88,
-            "Y": 338,
-            "Width": 50,
-            "Height": 50,
-            "Pressed": "Buttons\\Minus_whole.png",
-            "Released": "Buttons\\Minus_whole.png",
-            "IconPressed": "__generated\\icon_theme_images_action_done_1_1_E8F6FB.svg.png",
-            "IconReleased": "__generated\\icon_theme_images_action_done_1_1_E8F6FB.svg.png",
-            "IconX": 6,
-            "IconY": 6,
-            "IconHeight": 1,
-            "IconWidth": 1
-          },
-          {
-            "Type": "Image",
-            "Name": "orange_select",
-            "X": 120,
-            "Y": 5,
-            "Width": 241,
-            "Height": 45,
-            "RelativeFilename": "Selects\\o_select.png"
-          },
-          {
             "Type": "FlexButton",
-            "Name": "back_flex",
-            "X": 189,
-            "Y": 396,
-            "Width": 106,
-            "Height": 84,
+            "Name": "backButton",
+            "X": 128,
+            "Y": 438,
+            "Width": 224,
+            "Height": 49,
             "ButtonTrigger": {
               "Type": "ClickButtonTrigger"
             },
             "ButtonStyles": [
               {
                 "Type": "IconButtonStyle",
-                "X": 28,
-                "Y": 23,
-                "IconReleased": "Buttons\\Back_icon.png",
-                "IconPressed": "Buttons\\Back_icon.png"
+                "X": 92,
+                "IconReleased": "ReturnButton\\icon_back_24_normal_blue.png",
+                "IconPressed": "ReturnButton\\icon_back_24_pressed.png"
               }
             ]
-          },
-          {
-            "Type": "TextArea",
-            "Name": "Fahrenheit",
-            "X": 185,
-            "Y": 343,
-            "Width": 110,
-            "Height": 40,
-            "TextId": "__SingleUse_G59J",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "Wildcard1": {
-              "TextId": "Fahrenheit"
-            }
           }
         ],
         "Interactions": [
           {
-            "InteractionName": "Interaction1",
+            "InteractionName": "selectCelsius",
+            "HasCompletedTrigger": true,
             "Trigger": {
               "Type": "TriggerClicked",
-              "TriggerComponent": "btnPlus"
+              "TriggerComponent": "buttonFahrenheit"
             },
             "Action": {
               "Type": "ActionCustom",
-              "FunctionName": "onPlusClicked"
+              "FunctionName": "selectCelsius"
             }
           },
           {
-            "InteractionName": "Interaction2",
+            "InteractionName": "selectFahrenheit",
+            "HasCompletedTrigger": true,
             "Trigger": {
               "Type": "TriggerClicked",
-              "TriggerComponent": "btnMinus"
+              "TriggerComponent": "buttonCelsius"
             },
             "Action": {
               "Type": "ActionCustom",
-              "FunctionName": "onMinusClicked"
+              "FunctionName": "selectFahrenheit"
             }
           },
           {
-            "InteractionName": "Interaction4",
+            "InteractionName": "hideFahrenheit",
+            "HasCompletedTrigger": true,
+            "Trigger": {
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "selectCelsius"
+            },
+            "Action": {
+              "Type": "ActionHide",
+              "ActionComponent": "buttonFahrenheit"
+            }
+          },
+          {
+            "InteractionName": "showCelsius",
+            "Trigger": {
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "hideFahrenheit"
+            },
+            "Action": {
+              "Type": "ActionShow",
+              "ActionComponent": "buttonCelsius"
+            }
+          },
+          {
+            "InteractionName": "hideCelsius",
+            "HasCompletedTrigger": true,
+            "Trigger": {
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "selectFahrenheit"
+            },
+            "Action": {
+              "Type": "ActionHide",
+              "ActionComponent": "buttonCelsius"
+            }
+          },
+          {
+            "InteractionName": "showFahrenheit",
+            "Trigger": {
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "hideCelsius"
+            },
+            "Action": {
+              "Type": "ActionShow",
+              "ActionComponent": "buttonFahrenheit"
+            }
+          },
+          {
+            "InteractionName": "ChangeScreenToMain",
             "Trigger": {
               "Type": "TriggerClicked",
-              "TriggerComponent": "back_flex"
+              "TriggerComponent": "backButton"
             },
             "Action": {
               "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "MenuScreen"
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "Main"
             }
-          },
+          }
+        ],
+        "CustomActions": [
           {
-            "InteractionName": "Interaction5",
-            "Trigger": {
-              "Type": "TriggerPhysicalButtonClicked"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "H_Left"
-            }
-          },
-          {
-            "InteractionName": "Interaction6",
-            "Trigger": {
-              "Type": "TriggerPhysicalButtonClicked",
-              "ButtonKey": 1
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "H_Right"
-            }
+            "Name": "goToMain",
+            "Description": "when action is invoked the application will change screen to the Main screen"
           }
         ]
       },
       {
-        "Name": "Coffee",
+        "Name": "Dashboard",
+        "CanvasBufferSize": 7200,
         "Components": [
           {
             "Type": "Image",
-            "Name": "imgBack",
-            "Width": 481,
-            "Height": 481,
-            "RelativeFilename": "Coffee\\Espresso_grad.png",
-            "Alpha": 0,
-            "Fadeable": true,
-            "Moveable": true
+            "Name": "background_mi",
+            "X": -1,
+            "Width": 480,
+            "Height": 480,
+            "RelativeFilename": "dashboard\\main_background_numbers_mph.png"
           },
           {
             "Type": "Image",
-            "Name": "imgFront",
-            "Width": 481,
-            "Height": 481,
-            "RelativeFilename": "Coffee\\Espresso_grad.png",
-            "Fadeable": true,
-            "Moveable": true
+            "Name": "background_kmh",
+            "X": -1,
+            "Width": 480,
+            "Height": 480,
+            "Visible": false,
+            "RelativeFilename": "dashboard\\main_background_numbers_kmh.png"
           },
           {
-            "Type": "TextArea",
-            "Name": "title_coffee",
-            "X": 90,
-            "Y": 113,
-            "Width": 300,
-            "Height": 37,
-            "TextId": "T_ESPRESSO",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 255,
-              "Green": 255,
-              "Blue": 255
-            },
-            "Fadeable": true
-          },
-          {
-            "Type": "Image",
-            "Name": "coffee_icon",
-            "X": 160,
-            "Y": 150,
-            "Width": 181,
-            "Height": 181,
-            "RelativeFilename": "coffee_icons\\espresso_icon.png",
-            "Fadeable": true
-          },
-          {
-            "Type": "FlexButton",
-            "Name": "btnNext",
-            "X": 398,
-            "Y": 161,
-            "Width": 82,
-            "Height": 158,
-            "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
-            },
-            "ButtonStyles": [
+            "Type": "DynamicGraph",
+            "Name": "graph",
+            "X": 35,
+            "Y": 370,
+            "Width": 410,
+            "Height": 66,
+            "DataSeed": -205127896,
+            "NumberOfValues": 205,
+            "MaxY": 255.0,
+            "Precision": "1",
+            "LastIndex": 204,
+            "XAxisScale": 1.0,
+            "GraphType": "GraphScroll",
+            "GraphDrawers": [
               {
-                "Type": "ImageButtonStyle",
-                "X": 10,
-                "Y": 54,
-                "ImageReleased": "Buttons\\chevron_right.png",
-                "ImagePressed": "Buttons\\chevron_right.png"
-              }
-            ]
-          },
-          {
-            "Type": "FlexButton",
-            "Name": "btnPrev",
-            "Y": 161,
-            "Width": 83,
-            "Height": 158,
-            "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
-            },
-            "ButtonStyles": [
-              {
-                "Type": "ImageButtonStyle",
-                "X": 1,
-                "Y": 54,
-                "ImageReleased": "Buttons\\chevron_left.png",
-                "ImagePressed": "Buttons\\chevron_left.png"
+                "Type": "LineDrawer",
+                "LineWidth": 2,
+                "FileNameImage": "",
+                "Color": {
+                  "Red": 25,
+                  "Green": 255,
+                  "Blue": 198
+                }
               }
             ]
           },
           {
             "Type": "TextArea",
-            "Name": "tap_hint",
-            "X": 149,
-            "Y": 319,
-            "Width": 182,
-            "Height": 37,
-            "TextId": "__SingleUse_609H",
+            "Name": "currentVelocity",
+            "X": 174,
+            "Y": 174,
+            "Width": 130,
+            "Height": 120,
+            "TextId": "__SingleUse_NANU",
             "TextRotation": "0",
             "Color": {
-              "Red": 255,
-              "Green": 255,
+              "Red": 210,
+              "Green": 243,
               "Blue": 255
             },
-            "Alpha": 0,
             "AutoSize": true,
-            "Fadeable": true
+            "Wildcard1": {
+              "TextId": "__SingleUse_B6UT",
+              "UseBuffer": true,
+              "BufferSize": 3
+            }
           },
           {
-            "Type": "AnimatedImage",
-            "Name": "tick_animation",
-            "X": 170,
-            "Y": 170,
-            "Width": 140,
-            "Height": 140,
-            "FileNameFirst": "Tick_15FPS_140px\\Tick_15FPS_140px_00000.png",
-            "FileNameLast": "Tick_15FPS_140px\\Tick_15FPS_140px_00010.png",
-            "UpdateTicksInterval": 40,
-            "Fadeable": true
-          },
-          {
-            "Type": "FlexButton",
-            "Name": "tap_area",
-            "X": 149,
-            "Y": 156,
-            "Width": 182,
-            "Height": 175,
-            "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
+            "Type": "TextArea",
+            "Name": "totalDistance",
+            "X": 205,
+            "Y": 329,
+            "Width": 70,
+            "Height": 26,
+            "TextId": "__SingleUse_DHPQ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 210,
+              "Green": 243,
+              "Blue": 255
             },
-            "ButtonStyles": [
-              {
-                "Type": "ImageButtonStyle"
-              }
-            ]
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_XB5M",
+              "UseBuffer": true,
+              "BufferSize": 6
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "remaining",
+            "X": 37,
+            "Y": 323,
+            "Width": 70,
+            "Height": 26,
+            "TextId": "__SingleUse_QB8T",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 210,
+              "Green": 243,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_49Q7",
+              "UseBuffer": true,
+              "BufferSize": 6
+            }
+          },
+          {
+            "Type": "TextArea",
+            "Name": "remainingLabel",
+            "X": 26,
+            "Y": 303,
+            "Width": 76,
+            "Height": 16,
+            "TextId": "__SingleUse_1KU2",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 125,
+              "Green": 142,
+              "Blue": 245
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "elevationLabel",
+            "X": 212,
+            "Y": 367,
+            "Width": 55,
+            "Height": 20,
+            "TextId": "__SingleUse_53CM",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 210,
+              "Green": 243,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "__SingleUse_52Q4",
+              "UseBuffer": true,
+              "BufferSize": 7
+            }
+          },
+          {
+            "Type": "Circle",
+            "Name": "highlightMph",
+            "Width": 480,
+            "Height": 480,
+            "LockPosition": true,
+            "FileNameImage": "dashboard\\speedometer_fill_overlay_numbers_mph.png",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "CenterX": 240.0,
+            "CenterY": 240.0,
+            "Radius": 186.0,
+            "LineWidth": 108.0,
+            "StartAngle": -90.0,
+            "EndAngle": -57.0,
+            "CapPrecision": "Butt"
+          },
+          {
+            "Type": "Circle",
+            "Name": "highlightKmh",
+            "Width": 480,
+            "Height": 480,
+            "Visible": false,
+            "LockPosition": true,
+            "FileNameImage": "dashboard\\speedometer_fill_overlay_numbers_kmh.png",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "CenterX": 240.0,
+            "CenterY": 240.0,
+            "Radius": 186.0,
+            "LineWidth": 108.0,
+            "StartAngle": -90.0,
+            "EndAngle": -57.0,
+            "CapPrecision": "Butt"
+          },
+          {
+            "Type": "TextureMapper",
+            "Name": "needle",
+            "Width": 480,
+            "Height": 240,
+            "RenderingAlgorithm": "Bilinear Interpolation",
+            "FileNameImage": "dashboard\\speedometer_needle.png",
+            "XBitmapPosition": 214.0,
+            "ZAngle": -1.0,
+            "Scale": 1.0,
+            "XOrigo": 240.0,
+            "YOrigo": 240.0,
+            "ZOrigo": 1000.0,
+            "CameraDistance": 1000.0
+          },
+          {
+            "Type": "Button",
+            "Name": "velocityMiles",
+            "X": 201,
+            "Y": 139,
+            "Width": 78,
+            "Height": 44,
+            "Pressed": "dashboard\\button_mph_pressed.png",
+            "Released": "dashboard\\button_mph_normal.png"
+          },
+          {
+            "Type": "Button",
+            "Name": "velocityKmh",
+            "X": 201,
+            "Y": 139,
+            "Width": 78,
+            "Height": 44,
+            "Visible": false,
+            "Pressed": "dashboard\\button_kmh_pressed.png",
+            "Released": "dashboard\\button_kmh_normal.png"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "totalDistanceKm",
+            "X": 213,
+            "Y": 303,
+            "Width": 65,
+            "Height": 16,
+            "Visible": false,
+            "TextId": "__SingleUse_CKZ2",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 125,
+              "Green": 142,
+              "Blue": 245
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "totalDistanceMi",
+            "X": 213,
+            "Y": 304,
+            "Width": 61,
+            "Height": 16,
+            "TextId": "__SingleUse_JP0H",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 125,
+              "Green": 142,
+              "Blue": 245
+            },
+            "AutoSize": true
           },
           {
             "Type": "Image",
-            "Name": "coffee_select",
-            "X": 120,
-            "Y": 5,
-            "Width": 241,
-            "Height": 45,
-            "RelativeFilename": "Selects\\c_select.png"
+            "Name": "battery6",
+            "X": 31,
+            "Y": 263,
+            "Width": 68,
+            "Height": 28,
+            "RelativeFilename": "dashboard\\battery_steps_full.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "battery5",
+            "X": 31,
+            "Y": 263,
+            "Width": 68,
+            "Height": 28,
+            "Visible": false,
+            "RelativeFilename": "dashboard\\battery_steps_5of6.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "battery4",
+            "X": 31,
+            "Y": 263,
+            "Width": 68,
+            "Height": 28,
+            "Visible": false,
+            "RelativeFilename": "dashboard\\battery_steps_4of6.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "battery3",
+            "X": 31,
+            "Y": 264,
+            "Width": 68,
+            "Height": 28,
+            "Visible": false,
+            "RelativeFilename": "dashboard\\battery_steps_3of6.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "battery2",
+            "X": 31,
+            "Y": 263,
+            "Width": 68,
+            "Height": 28,
+            "Visible": false,
+            "RelativeFilename": "dashboard\\battery_steps_2of6.png"
+          },
+          {
+            "Type": "Image",
+            "Name": "battery1",
+            "X": 31,
+            "Y": 263,
+            "Width": 68,
+            "Height": 28,
+            "Visible": false,
+            "RelativeFilename": "dashboard\\battery_steps_low.png"
+          },
+          {
+            "Type": "RadioButton",
+            "Name": "modeOff",
+            "X": 302,
+            "Y": 334,
+            "Width": 158,
+            "Height": 32,
+            "FileNameSelected": "dashboard\\mode_off_active.png",
+            "FileNameSelectedPressed": "dashboard\\mode_off_active.png",
+            "FileNameUnselected": "dashboard\\mode_off_inactive.png",
+            "FileNameUnselectedPressed": "dashboard\\mode_off_active.png",
+            "RadioButtonGroup": "modeGroup"
+          },
+          {
+            "Type": "RadioButton",
+            "Name": "modeStandard",
+            "X": 319,
+            "Y": 303,
+            "Width": 152,
+            "Height": 31,
+            "Selected": true,
+            "FileNameSelected": "dashboard\\mode_standard_active.png",
+            "FileNameSelectedPressed": "dashboard\\mode_standard_active.png",
+            "FileNameUnselected": "dashboard\\mode_standard_inactive.png",
+            "FileNameUnselectedPressed": "dashboard\\mode_standard_active.png",
+            "RadioButtonGroup": "modeGroup"
+          },
+          {
+            "Type": "RadioButton",
+            "Name": "modeSport",
+            "X": 345,
+            "Y": 272,
+            "Width": 132,
+            "Height": 31,
+            "FileNameSelected": "dashboard\\mode_sport_active.png",
+            "FileNameSelectedPressed": "dashboard\\mode_sport_active.png",
+            "FileNameUnselected": "dashboard\\mode_sport_inactive.png",
+            "FileNameUnselectedPressed": "dashboard\\mode_sport_active.png",
+            "RadioButtonGroup": "modeGroup"
+          },
+          {
+            "Type": "RadioButton",
+            "Name": "modeMax",
+            "X": 358,
+            "Y": 240,
+            "Width": 121,
+            "Height": 32,
+            "FileNameSelected": "dashboard\\mode_max_active.png",
+            "FileNameSelectedPressed": "dashboard\\mode_max_active.png",
+            "FileNameUnselected": "dashboard\\mode_max_inactive.png",
+            "FileNameUnselectedPressed": "dashboard\\mode_max_active.png",
+            "RadioButtonGroup": "modeGroup"
           },
           {
             "Type": "FlexButton",
-            "Name": "back_flex",
-            "X": 189,
-            "Y": 396,
-            "Width": 110,
-            "Height": 100,
+            "Name": "backButton",
+            "X": 128,
+            "Y": 442,
+            "Width": 217,
+            "Height": 38,
             "ButtonTrigger": {
               "Type": "ClickButtonTrigger"
             },
             "ButtonStyles": [
               {
                 "Type": "IconButtonStyle",
-                "X": 28,
-                "Y": 23,
-                "IconReleased": "Buttons\\Back_icon.png",
-                "IconPressed": "Buttons\\Back_icon.png"
+                "X": 92,
+                "IconReleased": "ReturnButton\\icon_back_24_normal.png",
+                "IconPressed": "ReturnButton\\icon_back_24_pressed.png"
               }
             ]
           }
         ],
         "Interactions": [
           {
-            "InteractionName": "Interaction1",
+            "InteractionName": "selectMiles",
+            "HasCompletedTrigger": true,
             "Trigger": {
               "Type": "TriggerClicked",
-              "TriggerComponent": "btnNext"
+              "TriggerComponent": "velocityKmh"
             },
             "Action": {
               "Type": "ActionCustom",
-              "FunctionName": "onNextClicked"
+              "FunctionName": "selectMiles"
             }
           },
           {
-            "InteractionName": "Interaction2",
+            "InteractionName": "selectKmh",
+            "HasCompletedTrigger": true,
             "Trigger": {
               "Type": "TriggerClicked",
-              "TriggerComponent": "btnPrev"
+              "TriggerComponent": "velocityMiles"
             },
             "Action": {
               "Type": "ActionCustom",
-              "FunctionName": "onNextClicked"
+              "FunctionName": "selectKmh"
             }
           },
           {
-            "InteractionName": "Interaction3",
+            "InteractionName": "hideKmhButton",
             "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "tap_area"
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "selectMiles"
             },
             "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "tap_areaClicked"
+              "Type": "ActionHide",
+              "ActionComponent": "velocityKmh"
             }
           },
           {
-            "InteractionName": "Interaction4",
+            "InteractionName": "showMilesButton",
+            "Trigger": {
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "selectMiles"
+            },
+            "Action": {
+              "Type": "ActionShow",
+              "ActionComponent": "velocityMiles"
+            }
+          },
+          {
+            "InteractionName": "hideMilesButton",
+            "Trigger": {
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "selectKmh"
+            },
+            "Action": {
+              "Type": "ActionHide",
+              "ActionComponent": "velocityMiles"
+            }
+          },
+          {
+            "InteractionName": "showKmhButton",
+            "Trigger": {
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "selectKmh"
+            },
+            "Action": {
+              "Type": "ActionShow",
+              "ActionComponent": "velocityKmh"
+            }
+          },
+          {
+            "InteractionName": "showTotalDistanceMiles",
+            "Trigger": {
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "selectMiles"
+            },
+            "Action": {
+              "Type": "ActionShow",
+              "ActionComponent": "totalDistanceMi"
+            }
+          },
+          {
+            "InteractionName": "hideTotalDistanceKm",
+            "Trigger": {
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "selectMiles"
+            },
+            "Action": {
+              "Type": "ActionHide",
+              "ActionComponent": "totalDistanceKm"
+            }
+          },
+          {
+            "InteractionName": "showTotalDistanceKm",
+            "Trigger": {
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "selectKmh"
+            },
+            "Action": {
+              "Type": "ActionShow",
+              "ActionComponent": "totalDistanceKm"
+            }
+          },
+          {
+            "InteractionName": "hideTotalDistanceMi",
+            "Trigger": {
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "selectKmh"
+            },
+            "Action": {
+              "Type": "ActionHide",
+              "ActionComponent": "totalDistanceMi"
+            }
+          },
+          {
+            "InteractionName": "showBackgroundKmh",
+            "Trigger": {
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "selectKmh"
+            },
+            "Action": {
+              "Type": "ActionShow",
+              "ActionComponent": "background_kmh"
+            }
+          },
+          {
+            "InteractionName": "hideBackGroundMi",
+            "Trigger": {
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "selectKmh"
+            },
+            "Action": {
+              "Type": "ActionHide",
+              "ActionComponent": "background_mi"
+            }
+          },
+          {
+            "InteractionName": "showBackgroundMi",
+            "Trigger": {
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "selectMiles"
+            },
+            "Action": {
+              "Type": "ActionShow",
+              "ActionComponent": "background_mi"
+            }
+          },
+          {
+            "InteractionName": "hideBackgroundKm",
+            "Trigger": {
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "selectMiles"
+            },
+            "Action": {
+              "Type": "ActionHide",
+              "ActionComponent": "background_kmh"
+            }
+          },
+          {
+            "InteractionName": "hideHighlightKmh",
+            "Trigger": {
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "selectMiles"
+            },
+            "Action": {
+              "Type": "ActionHide",
+              "ActionComponent": "highlightKmh"
+            }
+          },
+          {
+            "InteractionName": "showHighlightMph",
+            "Trigger": {
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "selectMiles"
+            },
+            "Action": {
+              "Type": "ActionShow",
+              "ActionComponent": "highlightMph"
+            }
+          },
+          {
+            "InteractionName": "showHighlightKmh",
+            "Trigger": {
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "selectKmh"
+            },
+            "Action": {
+              "Type": "ActionShow",
+              "ActionComponent": "highlightKmh"
+            }
+          },
+          {
+            "InteractionName": "hideHighlightMph",
+            "Trigger": {
+              "Type": "TriggerInteractionCompleted",
+              "InteractionToTriggerOn": "selectKmh"
+            },
+            "Action": {
+              "Type": "ActionHide",
+              "ActionComponent": "highlightMph"
+            }
+          },
+          {
+            "InteractionName": "ChangeScreenToMain",
             "Trigger": {
               "Type": "TriggerClicked",
-              "TriggerComponent": "back_flex"
+              "TriggerComponent": "backButton"
             },
             "Action": {
               "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "MenuScreen"
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "Main"
+            }
+          }
+        ],
+        "CustomActions": [
+          {
+            "Name": "goToMain"
+          }
+        ]
+      },
+      {
+        "Name": "Svg",
+        "CanvasBufferSize": 7200,
+        "Components": [
+          {
+            "Type": "Box",
+            "Name": "whiteBackgroundBox",
+            "Width": 480,
+            "Height": 480,
+            "LockPosition": true,
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
             }
           },
           {
-            "InteractionName": "Interaction5",
-            "Trigger": {
-              "Type": "TriggerPhysicalButtonClicked"
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "goLeft"
-            }
+            "Type": "SvgImage",
+            "Name": "stLogoSvg",
+            "X": 146,
+            "Y": 175,
+            "Width": 188,
+            "Height": 131,
+            "LockPosition": true,
+            "Image": "svg\\STLogo.svg",
+            "ImageHorizontalScale": 1.0,
+            "ImageVerticalScale": 1.0,
+            "RotationCenterX": 93.0,
+            "RotationCenterY": 60.0
           },
           {
-            "InteractionName": "Interaction6",
-            "Trigger": {
-              "Type": "TriggerPhysicalButtonClicked",
-              "ButtonKey": 1
-            },
-            "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "goRight"
-            }
+            "Type": "Image",
+            "Name": "backroundImage",
+            "Width": 480,
+            "Height": 480,
+            "LockPosition": true,
+            "RelativeFilename": "svg\\SVG_background_480.png",
+            "Alpha": 0,
+            "Fadeable": true
           },
           {
-            "InteractionName": "Interaction7",
+            "Type": "SvgImage",
+            "Name": "cameraSvg",
+            "X": -331,
+            "Y": 370,
+            "Width": 128,
+            "Height": 128,
+            "LockPosition": true,
+            "Image": "svg\\old_photo_camera.svg",
+            "ImageHorizontalScale": 1.0,
+            "ImageVerticalScale": 1.0,
+            "RotationCenterX": 64.0,
+            "RotationCenterY": 64.0,
+            "Moveable": true
+          },
+          {
+            "Type": "SvgImage",
+            "Name": "paletteSvg",
+            "X": -229,
+            "Y": 370,
+            "Width": 128,
+            "Height": 128,
+            "LockPosition": true,
+            "Image": "svg\\palette.svg",
+            "ImageHorizontalScale": 1.0,
+            "ImageVerticalScale": 1.0,
+            "RotationCenterX": 64.0,
+            "RotationCenterY": 64.0,
+            "Moveable": true
+          },
+          {
+            "Type": "SvgImage",
+            "Name": "dogSvg",
+            "X": -128,
+            "Y": 370,
+            "Width": 128,
+            "Height": 128,
+            "LockPosition": true,
+            "Image": "svg\\dog.svg",
+            "ImageHorizontalScale": 1.0,
+            "ImageVerticalScale": 1.0,
+            "RotationCenterX": 64.0,
+            "RotationCenterY": 64.0,
+            "Moveable": true
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "backButton",
+            "X": 128,
+            "Y": 429,
+            "Width": 220,
+            "Height": 51,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "IconButtonStyle",
+                "X": 92,
+                "Y": -1,
+                "IconReleased": "ReturnButton\\icon_back_24_normal.png",
+                "IconPressed": "ReturnButton\\icon_back_24_pressed.png"
+              }
+            ]
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "ChangeScreenToMain",
             "Trigger": {
-              "Type": "TriggerPhysicalButtonClicked",
-              "ButtonKey": 2
+              "Type": "TriggerClicked",
+              "TriggerComponent": "backButton"
             },
             "Action": {
-              "Type": "ActionCustom",
-              "FunctionName": "tap_areaClicked"
+              "Type": "ActionGotoScreen",
+              "ScreenTransitionType": "ScreenTransitionWipe",
+              "ScreenTransitionDirection": "East",
+              "ActionComponent": "Main"
             }
           }
         ]
@@ -2053,17 +1629,216 @@
     ],
     "CustomContainerDefinitions": [
       {
-        "Name": "MenuWheel",
-        "Width": 480,
-        "Height": 480,
-        "Components": [],
+        "Name": "MainWheelIcon",
+        "Width": 92,
+        "Height": 92,
+        "Components": [
+          {
+            "Type": "TextureMapper",
+            "Name": "subDemoIcon",
+            "Width": 92,
+            "Height": 92,
+            "RenderingAlgorithm": "Bilinear Interpolation",
+            "FileNameImage": "Main\\compass_icon_48.png",
+            "LockBitmapToCenter": true,
+            "XBitmapPosition": 6.0,
+            "YBitmapPosition": 6.0,
+            "Scale": 1.0,
+            "LockOrigoToCenter": true,
+            "XOrigo": 46.0,
+            "YOrigo": 46.0,
+            "ZOrigo": 1000.0,
+            "CameraDistance": 1000.0
+          }
+        ],
         "Interactions": []
       },
       {
-        "Name": "blackContainer",
-        "Width": 250,
-        "Height": 250,
-        "Components": [],
+        "Name": "MainWheel",
+        "Width": 480,
+        "Height": 480,
+        "Components": [
+          {
+            "Type": "TextureMapper",
+            "Name": "flower",
+            "X": 335,
+            "Y": 130,
+            "Width": 145,
+            "Height": 220,
+            "UseAnimation": true,
+            "RenderingAlgorithm": "Bilinear Interpolation",
+            "FileNameImage": "Main\\lotus_blue_animation\\flower_blue0000.png",
+            "LockBitmapToCenter": true,
+            "XBitmapPosition": 1.5,
+            "XOrigo": 145.0,
+            "YOrigo": 110.0,
+            "ZOrigo": 1000.0,
+            "CameraDistance": 1000.0,
+            "Fadeable": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "selectedDemoName",
+            "X": 136,
+            "Y": 218,
+            "Width": 202,
+            "Height": 51,
+            "TextId": "MainSelectedSubDemoEBike",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 226,
+              "Green": 246,
+              "Blue": 255
+            },
+            "Alpha": 0,
+            "Fadeable": true,
+            "Moveable": true
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "SubeDemoSelected",
+            "Trigger": {
+              "Type": "TriggerWhen",
+              "ActionCustomTypeName": "Call MainWheel subDemoSelected"
+            },
+            "Action": {
+              "Type": "ActionEmit",
+              "TriggerCustomTypeName": "MainWheel changeScreen happens",
+              "ParameterValue": "value"
+            }
+          }
+        ],
+        "CustomTriggers": [
+          {
+            "Name": "changeScreen",
+            "HasValue": true,
+            "ValueType": "uint8_t"
+          }
+        ],
+        "CustomActions": [
+          {
+            "Name": "subDemoSelected",
+            "HasValue": true,
+            "ValueType": "uint8_t"
+          }
+        ]
+      },
+      {
+        "Name": "WatchCube",
+        "Width": 480,
+        "Height": 480,
+        "Components": [
+          {
+            "Type": "Image",
+            "Name": "cubeShadow",
+            "X": 66,
+            "Y": 210,
+            "Width": 348,
+            "Height": 224,
+            "Visible": false,
+            "RelativeFilename": "Watch\\cube_shadow.png",
+            "Alpha": 0,
+            "Fadeable": true
+          },
+          {
+            "Type": "Container",
+            "Name": "digitalClockContainer",
+            "Y": 480,
+            "Width": 200,
+            "Height": 200,
+            "IsCacheableContainer": true,
+            "Components": [
+              {
+                "Type": "Container",
+                "Name": "clockReverse",
+                "Width": 200,
+                "Height": 200,
+                "Visible": false,
+                "Components": [
+                  {
+                    "Type": "Image",
+                    "Name": "clockBackgroundReverse",
+                    "Width": 200,
+                    "Height": 200,
+                    "RelativeFilename": "Watch\\background_texture_reverse.png"
+                  },
+                  {
+                    "Type": "Image",
+                    "Name": "dotsReverse",
+                    "X": 86,
+                    "Y": 86,
+                    "Width": 26,
+                    "Height": 26,
+                    "RelativeFilename": "Watch\\time_dots.png"
+                  }
+                ]
+              },
+              {
+                "Type": "Container",
+                "Name": "clock",
+                "Width": 200,
+                "Height": 200,
+                "Components": [
+                  {
+                    "Type": "Image",
+                    "Name": "clockBackground",
+                    "Width": 200,
+                    "Height": 200,
+                    "RelativeFilename": "Watch\\background_texture.png"
+                  },
+                  {
+                    "Type": "Image",
+                    "Name": "dots",
+                    "X": 86,
+                    "Y": 86,
+                    "Width": 26,
+                    "Height": 26,
+                    "RelativeFilename": "Watch\\time_dots_reverse.png"
+                  }
+                ]
+              },
+              {
+                "Type": "TextArea",
+                "Name": "textAreaHour",
+                "Width": 200,
+                "Height": 200,
+                "Visible": false,
+                "TextId": "WatchDigitalClockHour",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 62,
+                  "Green": 44,
+                  "Blue": 111
+                },
+                "Wildcard1": {
+                  "TextId": "__SingleUse_5AWG",
+                  "UseBuffer": true,
+                  "BufferSize": 3
+                }
+              },
+              {
+                "Type": "TextArea",
+                "Name": "textAreaSeconds",
+                "Width": 200,
+                "Height": 200,
+                "Visible": false,
+                "TextId": "WatchDigitalClockSecond",
+                "TextRotation": "0",
+                "Color": {
+                  "Red": 62,
+                  "Green": 44,
+                  "Blue": 111
+                },
+                "Wildcard1": {
+                  "TextId": "__SingleUse_WX1V",
+                  "UseBuffer": true,
+                  "BufferSize": 3
+                }
+              }
+            ]
+          }
+        ],
         "Interactions": []
       }
     ],
@@ -2119,5 +1894,5 @@
       "Video"
     ]
   },
-  "Version": "4.26.0"
+  "Version": "4.26.1"
 }

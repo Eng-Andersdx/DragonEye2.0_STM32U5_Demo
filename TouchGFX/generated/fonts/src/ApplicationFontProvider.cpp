@@ -9,30 +9,39 @@ touchgfx::Font* ApplicationFontProvider::getFont(touchgfx::FontId typography)
 {
     switch (typography)
     {
-    case Typography::OPENSANS:
-        // OpenSans_ExtraBold_30_4bpp
+    case Typography::MAINSELECTEDSUBDEMO:
+        // Saira_SemiCondensed_SemiBold_32_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[0]);
-    case Typography::NUMBEROPEN:
-        // OpenSans_ExtraBold_136_4bpp
+    case Typography::LARGENUMBER:
+        // ShareTechMono_Regular_42_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[1]);
-    case Typography::HOB_NUMBER_MAIN:
-        // OpenSans_ExtraBold_40_4bpp
+    case Typography::WATHDIGITALCLOCK:
+        // Saira_SemiCondensed_SemiBold_72_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[2]);
-    case Typography::HOB_MAIN_NUMBER:
-        // OpenSans_ExtraBold_100_4bpp
+    case Typography::VERYLARGENUMBER:
+        // Saira_SemiCondensed_SemiBold_150_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[3]);
-    case Typography::COFFEE_TITLE_40PX:
-        // OpenSans_ExtraBold_30_4bpp
-        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[0]);
-    case Typography::EXERCISE_NO:
-        // verdana_21_4bpp
+    case Typography::SMALLNUMBERSAIRA:
+        // Saira_SemiCondensed_SemiBold_24_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[4]);
-    case Typography::TYPOGRAPHY1:
-        // verdana_20_4bpp
+    case Typography::HUMONGOUSNUMBER:
+        // ShareTechMono_Regular_120_4bpp
         return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[5]);
-    case Typography::TYPOGRAPHY2:
-        // verdana_20_4bpp
-        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[5]);
+    case Typography::MEDIUMNUMBER:
+        // ShareTechMono_Regular_26_4bpp
+        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[6]);
+    case Typography::SMALLNUMBER:
+        // ShareTechMono_Regular_20_4bpp
+        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[7]);
+    case Typography::SMALLTEXT:
+        // Saira_SemiCondensed_SemiBold_16_4bpp
+        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[8]);
+    case Typography::LARGENUMBERSAIRA:
+        // Saira_SemiCondensed_SemiBold_42_4bpp
+        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[9]);
+    case Typography::MEDIUMTEXT:
+        // Saira_SemiCondensed_SemiBold_20_4bpp
+        return const_cast<touchgfx::Font*>(TypedTextDatabase::getFonts()[10]);
     default:
         return 0;
     }

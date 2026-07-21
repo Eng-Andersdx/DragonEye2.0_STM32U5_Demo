@@ -14,6 +14,6 @@ FrontendApplication::FrontendApplication(Model& m, FrontendHeap& heap)
 
 void FrontendApplication::handleTickEvent()
 {
-    Application::handleTickEvent();
-    // If you later add Model::tick(), call it here.
+    model.tick();
+    FrontendApplicationBase::handleTickEvent();
 }

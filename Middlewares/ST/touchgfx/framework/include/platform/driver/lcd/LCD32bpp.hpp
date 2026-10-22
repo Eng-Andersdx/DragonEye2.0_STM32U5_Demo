@@ -1,8 +1,8 @@
 /******************************************************************************
-* Copyright (c) 2018(-2025) STMicroelectronics.
+* Copyright (c) 2018(-2026) STMicroelectronics.
 * All rights reserved.
 *
-* This file is part of the TouchGFX 4.26.0 distribution.
+* This file is part of the TouchGFX 4.27.0 distribution.
 *
 * This software is licensed under terms that can be found in the LICENSE file in
 * the root directory of this software component.
@@ -43,6 +43,8 @@ public:
     LCD32bpp();
 
     virtual void drawPartialBitmap(const Bitmap& bitmap, int16_t x, int16_t y, const Rect& rect, uint8_t alpha = 255, bool useOptimized = true);
+
+    virtual void drawPartialBitmap(const RawBitmapData& bitmap, int16_t x, int16_t y, const Rect& rect, uint8_t alpha = 255);
 
     virtual void blitCopy(const uint16_t* sourceData, const Rect& source, const Rect& blitRect, uint8_t alpha, bool hasTransparentPixels);
 
@@ -279,6 +281,11 @@ public:
      */
     void enableTextureMapperA4_NearestNeighbor();
 
+    // Forward decl decompressors
+    class DecompressorL8Base;
+    class DecompressorRGBBase;
+    class DecompressorGFXPANDBase;
+
     /**
      * Enables all the decompressors available for L8 images (L4, RLE and LZW9).
      * This allows drawing L4, RLE and LZW9 compressed L8 images.
@@ -310,6 +317,15 @@ public:
      * This allows drawing compressed RGB images.
      */
     void enableDecompressorRGB();
+
+    /**
+     * Enables the GFXPand (ChromDec) decompressor for drawing hardware-accelerated
+     * RGB & L8 compressed images.
+     *
+     * @param  decompressor The application-implemented decompressor, implementing both
+     *                      DecompressorL8Base and DecompressorRGBBase.
+     */
+    void enableDecompressorGFXPAND(DecompressorGFXPANDBase* decompressor);
 
 protected:
     virtual DrawTextureMapScanLineBase* getTextureMapperDrawScanLine(const TextureSurface& texture, RenderingVariant renderVariant, uint8_t alpha);
@@ -930,6 +946,10 @@ private:
         void writePixelOnEdge(uint32_t* const destBits, const uint16_t* const textureBits, const int16_t bitmapStride, const int16_t bitmapWidth, const int16_t bitmapHeight, const int UInt, const int VInt, const uint8_t UFrac, const uint8_t VFrac) const;
     };
 
+public:
+    /**
+     * Abstract interface for L8 decompressors.
+     */
     class DecompressorL8Base
     {
     public:
@@ -937,11 +957,58 @@ private:
         {
         }
 
+        /**
+         * Blits a 2D indexed L8_RGB565 compressed source to the framebuffer performing alpha-blending per
+         * pixel as specified.
+         *
+         * @param  sourceData The source-indexes pointer (points to the beginning of the data). The
+         *                    sourceData must be stored as 8- bits indexes.
+         * @param  clutData   The source-clut pointer (points to the beginning of the CLUT color
+         *                    format and size data followed by colors entries stored as 16-
+         *                    bits (RGB565) format.
+         * @param  source     The location and dimensions of the source.
+         * @param  blitRect   A rectangle describing what region is to be drawn.
+         * @param  alpha      The alpha value to use for blending applied to the whole image (255 =
+         *                    solid, no blending)
+         */
         virtual void blitCopyRGB565(const uint8_t* sourceData, const uint8_t* clutData, const Rect& source, const Rect& blitRect, uint8_t alpha) = 0;
+
+        /**
+         * Blits a 2D indexed L8_ARGB8888 compressed source to the framebuffer performing alpha-blending per
+         * pixel as specified.
+         *
+         * @param  sourceData The source-indexes pointer (points to the beginning of the data). The
+         *                    sourceData must be stored as compression opcodes.
+         * @param  clutData   The source-clut pointer (points to the beginning of the CLUT color
+         *                    format and size data followed by colors entries stored as 32-
+         *                    bits (ARGB8888) format.
+         * @param  source     The location and dimensions of the source.
+         * @param  blitRect   A rectangle describing what region is to be drawn.
+         * @param  alpha      The alpha value to use for blending applied to the whole image (255 =
+         *                    solid, no blending)
+         */
         virtual void blitCopyRGB888(const uint8_t* sourceData, const uint8_t* clutData, const Rect& source, const Rect& blitRect, uint8_t alpha) = 0;
+
+        /**
+         * Blits a 2D indexed L8_RGB888 compressed source to the framebuffer performing alpha-blending per
+         * pixel as specified.
+         *
+         * @param  sourceData The source-indexes pointer (points to the beginning of the data). The
+         *                    sourceData must be stored as compression opcodes.
+         * @param  clutData   The source-clut pointer (points to the beginning of the CLUT color
+         *                    format and size data followed by colors entries stored as 24-
+         *                    bits (RGB888) format.
+         * @param  source     The location and dimensions of the source.
+         * @param  blitRect   A rectangle describing what region is to be drawn.
+         * @param  alpha      The alpha value to use for blending applied to the whole image (255 =
+         *                    solid, no blending)
+         */
         virtual void blitCopyARGB8888(const uint8_t* sourceData, const uint8_t* clutData, const Rect& source, const Rect& blitRect, uint8_t alpha) = 0;
     };
 
+    /**
+     * Abstract interface for RGB decompressors.
+     */
     class DecompressorRGBBase
     {
     public:
@@ -949,11 +1016,59 @@ private:
         {
         }
 
+        /**
+         * Blits a RGB compressed 2D source-array to the framebuffer performing alpha-blending per pixel as
+         * specified.
+         *
+         * @param   sourceData  The source-array pointer (points to the beginning of the data). The
+         *                      sourceData must be stored as compression opcodes.
+         * @param   source      The location and dimensions of the source.
+         * @param   blitRect    A rectangle describing what region is to be drawn.
+         * @param   alpha       The alpha value to use for blending applied to the whole image (255 =
+         *                      solid, no blending)
+         */
         virtual void blitCopyRGB565(const uint8_t* sourceData, const Rect& source, const Rect& blitRect, uint8_t alpha) = 0;
+
+        /**
+         * Blits a RGB compressed 2D source-array to the framebuffer performing alpha-blending per pixel as
+         * specified.
+         *
+         * @param   sourceData  The source-array pointer (points to the beginning of the data). The
+         *                      sourceData must be stored as compression opcodes.
+         * @param   source      The location and dimensions of the source.
+         * @param   blitRect    A rectangle describing what region is to be drawn.
+         * @param   alpha       The alpha value to use for blending applied to the whole image (255 =
+         *                      solid, no blending)
+         */
         virtual void blitCopyARGB8888(const uint8_t* sourceData, const Rect& source, const Rect& blitRect, uint8_t alpha) = 0;
+
+        /**
+         * Blits a RGB compressed 2D source-array to the framebuffer performing alpha-blending per pixel as
+         * specified.
+         *
+         * @param   sourceData  The source-array pointer (points to the beginning of the data). The
+         *                      sourceData must be stored as compression opcodes.
+         * @param   source      The location and dimensions of the source.
+         * @param   blitRect    A rectangle describing what region is to be drawn.
+         * @param   alpha       The alpha value to use for blending applied to the whole image (255 =
+         *                      solid, no blending)
+         */
         virtual void blitCopyRGB888(const uint8_t* sourceData, const Rect& source, const Rect& blitRect, uint8_t alpha) = 0;
     };
 
+    /**
+     * Combined interface for a hardware-accelerated GFXPAND (Chrom-DEC)
+     * decompressor.
+     */
+    class DecompressorGFXPANDBase : public DecompressorL8Base, public DecompressorRGBBase
+    {
+    public:
+        virtual ~DecompressorGFXPANDBase()
+        {
+        }
+    };
+
+private:
     class DecompressorL8_L4 : public DecompressorL8Base
     {
     public:

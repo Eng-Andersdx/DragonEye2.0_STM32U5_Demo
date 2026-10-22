@@ -13,6 +13,8 @@ public:
     // keep these overrides so the signatures match what the base expects
     virtual void setupScreen() override;
     virtual void tearDownScreen() override;
+    virtual void handleTickEvent();
+    virtual void goBack();   // navigation (Designer interaction)
 
     // temperature control API
     void setTemperature(int16_t celsius, bool animate = false);
@@ -27,6 +29,7 @@ public:
 
 private:
     void updateNumber(int16_t celsius);
+    void updateLedColor(int16_t celsius);
     int16_t quantize10(int16_t v) const;
 	  int16_t mapTempToY(int16_t celsius) const;
 
@@ -36,6 +39,13 @@ private:
 
     // current temperature state
     int16_t currentCelsius = 0;
+
+    // Heat glow overlay (heat_glow image): fades in from kGlowStartC to max,
+    // and "breathes" while at max temperature
+    int16_t  glowAlpha    = 0;     // currently shown alpha
+    int16_t  glowTarget   = 0;     // alpha for the current temperature
+    uint16_t glowPhase    = 0;     // breathing counter
+    void updateGlowTarget();
 };
 
 #endif // OVENTEMPVIEWVIEW_HPP

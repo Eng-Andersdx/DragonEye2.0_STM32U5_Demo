@@ -1,6 +1,7 @@
 #include <gui/hobscreen_screen/HobScreenView.hpp>
 #include <touchgfx/EasingEquations.hpp>
-#include "dragoneye_leds.h"
+#include <gui/common/HwInterface.hpp>
+extern int LED_mode;
 using namespace touchgfx;
 
 namespace {
@@ -15,7 +16,10 @@ namespace {
 void HobScreenView::setupScreen()
 {
     HobScreenViewBase::setupScreen();
-    BSP_LED_SetColor(RGB_RED);
+    if (LED_mode == 1)
+    {
+        BSP_LED_SetColor(RGB_RED);
+    }
 
 
     // Hook all wildcards + make visible; sizing will be handled per-update

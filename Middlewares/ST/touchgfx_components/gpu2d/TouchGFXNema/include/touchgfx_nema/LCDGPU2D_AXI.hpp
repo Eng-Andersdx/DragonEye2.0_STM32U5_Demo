@@ -82,6 +82,8 @@ public:
      */
     virtual void drawPartialBitmap(const Bitmap& bitmap, int16_t x, int16_t y, const Rect& rect, uint8_t alpha = 255, bool useOptimized = true);
 
+    virtual void drawPartialBitmap(const RawBitmapData& bitmap, int16_t x, int16_t y, const Rect& rect, uint8_t alpha = 255);
+
     /**
      * Draws all (or a part) of a \a bitmap, scaled to fit desired rect.
      *

@@ -9,6 +9,9 @@
 #include <touchgfx/events/GestureEvent.hpp>
 #include <touchgfx/Callback.hpp>
 #include <touchgfx/widgets/TextureMapper.hpp>
+#include <touchgfx/widgets/canvas/Circle.hpp>
+#include <touchgfx/widgets/canvas/PainterRGB888.hpp>
+#include <touchgfx/hal/Types.hpp>
 
 
 class MenuWheel : public MenuWheelBase
@@ -31,12 +34,18 @@ public:
     // Animate the wheel by +1 or -1 items (used by hardware buttons)
     void animateStep(int delta);  // delta = +1 (right/next), -1 (left/prev)
 
+    // Colour of the rings around the icons (follows the selected item)
+    void setAccentColor(touchgfx::colortype color);
+
     // Enable/disable touch
     void setEnabled(bool en) { setTouchable(en); }
 
     // Callbacks into the view
     void setSelectionChangedCallback(touchgfx::GenericCallback<int>& cb);
     void setActivatedCallback(touchgfx::GenericCallback<int>& cb);
+    // Called as soon as the wheel knows where it is heading (start of a step / during a drag),
+    // so the view can start the colour change without waiting for the rotation to finish
+    void setTargetChangedCallback(touchgfx::GenericCallback<int>& cb);
 
     // Events
     virtual void handleClickEvent(const touchgfx::ClickEvent& evt);
@@ -57,6 +66,10 @@ private:
     };
 
     Item items[NUM_ITEMS];
+
+    // Accent rings drawn behind each icon (thick ring on the selected one)
+    touchgfx::Circle rings[NUM_ITEMS];
+    touchgfx::PainterRGB888 ringPainter;
 
     // Arrays to remember which bitmap to use for each state
     touchgfx::BitmapId smallIds[NUM_ITEMS];
@@ -92,6 +105,8 @@ private:
     // Callbacks into the view
     touchgfx::GenericCallback<int>* selectionChangedCb;
     touchgfx::GenericCallback<int>* activatedCb;
+    touchgfx::GenericCallback<int>* targetChangedCb;
+    int   lastTargetIndex;
 
     // Helpers
     void  layout();                         // position all icons from rotationBase
@@ -100,6 +115,8 @@ private:
     void  snapToNearest();                  // start animation to nearest icon
     void  setSelectionAndNotify(int idx);
     float compensateToIconSteps(float rawMove) const; // round move to full steps
+    int   indexForBase(float base) const;      // item that sits at the top for this base angle
+    void  notifyTarget(float targetBase);
 
 };
 

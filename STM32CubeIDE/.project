@@ -365,6 +365,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/common/FrontendApplication.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/gui/HwInterface.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/common/HwInterface.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/gui/Settings.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/common/Settings.cpp</locationURI>
@@ -453,6 +458,46 @@
 			<name>Application/User/gui/RunningScreenView.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/runningscreen_screen/RunningScreenView.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/SettingsColourScreenPresenter.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/settingscolourscreen_screen/SettingsColourScreenPresenter.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/SettingsColourScreenView.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/settingscolourscreen_screen/SettingsColourScreenView.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/SettingScreenPresenter.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/settingscreen_screen/SettingScreenPresenter.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/SettingScreenView.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/settingscreen_screen/SettingScreenView.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/SettingsHapticScreenPresenter.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/settingshapticscreen_screen/SettingsHapticScreenPresenter.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/SettingsHapticScreenView.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/settingshapticscreen_screen/SettingsHapticScreenView.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/SettingsRGBScreenPresenter.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/settingsrgbscreen_screen/SettingsRGBScreenPresenter.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/gui/SettingsRGBScreenView.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/gui/src/settingsrgbscreen_screen/SettingsRGBScreenView.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/gui/VolumePresenter.cpp</name>
@@ -660,6 +705,26 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/runningscreen_screen/RunningScreenViewBase.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/SettingsColourScreenViewBase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/settingscolourscreen_screen/SettingsColourScreenViewBase.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/SettingScreenViewBase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/settingscreen_screen/SettingScreenViewBase.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/SettingsHapticScreenViewBase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/settingshapticscreen_screen/SettingsHapticScreenViewBase.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/SettingsRGBScreenViewBase.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/settingsrgbscreen_screen/SettingsRGBScreenViewBase.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/VolumeViewBase.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/gui_generated/src/volume_screen/VolumeViewBase.cpp</locationURI>
@@ -683,6 +748,11 @@
 			<name>Application/User/generated/image_oven_big_main.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Big_Main_menu_icons/image_oven_big_main.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_settings_big_main.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Big_Main_menu_icons/image_settings_big_main.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/image_speaker_big_main.cpp</name>
@@ -975,6 +1045,11 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Main_menu_icons/image_oven_icon_main.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/image_settings_icon_main.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Main_menu_icons/image_settings_icon_main.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/SVGDatabase.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/SVGDatabase.cpp</locationURI>
@@ -1040,6 +1115,16 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Speaker/image_volume_bg.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/image_status_bt.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Status/image_status_bt.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_status_wifi.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Status/image_status_wifi.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/image_Tick_15FPS_140px_00000.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Tick_15FPS_140px/image_Tick_15FPS_140px_00000.cpp</locationURI>
@@ -1095,6 +1180,21 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/Tick_15FPS_140px/image_Tick_15FPS_140px_00010.cpp</locationURI>
 		</link>
 		<link>
+			<name>Application/User/generated/image_alternate_theme_images_widgets_slider_horizontal_thick_filler_medium.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/__generated/image_alternate_theme_images_widgets_slider_horizontal_thick_filler_medium.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_alternate_theme_images_widgets_slider_horizontal_thick_filler_small.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/__generated/image_alternate_theme_images_widgets_slider_horizontal_thick_filler_small.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_alternate_theme_images_widgets_slider_horizontal_thick_round_dark.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/__generated/image_alternate_theme_images_widgets_slider_horizontal_thick_round_dark.cpp</locationURI>
+		</link>
+		<link>
 			<name>Application/User/generated/image_icon_theme_images_action_done_1_1_E8F6FB.svg.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/__generated/image_icon_theme_images_action_done_1_1_E8F6FB.svg.cpp</locationURI>
@@ -1108,6 +1208,21 @@
 			<name>Application/User/generated/image_icon_theme_images_action_done_50_50_E8F6FB.svg.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/__generated/image_icon_theme_images_action_done_50_50_E8F6FB.svg.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_app_bg_exercise.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/app_bg/image_app_bg_exercise.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_app_bg_settings.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/app_bg/image_app_bg_settings.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_app_bg_volume.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/app_bg/image_app_bg_volume.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/image_americano_icon.cpp</name>
@@ -1138,6 +1253,121 @@
 			<name>Application/User/generated/image_mocha_icon.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/coffee_icons/image_mocha_icon.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_blue_selected.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/colours/image_blue_selected.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_blue_unselected.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/colours/image_blue_unselected.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_brown_selected.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/colours/image_brown_selected.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_brown_unselected.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/colours/image_brown_unselected.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_cyan_selected.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/colours/image_cyan_selected.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_cyan_unselected.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/colours/image_cyan_unselected.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_green_selected.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/colours/image_green_selected.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_green_unselected.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/colours/image_green_unselected.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_magenta_selected.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/colours/image_magenta_selected.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_magenta_unselected.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/colours/image_magenta_unselected.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_orange_selected.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/colours/image_orange_selected.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_orange_unselected.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/colours/image_orange_unselected.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_red_selected.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/colours/image_red_selected.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_red_unselected.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/colours/image_red_unselected.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_white_selected.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/colours/image_white_selected.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_white_unselected.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/colours/image_white_unselected.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_yellow_selected.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/colours/image_yellow_selected.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_yellow_unselected.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/colours/image_yellow_unselected.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_home_bg_coffee.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/home_bg/image_home_bg_coffee.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_home_bg_exercise.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/home_bg/image_home_bg_exercise.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_home_bg_oven.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/home_bg/image_home_bg_oven.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_home_bg_settings.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/home_bg/image_home_bg_settings.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_home_bg_volume.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/home_bg/image_home_bg_volume.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/image_Artboard_68Green_ticks.cpp</name>
@@ -1193,6 +1423,91 @@
 			<name>Application/User/generated/image_volume_vert_bg.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/new_main/image_volume_vert_bg.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_oven_heat_glow.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/oven_fx/image_oven_heat_glow.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_card_colour.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/settings_cards/image_card_colour.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_card_colour_pressed.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/settings_cards/image_card_colour_pressed.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_card_haptics.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/settings_cards/image_card_haptics.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_card_haptics_pressed.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/settings_cards/image_card_haptics_pressed.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_card_lighting.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/settings_cards/image_card_lighting.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_card_lighting_pressed.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/settings_cards/image_card_lighting_pressed.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_card_reset.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/settings_cards/image_card_reset.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_card_reset_pressed.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/settings_cards/image_card_reset_pressed.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_card_small.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/settings_cards/image_card_small.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_card_small_pressed.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/settings_cards/image_card_small_pressed.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_med_white_active.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/toggles/image_med_white_active.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_med_white_inactive.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/toggles/image_med_white_inactive.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_small_white_active.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/toggles/image_small_white_active.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_small_white_inactive.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/toggles/image_small_white_inactive.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_small_white_toggle_off.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/toggles/image_small_white_toggle_off.cpp</locationURI>
+		</link>
+		<link>
+			<name>Application/User/generated/image_small_white_toggle_on.cpp</name>
+			<type>1</type>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/toggles/image_small_white_toggle_on.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/LanguageGb.cpp</name>

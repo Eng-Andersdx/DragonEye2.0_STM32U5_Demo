@@ -17,6 +17,8 @@ public:
 
     virtual void setupScreen() override;
     virtual void tearDownScreen() override;
+    virtual void goBack();   // navigation (Designer interaction)
+    virtual void openRunning();   // navigation (Designer interaction)
     virtual void handleTickEvent() override;
 
     // Hook rotary to these

@@ -8,6 +8,7 @@
 #include <mvp/View.hpp>
 #include <gui/runningscreen_screen/RunningScreenPresenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
+#include <touchgfx/widgets/Image.hpp>
 #include <touchgfx/containers/buttons/Buttons.hpp>
 #include <touchgfx/widgets/canvas/Circle.hpp>
 #include <touchgfx/widgets/canvas/PainterRGB888Bitmap.hpp>
@@ -15,7 +16,6 @@
 #include <touchgfx/widgets/TextAreaWithWildcard.hpp>
 #include <touchgfx/EasingEquations.hpp>
 #include <touchgfx/mixins/FadeAnimator.hpp>
-#include <touchgfx/widgets/Image.hpp>
 
 class RunningScreenViewBase : public touchgfx::View<RunningScreenPresenter>
 {
@@ -33,6 +33,10 @@ public:
         // Override and implement this function in RunningScreen
     }
     virtual void onMinusClicked()
+    {
+        // Override and implement this function in RunningScreen
+    }
+    virtual void goBack()
     {
         // Override and implement this function in RunningScreen
     }
@@ -54,6 +58,7 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
+    touchgfx::Image app_bg;
     touchgfx::IconButtonStyle< touchgfx::ClickButtonTrigger >  back_flex;
     touchgfx::Circle Speed_bar_full;
     touchgfx::PainterRGB888Bitmap Speed_bar_fullPainter;

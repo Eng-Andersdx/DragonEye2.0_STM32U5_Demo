@@ -1,8 +1,8 @@
 /******************************************************************************
-* Copyright (c) 2018(-2025) STMicroelectronics.
+* Copyright (c) 2018(-2026) STMicroelectronics.
 * All rights reserved.
 *
-* This file is part of the TouchGFX 4.26.0 distribution.
+* This file is part of the TouchGFX 4.27.0 distribution.
 *
 * This software is licensed under terms that can be found in the LICENSE file in
 * the root directory of this software component.
@@ -13,8 +13,8 @@
 /**
  * @file touchgfx/hal/FrameBufferAllocator.hpp
  *
- * Declares the touchgfx::FrameBufferAllocator, touchgfx::SingleBlockAllocator
- * and touchgfx::ManyBlockAllocator classes.
+ * Declares the touchgfx::FrameBufferAllocator, touchgfx::SingleBlockAllocator,
+ * touchgfx::ManyBlockAllocator and touchgfx::ManyBlockExternalAllocator classes.
  */
 #ifndef TOUCHGFX_FRAMEBUFFERALLOCATOR_HPP
 #define TOUCHGFX_FRAMEBUFFERALLOCATOR_HPP
@@ -259,6 +259,137 @@ public:
 private:
     volatile BlockState state[blocks];
     uint32_t memory[blocks][block_size / 4];
+    Rect blockRect[blocks];
+    int sendingBlock;
+    int drawingBlock;
+};
+
+/**
+ * This class is a partial framebuffer allocator using multiple blocks, where the memory for
+ * the blocks is supplied from outside the class. This allows the blocks to be placed in a
+ * specific memory region. New buffers can be allocated until no free blocks are available.
+ * After transfer to LCD, a block is queued for allocation again.
+ *
+ * @tparam block_size     The size of each block in bytes.
+ * @tparam blocks         The number of blocks.
+ * @tparam bytes_pr_pixel The number of bytes per pixel.
+ *
+ * @see FrameBufferAllocator, ManyBlockAllocator
+ */
+template <uint32_t block_size, uint32_t blocks, uint32_t bytes_pr_pixel>
+class ManyBlockExternalAllocator : public FrameBufferAllocator
+{
+public:
+    /**
+     * Initializes a new instance of the ManyBlockExternalAllocator class.
+     *
+     * @param  buffers Array with one pointer per block to the block buffers. Each buffer must
+     *                 be at least block_size bytes and 4-byte aligned.
+     */
+    explicit ManyBlockExternalAllocator(uint8_t* const buffers[blocks])
+    {
+        sendingBlock = -1;
+        drawingBlock = -1;
+        for (uint32_t i = 0; i < blocks; i++)
+        {
+            assert(buffers[i] != 0 && "A block buffer address must be set");
+            memory[i] = buffers[i];
+            state[i] = EMPTY;
+        }
+    }
+
+    /** @copydoc FrameBufferAllocator::allocateBlock */
+    virtual uint16_t allocateBlock(const uint16_t x, const uint16_t y, const uint16_t width, const uint16_t height, uint8_t** block)
+    {
+        drawingBlock++;
+        if (drawingBlock == blocks)
+        {
+            drawingBlock = 0;
+        }
+        while (state[drawingBlock] != EMPTY)
+        {
+            FrameBufferAllocatorWaitOnTransfer();
+        }
+        assert(state[drawingBlock] == EMPTY);
+        state[drawingBlock] = ALLOCATED;
+        const int32_t stride = width * bytes_pr_pixel;
+        const int32_t lines = block_size / stride;
+        *block = memory[drawingBlock];
+        blockRect[drawingBlock].x = x;
+        blockRect[drawingBlock].y = y;
+        blockRect[drawingBlock].width = width;
+        blockRect[drawingBlock].height = MIN(height, lines);
+        return blockRect[drawingBlock].height;
+    }
+
+    /** @copydoc FrameBufferAllocator::markBlockReadyForTransfer */
+    virtual void markBlockReadyForTransfer()
+    {
+        assert(state[drawingBlock] == ALLOCATED);
+        state[drawingBlock] = DRAWN;
+        FrameBufferAllocatorSignalBlockDrawn();
+    }
+
+    /** @copydoc FrameBufferAllocator::hasBlockReadyForTransfer */
+    virtual bool hasBlockReadyForTransfer()
+    {
+        for (uint32_t i = 0; i < blocks; i++)
+        {
+            if (state[i] == DRAWN)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /** @copydoc FrameBufferAllocator::getBlockForTransfer */
+    virtual const uint8_t* getBlockForTransfer(Rect& rect)
+    {
+        sendingBlock++;
+        if (sendingBlock == blocks)
+        {
+            sendingBlock = 0;
+        }
+        assert(state[sendingBlock] == DRAWN);
+        rect = blockRect[sendingBlock];
+        state[sendingBlock] = SENDING;
+        return memory[sendingBlock];
+    }
+
+    /** @copydoc FrameBufferAllocator::peekBlockForTransfer */
+    virtual const Rect& peekBlockForTransfer()
+    {
+        int nextSendingBlock = sendingBlock + 1;
+        if (nextSendingBlock == blocks)
+        {
+            nextSendingBlock = 0;
+        }
+        assert(state[nextSendingBlock] == DRAWN);
+        return blockRect[nextSendingBlock];
+    }
+
+    /** @copydoc FrameBufferAllocator::hasEmptyBlock */
+    virtual bool hasEmptyBlock()
+    {
+        int nextDrawingBlock = drawingBlock + 1;
+        if (nextDrawingBlock == blocks)
+        {
+            nextDrawingBlock = 0;
+        }
+        return (state[nextDrawingBlock] == EMPTY);
+    }
+
+    /** @copydoc FrameBufferAllocator::freeBlockAfterTransfer */
+    virtual void freeBlockAfterTransfer()
+    {
+        assert(state[sendingBlock] == SENDING);
+        state[sendingBlock] = EMPTY;
+    }
+
+private:
+    volatile BlockState state[blocks];
+    uint8_t* memory[blocks];
     Rect blockRect[blocks];
     int sendingBlock;
     int drawingBlock;

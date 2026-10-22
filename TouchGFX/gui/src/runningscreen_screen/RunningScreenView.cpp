@@ -2,7 +2,8 @@
 #include <touchgfx/EasingEquations.hpp>
 #include <BitmapDatabase.hpp>
 #include <cmath>
-#include "dragoneye_leds.h"
+#include <gui/common/HwInterface.hpp>
+extern int LED_mode;
 
 using namespace touchgfx;
 
@@ -11,7 +12,10 @@ RunningScreenView::RunningScreenView() {}
 void RunningScreenView::setupScreen()
 {
     RunningScreenViewBase::setupScreen();
-    BSP_LED_SetColor(RGB_GREEN);
+    if (LED_mode == 1)
+    {
+        BSP_LED_SetColor(RGB_GREEN);
+    }
 
     // Start at speed 0
     currentSpeed = 0;
@@ -159,4 +163,11 @@ void RunningScreenView::H_Right()
 {
     // behave exactly like the plus button
     onPlusClicked();
+}
+
+// ---------- Navigation (animated, see FrontendApplication) ----------
+
+void RunningScreenView::goBack()
+{
+    application().gotoExercise(true);
 }

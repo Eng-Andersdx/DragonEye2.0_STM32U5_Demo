@@ -1,10 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextDatabase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="texts.xsd" Version="4.26.0">
+<TextDatabase xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="texts.xsd" Version="4.27.0">
   <Languages>
     <Language Id="GB" />
   </Languages>
   <Texts>
+    <TextGroup Id="Settings">
+      <Text Id="SETTINGS_RGB_OFF" Alignment="Center" TypographyId="Exercise_no">
+        <Translation Language="GB">OFF</Translation>
+      </Text>
+      <Text Id="SETTINGS_COLOUR" Alignment="Left" TypographyId="Exercise_no">
+        <Translation Language="GB">Yellow</Translation>
+      </Text>
+      <Text Id="SETTINGS_RGB_DYNAMIC" Alignment="Center" TypographyId="Exercise_no">
+        <Translation Language="GB">Dynamic</Translation>
+      </Text>
+      <Text Id="SETTINGS_RGB_FIXED" Alignment="Center" TypographyId="Exercise_no">
+        <Translation Language="GB">Fixed</Translation>
+      </Text>
+      <Text Id="SETTINGS_HAPTIC_VALUE" Alignment="Center" TypographyId="Exercise_no">
+        <Translation Language="GB"></Translation>
+      </Text>
+      <Text Id="SETTINGS_HAPTICS" Alignment="Center" TypographyId="OPENSANS">
+        <Translation Language="GB">Haptics</Translation>
+      </Text>
+      <Text Id="SETTINGS_RGB" Alignment="Center" TypographyId="OPENSANS">
+        <Translation Language="GB">Lighting</Translation>
+      </Text>
+      <Text Id="SETTINGS_RESET" Alignment="Center" TypographyId="OPENSANS">
+        <Translation Language="GB">Reset</Translation>
+      </Text>
+    </TextGroup>
     <TextGroup Id="Main_menu">
+      <Text Id="T_MENU_SETTINGS" Alignment="Center" TypographyId="OPENSANS">
+        <Translation Language="GB">Settings</Translation>
+      </Text>
       <Text Id="T_MENU_COFFEE" Alignment="Center" TypographyId="OPENSANS">
         <Translation Language="GB" Alignment="Center">Coffee</Translation>
       </Text>
@@ -138,7 +167,7 @@
     </TextGroup>
     <TextGroup Id="Unsorted">
       <Text Id="__SingleUse_W9YR" Alignment="Left" TypographyId="Typography1">
-        <Translation Language="GB">v1.1</Translation>
+        <Translation Language="GB">v2.0</Translation>
       </Text>
       <Text Id="__SingleUse_G59J" Alignment="Center" TypographyId="OPENSANS">
         <Translation Language="GB">&lt;value&gt;°F</Translation>
@@ -154,6 +183,33 @@
       </Text>
       <Text Id="__SingleUse_609H" Alignment="Left" TypographyId="COFFEE_TITLE_40PX">
         <Translation Language="GB">Tap to start</Translation>
+      </Text>
+      <Text Id="__SingleUse_9Q3K" Alignment="Left" TypographyId="OPENSANS">
+        <Translation Language="GB">Colour</Translation>
+      </Text>
+      <Text Id="__SingleUse_5B3S" Alignment="Center" TypographyId="Exercise_no">
+        <Translation Language="GB">Backlight</Translation>
+      </Text>
+      <Text Id="__SingleUse_5ZCB" Alignment="Center" TypographyId="OPENSANS">
+        <Translation Language="GB">Colour</Translation>
+      </Text>
+      <Text Id="__SingleUse_OI3E" Alignment="Center" TypographyId="Exercise_no">
+        <Translation Language="GB">Ring</Translation>
+      </Text>
+      <Text Id="__SingleUse_220L" Alignment="Center" TypographyId="Exercise_no">
+        <Translation Language="GB">Brightness</Translation>
+      </Text>
+      <Text Id="__SingleUse_VUIH" Alignment="Left" TypographyId="OPENSANS">
+        <Translation Language="GB">Lighting</Translation>
+      </Text>
+      <Text Id="__SingleUse_5W5Z" Alignment="Center" TypographyId="Exercise_no">
+        <Translation Language="GB">Default</Translation>
+      </Text>
+      <Text Id="__SingleUse_QEDJ" Alignment="Center" TypographyId="Exercise_no">
+        <Translation Language="GB">&lt;&gt;</Translation>
+      </Text>
+      <Text Id="__SingleUse_EUC6" Alignment="Left" TypographyId="OPENSANS">
+        <Translation Language="GB">Haptic Feedback</Translation>
       </Text>
       <Text Id="ResourceId1" Alignment="Left" TypographyId="OPENSANS">
         <Translation Language="GB"></Translation>

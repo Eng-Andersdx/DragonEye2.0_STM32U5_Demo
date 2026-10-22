@@ -13,6 +13,10 @@ ExerciseScreenViewBase::ExerciseScreenViewBase() :
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
 
+    app_bg.setXY(0, 0);
+    app_bg.setBitmap(touchgfx::Bitmap(BITMAP_APP_BG_EXERCISE_ID));
+    add(app_bg);
+
     back_flex.setIconBitmaps(Bitmap(BITMAP_BACK_ICON_ID), Bitmap(BITMAP_BACK_ICON_ID));
     back_flex.setIconXY(28, 23);
     back_flex.setAction(flexButtonCallback);
@@ -79,16 +83,16 @@ void ExerciseScreenViewBase::flexButtonCallbackHandler(const touchgfx::AbstractB
     if (&src == &flexButton1)
     {
         //Interaction3
-        //When flexButton1 clicked change screen to RunningScreen
-        //Go to RunningScreen with no screen transition
-        application().gotoRunningScreenScreenNoTransition();
+        //When flexButton1 clicked call virtual function
+        //Call openRunning
+        openRunning();
     }
     if (&src == &back_flex)
     {
         //Interaction5
-        //When back_flex clicked change screen to MenuScreen
-        //Go to MenuScreen with no screen transition
-        application().gotoMenuScreenScreenNoTransition();
+        //When back_flex clicked call virtual function
+        //Call goBack
+        goBack();
     }
 }
 

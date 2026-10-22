@@ -15,6 +15,10 @@ VolumeViewBase::VolumeViewBase() :
     __background.setColor(touchgfx::Color::getColorFromRGB(0, 0, 0));
     add(__background);
 
+    app_bg.setXY(0, 0);
+    app_bg.setBitmap(touchgfx::Bitmap(BITMAP_APP_BG_VOLUME_ID));
+    add(app_bg);
+
     volRing_1.setXY(47, 50);
     volRing_1.setProgressIndicatorPosition(0, 0, 386, 282);
     volRing_1.setRange(0, 100, 100, 0);
@@ -112,9 +116,9 @@ void VolumeViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonCon
     if (&src == &back_flex)
     {
         //Interaction3
-        //When back_flex clicked change screen to MenuScreen
-        //Go to MenuScreen with no screen transition
-        application().gotoMenuScreenScreenNoTransition();
+        //When back_flex clicked call virtual function
+        //Call goBack
+        goBack();
     }
 }
 

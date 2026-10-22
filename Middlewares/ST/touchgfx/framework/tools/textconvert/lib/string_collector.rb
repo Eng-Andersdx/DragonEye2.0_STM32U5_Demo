@@ -1,7 +1,7 @@
-# Copyright (c) 2018(-2025) STMicroelectronics.
+# Copyright (c) 2018(-2026) STMicroelectronics.
 # All rights reserved.
 #
-# This file is part of the TouchGFX 4.26.0 distribution.
+# This file is part of the TouchGFX 4.27.0 distribution.
 #
 # This software is licensed under terms that can be found in the LICENSE file in
 # the root directory of this software component.
@@ -51,11 +51,11 @@ end
 class StringCollector < CollectorStruct
   def run(remap_global)
     #collect all strings for sorting
-    all_strings = Array.new(languages.count, Array.new)
+    all_strings = Array.new(languages.count) { Array.new }
     text_entries.each do |text_entry|
       text_entry.translations.each_with_index do |translation, lang_index|
         # Fold all languages into one entry if global remapping
-        all_strings[remap_global ? 0 : lang_index] += [translation]
+        all_strings[remap_global ? 0 : lang_index] << translation
       end
     end
     # sort by: Same length => sort by text, otherwise reverse sort on length

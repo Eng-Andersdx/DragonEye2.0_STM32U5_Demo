@@ -2,6 +2,7 @@
 #define FRONTENDHEAP_HPP
 
 #include <gui_generated/common/FrontendHeapBase.hpp>
+#include <gui/common/NavTransitions.hpp>
 
 class FrontendHeap : public FrontendHeapBase
 {
@@ -17,9 +18,10 @@ public:
             > UserDefinedPresenterTypes;
 
     /* List any user-defined transition types here*/
-    typedef touchgfx::meta::TypeList< touchgfx::meta::Nil, //Replace this with first user-defined type
+    typedef touchgfx::meta::TypeList< NavForwardTransition,
+            touchgfx::meta::TypeList< NavBackTransition,
             touchgfx::meta::Nil  //List must always end with meta::Nil !
-            > UserDefinedTransitionTypes;
+            > > UserDefinedTransitionTypes;
 
 
 

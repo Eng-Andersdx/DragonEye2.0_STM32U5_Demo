@@ -1,7 +1,7 @@
-# Copyright (c) 2018(-2025) STMicroelectronics.
+# Copyright (c) 2018(-2026) STMicroelectronics.
 # All rights reserved.
 #
-# This file is part of the TouchGFX 4.26.0 distribution.
+# This file is part of the TouchGFX 4.27.0 distribution.
 #
 # This software is licensed under terms that can be found in the LICENSE file in
 # the root directory of this software component.
@@ -19,7 +19,7 @@ class CompressedUnmappedFontCacheCpp < Template
     File.join(@output_directory, output_path)
   end
   def run
-    if !File::exists?(output_filename)
+    if !File::exist?(output_filename)
       #generate CompressedUnmappedFontCache.cpp
       super
     end

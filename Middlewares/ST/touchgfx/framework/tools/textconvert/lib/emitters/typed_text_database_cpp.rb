@@ -1,7 +1,7 @@
-# Copyright (c) 2018(-2025) STMicroelectronics.
+# Copyright (c) 2018(-2026) STMicroelectronics.
 # All rights reserved.
 #
-# This file is part of the TouchGFX 4.26.0 distribution.
+# This file is part of the TouchGFX 4.27.0 distribution.
 #
 # This software is licensed under terms that can be found in the LICENSE file in
 # the root directory of this software component.
@@ -58,10 +58,11 @@ class TypedTextDatabaseCpp < Template
     @cache["database_list"]=language_db_list
     @cache["fonts"] = fontmap
     @cache["generate_font_format"] = @generate_font_format
+    @cache["generate_binary_translations"] = @generate_binary_translations
     @cache["copy_translations_to_ram"] = @copy_translations_to_ram
 
     new_cache_file = false
-    if not File::exists?(cache_file)
+    if not File::exist?(cache_file)
       new_cache_file = true
     else
       #cache file exists, compare data with cache file
@@ -74,7 +75,7 @@ class TypedTextDatabaseCpp < Template
       FileIO.write_file_silent(cache_file, @cache.to_json)
     end
 
-    if !File::exists?(output_filename) || new_cache_file
+    if !File::exist?(output_filename) || new_cache_file
       #generate TypedTextDatabase.cpp
       super
     end

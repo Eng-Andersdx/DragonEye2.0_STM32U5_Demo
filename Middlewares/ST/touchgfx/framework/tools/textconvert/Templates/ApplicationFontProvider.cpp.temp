@@ -26,3 +26,8 @@ touchgfx::Font* ApplicationFontProvider::getFont(touchgfx::FontId typography)
     }
 <% end %>
 }
+
+void ApplicationFontProvider::initialize()
+{
+    TypedTextDatabase::initializeFonts();
+}

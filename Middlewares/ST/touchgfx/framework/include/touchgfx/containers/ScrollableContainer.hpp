@@ -1,8 +1,8 @@
 /******************************************************************************
-* Copyright (c) 2018(-2025) STMicroelectronics.
+* Copyright (c) 2018(-2026) STMicroelectronics.
 * All rights reserved.
 *
-* This file is part of the TouchGFX 4.26.0 distribution.
+* This file is part of the TouchGFX 4.27.0 distribution.
 *
 * This software is licensed under terms that can be found in the LICENSE file in
 * the root directory of this software component.
@@ -247,6 +247,30 @@ public:
     void setScrollbarWidth(uint8_t width);
 
     /**
+     * Sets which side of the ScrollableContainer the vertical scrollbar is attached to.
+     * By default the vertical scrollbar is attached to the right side (RIGHT). Calling
+     * this function with LEFT moves the vertical scrollbar to the left side instead. The
+     * horizontal scrollbar automatically adjusts its track to leave room for the vertical
+     * scrollbar on whichever side it is placed. Both scrollbars are invalidated so the
+     * change is reflected immediately on screen.
+     *
+     * @param  alignment The side to attach the vertical scrollbar to. Must be LEFT or RIGHT.
+     *
+     * @see getVerticalScrollbarAlignment
+     */
+    void setVerticalScrollbarAlignment(Alignment alignment);
+
+    /**
+     * Gets which side of the ScrollableContainer the vertical scrollbar is currently
+     * attached to.
+     *
+     * @return The alignment of the vertical scrollbar, either LEFT or RIGHT.
+     *
+     * @see setVerticalScrollbarAlignment
+     */
+    Alignment getVerticalScrollbarAlignment() const;
+
+    /**
      * Gets if the containner is currently scrolled.
      *
      * @return if the containner is currently scrolled.
@@ -336,6 +360,7 @@ protected:
     static const uint16_t SCROLLBAR_MIN_VELOCITY = 5;  ///< The minimum velocity of a scroll due to a swipe
     static const uint16_t SCROLLBAR_MAX_VELOCITY = 17; ///< The (default) maximum velocity of a scroll due to a swipe
     uint16_t maxVelocity;                              ///< The maximum velocity of a scroll (due to a swipe)
+    Alignment verticalScrollbarAlignment;              ///< The side (LEFT or RIGHT) the vertical scrollbar is attached to.
 
     /**
      * Gets x coordinate of the scrollbar.

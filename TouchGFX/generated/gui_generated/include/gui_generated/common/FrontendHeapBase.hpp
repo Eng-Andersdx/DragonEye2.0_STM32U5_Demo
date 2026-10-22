@@ -30,6 +30,14 @@
 #include <gui/oventempview_screen/OvenTempViewPresenter.hpp>
 #include <gui/coffee_screen/CoffeeView.hpp>
 #include <gui/coffee_screen/CoffeePresenter.hpp>
+#include <gui/settingscreen_screen/SettingScreenView.hpp>
+#include <gui/settingscreen_screen/SettingScreenPresenter.hpp>
+#include <gui/settingshapticscreen_screen/SettingsHapticScreenView.hpp>
+#include <gui/settingshapticscreen_screen/SettingsHapticScreenPresenter.hpp>
+#include <gui/settingsrgbscreen_screen/SettingsRGBScreenView.hpp>
+#include <gui/settingsrgbscreen_screen/SettingsRGBScreenPresenter.hpp>
+#include <gui/settingscolourscreen_screen/SettingsColourScreenView.hpp>
+#include <gui/settingscolourscreen_screen/SettingsColourScreenPresenter.hpp>
 
 
 /**
@@ -61,7 +69,11 @@ public:
             touchgfx::meta::TypeList< RunningScreenView,
             touchgfx::meta::TypeList< OvenTempViewView,
             touchgfx::meta::TypeList< CoffeeView,
-            touchgfx::meta::Nil > > > > > > > >
+            touchgfx::meta::TypeList< SettingScreenView,
+            touchgfx::meta::TypeList< SettingsHapticScreenView,
+            touchgfx::meta::TypeList< SettingsRGBScreenView,
+            touchgfx::meta::TypeList< SettingsColourScreenView,
+            touchgfx::meta::Nil > > > > > > > > > > > >
             > GeneratedViewTypes;
 
     /**
@@ -82,7 +94,11 @@ public:
             touchgfx::meta::TypeList< RunningScreenPresenter,
             touchgfx::meta::TypeList< OvenTempViewPresenter,
             touchgfx::meta::TypeList< CoffeePresenter,
-            touchgfx::meta::Nil > > > > > > > >
+            touchgfx::meta::TypeList< SettingScreenPresenter,
+            touchgfx::meta::TypeList< SettingsHapticScreenPresenter,
+            touchgfx::meta::TypeList< SettingsRGBScreenPresenter,
+            touchgfx::meta::TypeList< SettingsColourScreenPresenter,
+            touchgfx::meta::Nil > > > > > > > > > > > >
             > GeneratedPresenterTypes;
 
     /**

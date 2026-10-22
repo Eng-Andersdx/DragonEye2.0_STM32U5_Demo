@@ -1,8 +1,8 @@
 /******************************************************************************
-* Copyright (c) 2018(-2025) STMicroelectronics.
+* Copyright (c) 2018(-2026) STMicroelectronics.
 * All rights reserved.
 *
-* This file is part of the TouchGFX 4.26.0 distribution.
+* This file is part of the TouchGFX 4.27.0 distribution.
 *
 * This software is licensed under terms that can be found in the LICENSE file in
 * the root directory of this software component.
@@ -165,6 +165,12 @@ public:
         assert(width >= DISPLAY_WIDTH && height >= DISPLAY_HEIGHT && "Framebuffer cannot be smaller than display");
         FRAME_BUFFER_WIDTH = width;
         FRAME_BUFFER_HEIGHT = height;
+
+        // Notify frameBufferListener about framebuffer and stride
+        if (frameBufferListener)
+        {
+            frameBufferListener->setFrameBuffer((uint8_t*)getClientFrameBuffer(), HAL::FRAME_BUFFER_WIDTH);
+        }
     }
 
     /** Notify the framework that a DMA interrupt has occurred. */
@@ -817,6 +823,39 @@ public:
     virtual void configurePartialFrameBufferLTDC(int16_t currentBlock);
 
     /**
+     * Extracts the state of the framebuffer to an external save state for later
+     * restoration. This function is used on platforms using the Hybrid Double
+     * buffer framebuffer strategy.
+     *
+     * @param  fb0   The reference to store the framebuffer.
+     * @param  width The reference to store the width of the framebuffer.
+     *
+     */
+    void saveFrameBufferConfiguration(uint16_t*& fb0, uint16_t& width)
+    {
+        fb0 = frameBuffer0;
+        width = FRAME_BUFFER_WIDTH;
+    }
+
+    /**
+     * Restores the framebuffer to a given state. This function is used on platforms
+     * using the Hybrid Double buffer framebuffer strategy.
+     *
+     * @param  fb0   The framebuffer to restore.
+     * @param  width The width of the framebuffer to restore.
+     *
+     */
+    void restoreFrameBufferConfiguration(uint16_t* fb0, uint16_t width)
+    {
+        frameBuffer0 = fb0;
+        FRAME_BUFFER_WIDTH = width;
+        if (frameBufferListener)
+        {
+            frameBufferListener->setFrameBuffer((uint8_t*)frameBuffer0, HAL::FRAME_BUFFER_WIDTH);
+        }
+    }
+
+    /**
      * This function causes the task to wait on a semaphore until the LTDC has
      * progressed the specified number of lines.
      *
@@ -964,6 +1003,14 @@ public:
     }
 
     /**
+     * Sets the flash data reader. This method must be implemented in
+     * subclasses that uses a FlashDataReader object.
+     */
+    virtual void setFlashDataReader(FlashDataReader* /* datareader */) const
+    {
+    }
+
+    /**
      * Gets the flash data reader. This method must be implemented in
      * subclasses that uses a FlashDataReader object.
      *
@@ -1021,7 +1068,8 @@ public:
         REFRESH_STRATEGY_DEFAULT,                      ///< If not explicitly set, this strategy is used.
         REFRESH_STRATEGY_OPTIM_SINGLE_BUFFER_TFT_CTRL, ///< Strategy optimized for single framebuffer on systems with TFT controller.
         REFRESH_STRATEGY_PARTIAL_BUFFER_TFT_CTRL,      ///< Strategy using less than a full framebuffer on systems with TFT controller.
-        REFRESH_STRATEGY_PARTIAL_FRAMEBUFFER           ///< Strategy using less than a full framebuffer.
+        REFRESH_STRATEGY_PARTIAL_FRAMEBUFFER,          ///< Strategy using less than a full framebuffer.
+        REFRESH_STRATEGY_HYBRID_DOUBLE_BUFFERING       ///< Strategy using a hybrid of double buffering and partial framebuffers in SRAM.
     };
 
     /**
@@ -1057,6 +1105,12 @@ public:
         if (s == REFRESH_STRATEGY_DEFAULT || s == REFRESH_STRATEGY_PARTIAL_FRAMEBUFFER)
         {
             refreshStrategy = s;
+            return true;
+        }
+        if (s == REFRESH_STRATEGY_HYBRID_DOUBLE_BUFFERING)
+        {
+            refreshStrategy = s;
+            USE_DOUBLE_BUFFERING = true;
             return true;
         }
         if (s == REFRESH_STRATEGY_OPTIM_SINGLE_BUFFER_TFT_CTRL)

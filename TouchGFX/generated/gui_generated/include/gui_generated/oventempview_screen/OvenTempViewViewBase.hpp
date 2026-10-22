@@ -38,6 +38,10 @@ public:
     {
         // Override and implement this function in OvenTempView
     }
+    virtual void goBack()
+    {
+        // Override and implement this function in OvenTempView
+    }
     virtual void H_Left()
     {
         // Override and implement this function in OvenTempView
@@ -60,6 +64,7 @@ protected:
     touchgfx::Image Oven_gradient_2;
     touchgfx::MoveAnimator< touchgfx::Container > blackContainer;
     touchgfx::MoveAnimator< touchgfx::ScalableImage > Black_gradient_big;
+    touchgfx::Image heat_glow;
     touchgfx::FadeAnimator< touchgfx::TextArea > Temperature;
     touchgfx::TextAreaWithOneWildcard Degree;
     touchgfx::ButtonWithIcon btnPlus;

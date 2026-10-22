@@ -1,8 +1,8 @@
 /******************************************************************************
-* Copyright (c) 2018(-2025) STMicroelectronics.
+* Copyright (c) 2018(-2026) STMicroelectronics.
 * All rights reserved.
 *
-* This file is part of the TouchGFX 4.26.0 distribution.
+* This file is part of the TouchGFX 4.27.0 distribution.
 *
 * This software is licensed under terms that can be found in the LICENSE file in
 * the root directory of this software component.
@@ -82,6 +82,44 @@ public:
      *                      bitmap with faster fillrects.
      */
     virtual void drawPartialBitmap(const Bitmap& bitmap, int16_t x, int16_t y, const Rect& rect, uint8_t alpha = 255, bool useOptimized = true) = 0;
+
+    /** Raw bitmap data and dimensions, used for drawing a bitmap without a Bitmap database entry. */
+    struct RawBitmapData
+    {
+        const uint8_t* data;         ///< The pixel data of the bitmap.
+        const uint8_t* extraData;    ///< The alpha channel or clut data of the bitmap, or 0 if not used.
+        const Rect& solidRect;       ///< The solid part of the image.
+        uint16_t width;              ///< The width of the bitmap.
+        uint16_t height;             ///< The height of the bitmap.
+        Bitmap::BitmapFormat format; ///< The format of the bitmap data.
+
+        /**
+         * Query if this bitmap has transparent pixels, i.e. the solid rect does not cover
+         * the entire bitmap.
+         *
+         * @return True if the bitmap has transparent pixels, false if it is fully solid.
+         */
+        bool hasTransparentPixels() const
+        {
+            return solidRect.width < width || solidRect.height < height;
+        }
+    };
+
+    /**
+     * Draws all (or a part) of a bitmap given as raw bitmap data. The coordinates of the
+     * corner of the bitmap is given in (\a x, \a y) and \a rect describes which part of the
+     * bitmap should be drawn. The bitmap can be drawn as it is or more or less transparent
+     * depending on the value of \a alpha. The value of \a alpha is independent of the
+     * transparency of the individual pixels of the given bitmap.
+     *
+     * @param  bitmap       The raw bitmap data to draw.
+     * @param  x            The absolute x coordinate to place (0, 0) of the bitmap on the screen.
+     * @param  y            The absolute y coordinate to place (0, 0) of the bitmap on the screen.
+     * @param  rect         A rectangle describing what region of the bitmap is to be drawn.
+     * @param  alpha        (Optional) Optional alpha value ranging from 0=invisible to
+     *                      255=solid. Default is 255 (solid).
+     */
+    virtual void drawPartialBitmap(const RawBitmapData& bitmap, int16_t x, int16_t y, const Rect& rect, uint8_t alpha = 255) = 0;
 
     /**
      * Draws all (or a part) of a \a bitmap, scaled to fit desired rect.

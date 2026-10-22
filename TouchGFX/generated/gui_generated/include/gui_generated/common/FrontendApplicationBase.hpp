@@ -35,12 +35,6 @@ public:
     // HobScreen
     void gotoHobScreenScreenNoTransition();
 
-    // ExerciseScreen
-    void gotoExerciseScreenScreenNoTransition();
-
-    // RunningScreen
-    void gotoRunningScreenScreenNoTransition();
-
     // OvenTempView
     void gotoOvenTempViewScreenNoTransition();
 
@@ -66,12 +60,6 @@ protected:
 
     // HobScreen
     void gotoHobScreenScreenNoTransitionImpl();
-
-    // ExerciseScreen
-    void gotoExerciseScreenScreenNoTransitionImpl();
-
-    // RunningScreen
-    void gotoRunningScreenScreenNoTransitionImpl();
 
     // OvenTempView
     void gotoOvenTempViewScreenNoTransitionImpl();

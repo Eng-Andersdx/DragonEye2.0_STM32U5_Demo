@@ -108,9 +108,9 @@ void CoffeeViewBase::flexButtonCallbackHandler(const touchgfx::AbstractButtonCon
     if (&src == &back_flex)
     {
         //Interaction4
-        //When back_flex clicked change screen to MenuScreen
-        //Go to MenuScreen with no screen transition
-        application().gotoMenuScreenScreenNoTransition();
+        //When back_flex clicked call virtual function
+        //Call goBack
+        goBack();
     }
 }
 

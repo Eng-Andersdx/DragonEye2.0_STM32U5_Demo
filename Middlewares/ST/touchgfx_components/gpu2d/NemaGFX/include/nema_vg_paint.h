@@ -229,6 +229,20 @@ nema_vg_grad_destroy(NEMA_VG_GRAD_HANDLE grad);
 void
 nema_vg_grad_set(NEMA_VG_GRAD_HANDLE grad, int stops_count, float *stops, color_var_t* colors);
 
+
+/** \brief Set gradient parameters more accurately to a gradient object 
+ * This renders improved gradients over nema_vg_grad_set() at the cost of 
+ * a small performance penalty
+ *
+ * \param grad Pointer (handle) to gradient object
+ * \param stops_count  Number of stop colors
+ * \param stops Pointer to stop colors coordinates
+ * \param colors Pointer to stop color values
+ *
+ */
+void
+nema_vg_grad_set_accurate(NEMA_VG_GRAD_HANDLE grad, int stops_count, const float *stops, const color_var_t* colors);
+
 #ifdef __cplusplus
 }
 #endif

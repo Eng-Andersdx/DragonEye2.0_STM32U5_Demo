@@ -4,6 +4,7 @@
 #include <touchgfx/Utils.hpp>
 #include <BitmapDatabase.hpp>
 #include <touchgfx/Application.hpp>
+#include <touchgfx/Color.hpp>
 
 
 #include <math.h>
@@ -16,6 +17,18 @@ static const float TWO_PI       = 2.0f * touchgfx::PI;
 // Angle where we consider an item "selected".
 // -touchgfx::PI / 2  = top of the circle (smaller Y)
 static const float SELECT_ANGLE = -touchgfx::PI / 2.0f;
+
+// Animation length (frames) for one item step on rotary / tap.
+// Higher = slower glide. Was 10 (too fast).
+static const int kStepFrames = 20;
+
+// Look of the wheel
+static const uint8_t kSideAlpha     = 160;   // unselected icons (was 50: nearly invisible)
+static const int16_t kRingBox       = 130;   // size of each ring widget (square)
+static const float   kRingSelR      = 56.f;  // ring radius around the selected (100px) icon
+static const float   kRingSelW      = 4.f;   // ring thickness, selected
+static const float   kRingSideR     = 33.f;  // ring radius around side icons (81px * 0.7)
+static const float   kRingSideW     = 2.f;   // ring thickness, side icons
 
 MenuWheel::MenuWheel()
     : centerX(0.f)
@@ -34,6 +47,8 @@ MenuWheel::MenuWheel()
     , oldAngle(0.f)
     , selectionChangedCb(0)
     , activatedCb(0)
+    , targetChangedCb(0)
+    , lastTargetIndex(0)
 {
     setTouchable(true);
 }
@@ -59,6 +74,7 @@ void MenuWheel::configure(const touchgfx::BitmapId smallIconIds[NUM_ITEMS],
 
     // Starting selection: item 0 at top 
     centerIndex = 0;
+    lastTargetIndex = 0;
 
     // Compute origin / radius 
     const int w = getWidth()+10;
@@ -75,6 +91,18 @@ void MenuWheel::configure(const touchgfx::BitmapId smallIconIds[NUM_ITEMS],
 
     // We want item 0 at SELECT_ANGLE (top) to start
     rotationBase = SELECT_ANGLE;
+
+    // Accent rings first, so the icons draw on top of them
+    ringPainter.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
+    for (int i = 0; i < NUM_ITEMS; ++i)
+    {
+        rings[i].setPosition(0, 0, kRingBox, kRingBox);
+        rings[i].setCircle(kRingBox * 0.5f, kRingBox * 0.5f, kRingSideR);
+        rings[i].setLineWidth(kRingSideW);
+        rings[i].setArc(0.f, 360.f);
+        rings[i].setPainter(ringPainter);
+        add(rings[i]);
+    }
 
     for (int i = 0; i < NUM_ITEMS; ++i)
     {
@@ -116,13 +144,22 @@ void MenuWheel::configure(const touchgfx::BitmapId smallIconIds[NUM_ITEMS],
     items[i].icon.setBitmap(bmp);
     items[i].icon.setWidth(bmp.getWidth());
     items[i].icon.setHeight(bmp.getHeight());
-    items[i].icon.setAlpha(i == centerIndex ? 255 : 50);
+    items[i].icon.setAlpha(i == centerIndex ? 255 : kSideAlpha);
     items[i].icon.invalidate();
     }
 
     // Sizes have changed (center icon is now big), so recompute positions
     layout();
 
+}
+
+void MenuWheel::setAccentColor(touchgfx::colortype color)
+{
+    ringPainter.setColor(color);
+    for (int i = 0; i < NUM_ITEMS; ++i)
+    {
+        rings[i].invalidate();
+    }
 }
 
 void MenuWheel::setSelectionChangedCallback(GenericCallback<int>& cb)
@@ -133,6 +170,33 @@ void MenuWheel::setSelectionChangedCallback(GenericCallback<int>& cb)
 void MenuWheel::setActivatedCallback(GenericCallback<int>& cb)
 {
     activatedCb = &cb;
+}
+
+void MenuWheel::setTargetChangedCallback(GenericCallback<int>& cb)
+{
+    targetChangedCb = &cb;
+}
+
+int MenuWheel::indexForBase(float base) const
+{
+    // Aligned when base == SELECT_ANGLE - angleStep * idx
+    const float f = (SELECT_ANGLE - base) / angleStep;
+    int idx = (int)floorf(f + 0.5f);
+    idx %= NUM_ITEMS;
+    if (idx < 0) idx += NUM_ITEMS;
+    return idx;
+}
+
+void MenuWheel::notifyTarget(float targetBase)
+{
+    const int idx = indexForBase(targetBase);
+    if (idx == lastTargetIndex)
+        return;
+    lastTargetIndex = idx;
+    if (targetChangedCb && targetChangedCb->isValid())
+    {
+        targetChangedCb->execute(idx);
+    }
 }
 
 // ---------- Helpers ----------
@@ -171,6 +235,14 @@ void MenuWheel::layout()
 
         items[i].icon.setXY(ix, iy);
         items[i].icon.invalidate();
+
+        // Ring follows the icon; selected one is bigger and thicker
+        const bool sel = (i == centerIndex);
+        rings[i].invalidate();
+        rings[i].setCircle(kRingBox * 0.5f, kRingBox * 0.5f, sel ? kRingSelR : kRingSideR);
+        rings[i].setLineWidth(sel ? kRingSelW : kRingSideW);
+        rings[i].setXY(int(cx - kRingBox * 0.5f), int(cy - kRingBox * 0.5f));
+        rings[i].invalidate();
     }
 }
 
@@ -224,12 +296,27 @@ void MenuWheel::snapToNearest()
     stepCount         = 0;
     steps             = MAX(5, int(fabsf(moveDistance) / angleStep * 10.f)); // use MAX macro
     rotating          = true;
+    notifyTarget(startRotationBase + moveDistance);
 }
 
 void MenuWheel::animateStep(int delta)
 {
-    if (delta == 0 || rotating)
+    if (delta == 0)
         return;
+
+    // Rotary turned again while still animating: extend the current target by
+    // another item instead of dropping the detent, and continue smoothly from
+    // the current position.
+    if (rotating)
+    {
+        const float target = startRotationBase + moveDistance - angleStep * float(delta);
+        startRotationBase  = rotationBase;
+        moveDistance       = target - rotationBase;
+        stepCount          = 0;
+        steps              = MAX(kStepFrames, int(fabsf(moveDistance) / angleStep * float(kStepFrames)));
+        notifyTarget(startRotationBase + moveDistance);
+        return;
+    }
 
     // Target index (wrap 0..NUM_ITEMS-1)
     int newIndex = centerIndex + delta;
@@ -245,8 +332,9 @@ void MenuWheel::animateStep(int delta)
 
     startRotationBase = rotationBase;
     stepCount         = 0;
-    steps             = MAX(5, int(fabsf(moveDistance) / angleStep * 10.f));
+    steps             = MAX(kStepFrames, int(fabsf(moveDistance) / angleStep * float(kStepFrames)));
     rotating          = true;
+    notifyTarget(startRotationBase + moveDistance);
 }
 
 void MenuWheel::setSelectionAndNotify(int newIndex)
@@ -256,6 +344,7 @@ void MenuWheel::setSelectionAndNotify(int newIndex)
 
     int oldIndex = centerIndex;
     centerIndex  = newIndex;
+    lastTargetIndex = newIndex;
 
     // Swap bitmaps: old center gets small icon, new center gets big icon
     {
@@ -274,7 +363,7 @@ void MenuWheel::setSelectionAndNotify(int newIndex)
     // Alpha: center bright, others dim
     for (int i = 0; i < NUM_ITEMS; ++i)
     {
-        uint8_t a = (i == centerIndex) ? 255 : 50;
+        uint8_t a = (i == centerIndex) ? 255 : kSideAlpha;
         items[i].icon.setAlpha(a);
         items[i].icon.invalidate();
     }
@@ -355,8 +444,9 @@ void MenuWheel::handleClickEvent(const ClickEvent& evt)
 
                     startRotationBase = rotationBase;
                     stepCount         = 0;
-                    steps             = MAX(5, int(fabsf(moveDistance) / angleStep * 10.f));
+                    steps             = MAX(kStepFrames, int(fabsf(moveDistance) / angleStep * float(kStepFrames)));
                     rotating          = true;
+                    notifyTarget(startRotationBase + moveDistance);
                 }
                 return;
             }
@@ -373,6 +463,7 @@ void MenuWheel::handleDragEvent(const DragEvent& evt)
 
     rotationBase += diff;
     layout();
+    notifyTarget(rotationBase);   // colour follows the finger
 
     oldAngle  = lastAngle;
     lastAngle = newAngle;
@@ -399,6 +490,7 @@ void MenuWheel::handleGestureEvent(const GestureEvent& evt)
         // More velocity -> more steps (longer animation)
         steps = MAX(8, int(vel * 0.1f));
         rotating = true;
+        notifyTarget(startRotationBase + moveDistance);
     }
 }
 
@@ -417,6 +509,7 @@ void MenuWheel::rotateRight()
     stepCount = 0;
     steps = 10;                  // tweak for speed/feel if you like
     rotating = true;
+    notifyTarget(startRotationBase + moveDistance);
 }
 
 void MenuWheel::rotateLeft()
@@ -429,6 +522,7 @@ void MenuWheel::rotateLeft()
     stepCount = 0;
     steps = 10;
     rotating = true;
+    notifyTarget(startRotationBase + moveDistance);
 }
 
 void MenuWheel::handleTickEvent()
@@ -442,8 +536,12 @@ void MenuWheel::handleTickEvent()
     float t = (float)stepCount / (float)steps;
     if (t > 1.f) t = 1.f;
 
-    // cubicEaseOut over [0..1]
-    float eased = EasingEquations::cubicEaseOut(t, 0.f, 1.f, 1.f);
+    // Cubic ease-out over [0..1]: f(t) = 1 - (1-t)^3
+    // NOTE: TouchGFX's EasingEquations::cubicEaseOut() takes integer arguments,
+    // so passing 0..1 floats truncated t to 0 and the wheel only moved on the
+    // last frame (looked like a jump on rotary/tap). Done in float here instead.
+    const float inv   = 1.0f - t;
+    const float eased = 1.0f - inv * inv * inv;
 
     rotationBase = startRotationBase + moveDistance * eased;
     layout();

@@ -1,7 +1,8 @@
 #include <gui/hoblevelscreen_screen/HobLevelScreenView.hpp>
 #include <touchgfx/Unicode.hpp>
 #include <touchgfx/EasingEquations.hpp>
-#include "dragoneye_leds.h"
+#include <gui/common/HwInterface.hpp>
+extern int LED_mode;
 using namespace touchgfx;
 
 
@@ -10,7 +11,10 @@ HobLevelScreenView::HobLevelScreenView() {}
 void HobLevelScreenView::setupScreen()
 {
     HobLevelScreenViewBase::setupScreen();
-    BSP_LED_SetColor(RGB_RED);
+    if (LED_mode == 1)
+    {
+        BSP_LED_SetColor(RGB_RED);
+    }
 
     // Which hob are we editing?
     currentHob = presenter->getPendingHob();

@@ -8,9 +8,9 @@
 #include <mvp/View.hpp>
 #include <gui/exercisescreen_screen/ExerciseScreenPresenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
+#include <touchgfx/widgets/Image.hpp>
 #include <touchgfx/containers/buttons/Buttons.hpp>
 #include <touchgfx/widgets/TextArea.hpp>
-#include <touchgfx/widgets/Image.hpp>
 
 class ExerciseScreenViewBase : public touchgfx::View<ExerciseScreenPresenter>
 {
@@ -28,6 +28,14 @@ public:
         // Override and implement this function in ExerciseScreen
     }
     virtual void goLeft()
+    {
+        // Override and implement this function in ExerciseScreen
+    }
+    virtual void openRunning()
+    {
+        // Override and implement this function in ExerciseScreen
+    }
+    virtual void goBack()
     {
         // Override and implement this function in ExerciseScreen
     }
@@ -53,6 +61,7 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
+    touchgfx::Image app_bg;
     touchgfx::IconButtonStyle< touchgfx::ClickButtonTrigger >  back_flex;
     touchgfx::IconButtonStyle< touchgfx::ClickButtonTrigger >  Left_flex;
     touchgfx::IconButtonStyle< touchgfx::ClickButtonTrigger >  right_flex;

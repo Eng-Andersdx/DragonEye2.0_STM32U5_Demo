@@ -1,7 +1,7 @@
-# Copyright (c) 2018(-2025) STMicroelectronics.
+# Copyright (c) 2018(-2026) STMicroelectronics.
 # All rights reserved.
 #
-# This file is part of the TouchGFX 4.26.0 distribution.
+# This file is part of the TouchGFX 4.27.0 distribution.
 #
 # This software is licensed under terms that can be found in the LICENSE file in
 # the root directory of this software component.
@@ -23,7 +23,7 @@ class Template
     @output_directory = output_directory
   end
   def run
-    result = ERB.new(File.read(input_path).gsub(WINDOWS_LINE_ENDINGS, UNIX_LINE_ENDINGS),0,"<>").
+    result = ERB.new(File.read(input_path).gsub(WINDOWS_LINE_ENDINGS, UNIX_LINE_ENDINGS), trim_mode: "<>").
                result(binding).
                gsub(WINDOWS_LINE_ENDINGS, UNIX_LINE_ENDINGS).
                gsub(UNIX_LINE_ENDINGS, LINE_ENDINGS)

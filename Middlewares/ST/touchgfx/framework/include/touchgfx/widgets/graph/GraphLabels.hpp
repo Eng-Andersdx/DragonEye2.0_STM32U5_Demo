@@ -1,8 +1,8 @@
 /******************************************************************************
-* Copyright (c) 2018(-2025) STMicroelectronics.
+* Copyright (c) 2018(-2026) STMicroelectronics.
 * All rights reserved.
 *
-* This file is part of the TouchGFX 4.26.0 distribution.
+* This file is part of the TouchGFX 4.27.0 distribution.
 *
 * This software is licensed under terms that can be found in the LICENSE file in
 * the root directory of this software component.
@@ -351,7 +351,7 @@ public:
     }
 
 protected:
-    void drawIndexRange(const Rect& invalidatedArea, const Font* fontToDraw, const AbstractDataGraph* graph, const int rangeMin, const int rangeMax, const int minorInterval, const int majorInterval, const uint8_t a) const;
+    virtual void drawIndexRange(const Rect& invalidatedArea, const Font* fontToDraw, const AbstractDataGraph* graph, const int rangeMin, const int rangeMax, const int minorInterval, const int majorInterval, const uint8_t a) const;
 
     virtual void drawString(const Rect& invalidatedArea, const Font* fontToDraw, const AbstractDataGraph* graph, const int valueScaled, const int labelScaled, const uint8_t a) const;
 

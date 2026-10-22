@@ -298,6 +298,54 @@
     <Filter Include="Header Files\generated\gui_generated\volume_screen">
       <UniqueIdentifier>9825B04E-F019-460F-8423-640B7B18B6E8</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\gui\settingsrgbscreen_screen">
+      <UniqueIdentifier>8DA63104-ABB2-D114-AB76-D08244A74A8B</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\settingscreen_screen">
+      <UniqueIdentifier>D8A820D4-C095-2DD1-9F1D-03880F736504</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\settingshapticscreen_screen">
+      <UniqueIdentifier>B1385F02-842A-0CF2-0270-CF1C4A66B50F</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\settingscolourscreen_screen">
+      <UniqueIdentifier>0802DAC2-E10A-D719-02C3-4E3AA4547815</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\settingshapticscreen_screen">
+      <UniqueIdentifier>57304F5F-A34A-6A9E-E214-83E567985C40</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\gui\settingscreen_screen">
+      <UniqueIdentifier>55D494CB-32F4-20BA-ABD3-1EFED922899D</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\settingscolourscreen_screen">
+      <UniqueIdentifier>68537B29-86D5-9564-6A22-863725D535B8</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\gui\settingsrgbscreen_screen">
+      <UniqueIdentifier>C35E87EF-999F-A74C-AB8F-F7624EEA30C8</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\settingscreen_screen">
+      <UniqueIdentifier>94049D85-9C32-D52F-A088-489C8538FBAA</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\settingscreen_screen">
+      <UniqueIdentifier>93112B01-C097-DA7E-F2BD-3201128D6D21</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\settingscolourscreen_screen">
+      <UniqueIdentifier>53B05978-FEAB-533B-6C73-3F2523C710BD</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\settingscolourscreen_screen">
+      <UniqueIdentifier>59A46412-666F-FB9E-B56F-E2FF99739BC1</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\settingsrgbscreen_screen">
+      <UniqueIdentifier>831AE1D4-5029-2469-349B-3A7042619CE3</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\settingsrgbscreen_screen">
+      <UniqueIdentifier>3BA3C8A9-107E-622B-6EDD-F23E6479B027</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\generated\gui_generated\settingshapticscreen_screen">
+      <UniqueIdentifier>F4EDF242-42BE-BCA5-ECCB-4527251F2EB6</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\generated\gui_generated\settingshapticscreen_screen">
+      <UniqueIdentifier>61B6C28F-30D2-A203-4E25-1A54E85EF9F4</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="$(TouchGFXReleasePath)\framework\source\platform\driver\touch\SDL2TouchController.cpp">
@@ -440,6 +488,45 @@
     </ClCompile>
     <ClCompile Include="..\..\generated\gui_generated\src\volume_screen\VolumeViewBase.cpp">
       <Filter>Source Files\generated\gui_generated\volume_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\settingscolourscreen_screen\SettingsColourScreenPresenter.cpp">
+      <Filter>Source Files\gui\settingscolourscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\settingscolourscreen_screen\SettingsColourScreenView.cpp">
+      <Filter>Source Files\gui\settingscolourscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\settingscolourscreen_screen\SettingsColourScreenViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\settingscolourscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\settingscreen_screen\SettingScreenPresenter.cpp">
+      <Filter>Source Files\gui\settingscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\settingscreen_screen\SettingScreenView.cpp">
+      <Filter>Source Files\gui\settingscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\settingscreen_screen\SettingScreenViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\settingscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\settingshapticscreen_screen\SettingsHapticScreenPresenter.cpp">
+      <Filter>Source Files\gui\settingshapticscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\settingshapticscreen_screen\SettingsHapticScreenView.cpp">
+      <Filter>Source Files\gui\settingshapticscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\settingshapticscreen_screen\SettingsHapticScreenViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\settingshapticscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\settingsrgbscreen_screen\SettingsRGBScreenPresenter.cpp">
+      <Filter>Source Files\gui\settingsrgbscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\settingsrgbscreen_screen\SettingsRGBScreenView.cpp">
+      <Filter>Source Files\gui\settingsrgbscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\generated\gui_generated\src\settingsrgbscreen_screen\SettingsRGBScreenViewBase.cpp">
+      <Filter>Source Files\generated\gui_generated\settingsrgbscreen_screen</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\gui\src\common\HwInterface.cpp">
+      <Filter>Source Files\gui\common</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -993,6 +1080,48 @@
     </ClInclude>
     <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\volume_screen\VolumeViewBase.hpp">
       <Filter>Header Files\generated\gui_generated\volume_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\settingscolourscreen_screen\SettingsColourScreenPresenter.hpp">
+      <Filter>Header Files\gui\settingscolourscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\settingscolourscreen_screen\SettingsColourScreenView.hpp">
+      <Filter>Header Files\gui\settingscolourscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\settingscolourscreen_screen\SettingsColourScreenViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\settingscolourscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\settingscreen_screen\SettingScreenPresenter.hpp">
+      <Filter>Header Files\gui\settingscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\settingscreen_screen\SettingScreenView.hpp">
+      <Filter>Header Files\gui\settingscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\settingscreen_screen\SettingScreenViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\settingscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\settingshapticscreen_screen\SettingsHapticScreenPresenter.hpp">
+      <Filter>Header Files\gui\settingshapticscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\settingshapticscreen_screen\SettingsHapticScreenView.hpp">
+      <Filter>Header Files\gui\settingshapticscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\settingshapticscreen_screen\SettingsHapticScreenViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\settingshapticscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\settingsrgbscreen_screen\SettingsRGBScreenPresenter.hpp">
+      <Filter>Header Files\gui\settingsrgbscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\settingsrgbscreen_screen\SettingsRGBScreenView.hpp">
+      <Filter>Header Files\gui\settingsrgbscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\generated\gui_generated\include\gui_generated\settingsrgbscreen_screen\SettingsRGBScreenViewBase.hpp">
+      <Filter>Header Files\generated\gui_generated\settingsrgbscreen_screen</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\common\NavTransitions.hpp">
+      <Filter>Header Files\gui\common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\gui\include\gui\common\HwInterface.hpp">
+      <Filter>Header Files\gui\common</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

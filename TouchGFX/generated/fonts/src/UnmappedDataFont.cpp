@@ -8,11 +8,12 @@
 
 namespace touchgfx
 {
+extern uint32_t font_flash_offset;
 GlyphNode UnmappedDataFont::glyphNodeBuffer;
 
 UnmappedDataFont::UnmappedDataFont(const GlyphNode* glyphs, const uint16_t* unicodeList, uint16_t numGlyphs, uint16_t height, uint16_t baseline, uint8_t pixAboveTop, uint8_t pixBelowBottom, uint8_t bitsPerPixel, uint8_t byteAlignRow, uint8_t maxLeft, uint8_t maxRight, const uint8_t* const* glyphDataList, const KerningNode* kerningList, const Unicode::UnicodeChar fallbackChar, const Unicode::UnicodeChar ellipsisChar, const uint16_t* const gsubData, const FontContextualFormsTable* formsTable)
     : Font(height, baseline, pixAboveTop, pixBelowBottom, bitsPerPixel, byteAlignRow, maxLeft, maxRight, fallbackChar, ellipsisChar),
-      glyphList(glyphs),
+      glyphList((const GlyphNode*)((const uint8_t*)glyphs + font_flash_offset)),
       listSize(numGlyphs),
       unicodes(unicodeList),
       glyphDataList(glyphDataList),
@@ -45,7 +46,8 @@ const GlyphNode* UnmappedDataFont::getGlyph(Unicode::UnicodeChar unicode, const 
 const uint8_t* UnmappedDataFont::getPixelData(const GlyphNode* glyph) const
 {
     const uint8_t* const* table = (const uint8_t* const*)glyphDataList;
-    return &(table[glyph->unicode / 2048][glyph->dataOffset]);
+    const uint8_t* pixels = table[glyph->unicode / 2048];
+    return pixels + glyph->dataOffset + font_flash_offset;
 }
 
 int8_t UnmappedDataFont::getKerning(Unicode::UnicodeChar prevChar, const GlyphNode* glyph) const
@@ -217,7 +219,7 @@ const GlyphNode* CompressedUnmappedDataFont::getGlyph(Unicode::UnicodeChar unico
             const uint8_t* const* table = (const uint8_t* const*)glyphDataList;
             const uint32_t dataOffset = cachedNode->dataOffset & 0x3FFFFFFF;
             const uint8_t* compressedData = &(table[unicode / 2048][dataOffset]);
-            const uint8_t* cachedData = CompressedUnmappedFontCache::cacheGlyphData(glyphNode, compressedData, flashReader);
+            const uint8_t* cachedData = CompressedUnmappedFontCache::cacheGlyphData(glyphNode, compressedData + font_flash_offset, flashReader);
             if (cachedData)
             {
                 bitsPerPixel = 4;

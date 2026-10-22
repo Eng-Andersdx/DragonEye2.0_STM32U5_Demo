@@ -43,6 +43,14 @@
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN Variables */
 volatile uint8_t haptic_feedback = 0;
+/* Pulse length in ms, set from Settings > Haptics. 5 or less = haptics off */
+volatile uint8_t haptic_feedback_intensity = 35;
+/* Set to 1 to hold the vibration motor on continuously (e.g. oven at max temp) */
+volatile uint8_t haptic_continuous = 0;
+/* Home-screen status icons: 1 = connected (bright), 0 = not connected (dimmed).
+   Demo default is 1; set these from the Wi-Fi/BT driver once it is enabled. */
+volatile uint8_t status_wifi_connected = 1;
+volatile uint8_t status_bt_connected = 1;
 /* USER CODE END Variables */
 /* Definitions for defaultTask */
 osThreadId_t defaultTaskHandle;
@@ -131,20 +139,21 @@ void StartDefaultTask(void *argument)
   /* USER CODE BEGIN defaultTask */
 	uint32_t haptic_timer = 0;
 	uint8_t  local_haptic;
+	uint8_t  continuous_active = 0;
   /* Infinite loop */
   for(;;)
   {
 	  /* Take a snapshot of the current haptic request */
 	  local_haptic = haptic_feedback;
 
-	  if (local_haptic == 1)
+	  if (local_haptic == 1 && haptic_feedback_intensity > 5)
 	  {
-		  haptic_timer = 35;	// ms
+		  haptic_timer = haptic_feedback_intensity;	// ms (buttons)
 		  HAL_GPIO_WritePin(Vibration_Motor_GPIO_Port, Vibration_Motor_Pin, GPIO_PIN_SET);
 	  }
-	  else if (local_haptic == 2)
+	  else if (local_haptic == 2 && haptic_feedback_intensity > 5)
 	  {
-		  haptic_timer = 50;	// ms
+		  haptic_timer = haptic_feedback_intensity + 15;	// ms (touch, slightly longer: 50ms at default)
 		  HAL_GPIO_WritePin(Vibration_Motor_GPIO_Port, Vibration_Motor_Pin, GPIO_PIN_SET);
 	  }
 
@@ -157,6 +166,24 @@ void StartDefaultTask(void *argument)
 	  if (haptic_timer > 0)
 	  {
 		  haptic_timer--;
+		  if (haptic_timer == 0 && !haptic_continuous)
+		  {
+			  HAL_GPIO_WritePin(Vibration_Motor_GPIO_Port, Vibration_Motor_Pin, GPIO_PIN_RESET);
+		  }
+	  }
+
+	  /* Continuous haptic: hold motor on while requested, release when cleared */
+	  if (haptic_continuous && haptic_feedback_intensity > 5)
+	  {
+		  if (!continuous_active)
+		  {
+			  continuous_active = 1;
+			  HAL_GPIO_WritePin(Vibration_Motor_GPIO_Port, Vibration_Motor_Pin, GPIO_PIN_SET);
+		  }
+	  }
+	  else if (continuous_active)
+	  {
+		  continuous_active = 0;
 		  if (haptic_timer == 0)
 		  {
 			  HAL_GPIO_WritePin(Vibration_Motor_GPIO_Port, Vibration_Motor_Pin, GPIO_PIN_RESET);

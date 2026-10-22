@@ -6,7 +6,8 @@
 #include <gui/exercisescreen_screen/ExerciseScreenView.hpp>
 #include <gui/common/FrontendApplication.hpp>
 #include <touchgfx/Application.hpp>
-#include "dragoneye_leds.h"
+#include <gui/common/HwInterface.hpp>
+extern int LED_mode;
 
 using namespace touchgfx;
 
@@ -15,7 +16,10 @@ ExerciseScreenView::ExerciseScreenView() {}
 void ExerciseScreenView::setupScreen()
 {
     ExerciseScreenViewBase::setupScreen();
-    BSP_LED_SetColor(RGB_GREEN);
+    if (LED_mode == 1)
+    {
+        BSP_LED_SetColor(RGB_GREEN);
+    }
 
     initItems();
 
@@ -213,6 +217,17 @@ void ExerciseScreenView::Right()
 void ExerciseScreenView::H_Select()
 {
     // Do exactly what the flexButton1 "Change screen → RunningScreen" does
-    static_cast<FrontendApplication*>(Application::getInstance())
-        ->gotoRunningScreenScreenNoTransition();    // name matches RunningScreen
+    application().gotoRunning();
+}
+
+// ---------- Navigation (animated, see FrontendApplication) ----------
+
+void ExerciseScreenView::goBack()
+{
+    application().gotoHome();
+}
+
+void ExerciseScreenView::openRunning()
+{
+    application().gotoRunning();
 }

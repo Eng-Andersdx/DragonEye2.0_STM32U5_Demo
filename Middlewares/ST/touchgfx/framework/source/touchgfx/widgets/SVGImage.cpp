@@ -1,8 +1,8 @@
 /******************************************************************************
-* Copyright (c) 2018(-2025) STMicroelectronics.
+* Copyright (c) 2018(-2026) STMicroelectronics.
 * All rights reserved.
 *
-* This file is part of the TouchGFX 4.26.0 distribution.
+* This file is part of the TouchGFX 4.27.0 distribution.
 *
 * This software is licensed under terms that can be found in the LICENSE file in
 * the root directory of this software component.
@@ -11,6 +11,7 @@
 *******************************************************************************/
 
 #include <math.h>
+#include <touchgfx/Bitmap.hpp>
 #include <touchgfx/hal/VectorRenderer.hpp>
 #include <touchgfx/widgets/SVGImage.hpp>
 
@@ -23,6 +24,17 @@ uint16_t getInstanceSize();
 
 namespace touchgfx
 {
+template <typename T>
+static const T* adjustFlashPointer(const T* address)
+{
+    return address != 0 ? reinterpret_cast<const T*>(Bitmap::addOffset(reinterpret_cast<const uint8_t*>(address))) : 0;
+}
+
+static const VGObject* getSVGDatabase()
+{
+    return adjustFlashPointer(SVGDatabase::getInstance());
+}
+
 void SVGImage::setSVG(uint16_t id)
 {
     if (id >= SVGDatabase::getInstanceSize())
@@ -47,7 +59,7 @@ void SVGImage::resizeToCurrentSVG()
     {
         return;
     }
-    const VGObject* const table = SVGDatabase::getInstance();
+    const VGObject* const table = getSVGDatabase();
     const VGObject& image = table[svgId];
     const Matrix3x3 matrix = getTransformationMatrix();
     // Transform bounding box corners
@@ -78,7 +90,7 @@ float SVGImage::getImageWidth() const
     {
         return 0.0f;
     }
-    const VGObject* const table = SVGDatabase::getInstance();
+    const VGObject* const table = getSVGDatabase();
     const VGObject& image = table[svgId];
     return image.imageWidth;
 }
@@ -89,7 +101,7 @@ float SVGImage::getImageHeight() const
     {
         return 0.0f;
     }
-    const VGObject* const table = SVGDatabase::getInstance();
+    const VGObject* const table = getSVGDatabase();
     const VGObject& image = table[svgId];
     return image.imageHeight;
 }
@@ -101,7 +113,7 @@ void SVGImage::draw(const Rect& invalidatedArea) const
         return;
     }
 
-    const VGObject* const table = SVGDatabase::getInstance();
+    const VGObject* const table = getSVGDatabase();
     const VGObject& image = table[svgId];
 
     VectorRenderer* renderer = VectorRenderer::getInstance();
@@ -110,7 +122,7 @@ void SVGImage::draw(const Rect& invalidatedArea) const
     renderer->setup(getAbsoluteRect(), invalidatedArea);
 
     const Matrix3x3 matrix = getTransformationMatrix();
-    for (const VGShape* shape = image.shape; shape != 0; shape = shape->next)
+    for (const VGShape* shape = adjustFlashPointer(image.shape); shape != 0; shape = adjustFlashPointer(shape->next))
     {
         Matrix3x3 shapeMatrix;
         shapeMatrix.setAffineTransformation(shape->transformation);
@@ -153,7 +165,7 @@ void SVGImage::draw(const Rect& invalidatedArea) const
                     break; // Guarded above
                 case VG_FIXED_COLOR:
                     {
-                        const VGFixedColor* color = reinterpret_cast<const VGFixedColor*>(shape->fillPaint);
+                        const VGFixedColor* color = adjustFlashPointer(reinterpret_cast<const VGFixedColor*>(shape->fillPaint));
                         renderer->setColor(color->argb);
                         break;
                     }
@@ -163,17 +175,18 @@ void SVGImage::draw(const Rect& invalidatedArea) const
                         const float width = shape->boundingbox[2] - shape->boundingbox[0];
                         const float height = shape->boundingbox[3] - shape->boundingbox[1];
 
-                        const VGLinearGradient* linear = reinterpret_cast<const VGLinearGradient*>(shape->fillPaint);
+                        const VGLinearGradient* linear = adjustFlashPointer(reinterpret_cast<const VGLinearGradient*>(shape->fillPaint));
                         renderer->setLinearGradient(linear->x0, linear->y0, linear->x1, linear->y1,
-                                                    linear->stops, linear->stopPositions, linear->colors,
+                                                    linear->stops, adjustFlashPointer(linear->stopPositions), adjustFlashPointer(linear->colors),
                                                     width, height,
-                                                    linear->isSolid, linear->palette);
+                                                    linear->isSolid, adjustFlashPointer(linear->palette));
                         break;
                     }
                 }
 
                 // Draw this Shape
-                renderer->drawPath(shape->commands, shape->numCommands, shape->points, shape->numPoints, shape->boundingbox);
+                renderer->drawPath(adjustFlashPointer(shape->commands), shape->numCommands,
+                                   adjustFlashPointer(shape->points), shape->numPoints, shape->boundingbox);
             }
 
             // Then stroke
@@ -194,7 +207,7 @@ void SVGImage::draw(const Rect& invalidatedArea) const
                     break; // Guarded above
                 case VG_FIXED_COLOR:
                     {
-                        const VGFixedColor* color = reinterpret_cast<const VGFixedColor*>(shape->strokePaint);
+                        const VGFixedColor* color = adjustFlashPointer(reinterpret_cast<const VGFixedColor*>(shape->strokePaint));
                         renderer->setColor(color->argb);
                         break;
                     }
@@ -204,11 +217,11 @@ void SVGImage::draw(const Rect& invalidatedArea) const
                         const float width = shape->boundingbox[2] - shape->boundingbox[0] + shape->strokeWidth;
                         const float height = shape->boundingbox[3] - shape->boundingbox[1] + shape->strokeWidth;
 
-                        const VGLinearGradient* linear = reinterpret_cast<const VGLinearGradient*>(shape->strokePaint);
+                        const VGLinearGradient* linear = adjustFlashPointer(reinterpret_cast<const VGLinearGradient*>(shape->strokePaint));
                         renderer->setLinearGradient(linear->x0, linear->y0, linear->x1, linear->y1,
-                                                    linear->stops, linear->stopPositions, linear->colors,
+                                                    linear->stops, adjustFlashPointer(linear->stopPositions), adjustFlashPointer(linear->colors),
                                                     width, height,
-                                                    linear->isSolid, linear->palette);
+                                                    linear->isSolid, adjustFlashPointer(linear->palette));
                         break;
                     }
                 }
@@ -216,7 +229,8 @@ void SVGImage::draw(const Rect& invalidatedArea) const
                 // Draw this Shape
                 const float boundingbox[4] = { shape->boundingbox[0] - strokeWidthHalf, shape->boundingbox[1] - strokeWidthHalf,
                                                shape->boundingbox[2] + strokeWidthHalf, shape->boundingbox[3] + strokeWidthHalf };
-                renderer->drawPath(shape->commands, shape->numCommands, shape->points, shape->numPoints, boundingbox);
+                renderer->drawPath(adjustFlashPointer(shape->commands), shape->numCommands,
+                                   adjustFlashPointer(shape->points), shape->numPoints, boundingbox);
             }
         }
     }
@@ -231,7 +245,7 @@ void SVGImage::invalidateContent() const
     {
         return;
     }
-    const VGObject* const table = SVGDatabase::getInstance();
+    const VGObject* const table = getSVGDatabase();
     const VGObject& image = table[svgId];
     const Matrix3x3 matrix = getTransformationMatrix();
     // Transform bounding box corners

@@ -27,6 +27,7 @@ public:
 
     virtual void setupScreen() override;
     virtual void tearDownScreen() override;
+    virtual void goBack();   // navigation (Designer interaction)
     virtual void handleTickEvent() override;
 
     // Wired by Designer (check your Interaction names)

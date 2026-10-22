@@ -231,6 +231,13 @@
         "CanvasBufferSize": 7200,
         "Components": [
           {
+            "Type": "Image",
+            "Name": "app_bg",
+            "Width": 480,
+            "Height": 480,
+            "RelativeFilename": "app_bg\\app_bg_volume.png"
+          },
+          {
             "Type": "CircleProgress",
             "Name": "volRing_1",
             "X": 47,
@@ -413,9 +420,8 @@
               "TriggerComponent": "back_flex"
             },
             "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "MenuScreen"
+              "Type": "ActionCustom",
+              "FunctionName": "goBack"
             }
           },
           {
@@ -1162,6 +1168,13 @@
         "Name": "ExerciseScreen",
         "Components": [
           {
+            "Type": "Image",
+            "Name": "app_bg",
+            "Width": 480,
+            "Height": 480,
+            "RelativeFilename": "app_bg\\app_bg_exercise.png"
+          },
+          {
             "Type": "FlexButton",
             "Name": "back_flex",
             "X": 189,
@@ -1310,9 +1323,8 @@
               "TriggerComponent": "flexButton1"
             },
             "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "RunningScreen"
+              "Type": "ActionCustom",
+              "FunctionName": "openRunning"
             }
           },
           {
@@ -1322,9 +1334,8 @@
               "TriggerComponent": "back_flex"
             },
             "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "MenuScreen"
+              "Type": "ActionCustom",
+              "FunctionName": "goBack"
             }
           },
           {
@@ -1365,6 +1376,13 @@
         "Name": "RunningScreen",
         "CanvasBufferSize": 7200,
         "Components": [
+          {
+            "Type": "Image",
+            "Name": "app_bg",
+            "Width": 480,
+            "Height": 480,
+            "RelativeFilename": "app_bg\\app_bg_exercise.png"
+          },
           {
             "Type": "FlexButton",
             "Name": "back_flex",
@@ -1552,9 +1570,8 @@
               "TriggerComponent": "back_flex"
             },
             "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "ExerciseScreen"
+              "Type": "ActionCustom",
+              "FunctionName": "goBack"
             }
           },
           {
@@ -1615,6 +1632,13 @@
                 "Moveable": true
               }
             ]
+          },
+          {
+            "Type": "Image",
+            "Name": "heat_glow",
+            "Width": 480,
+            "Height": 480,
+            "RelativeFilename": "oven_fx\\oven_heat_glow.png"
           },
           {
             "Type": "TextArea",
@@ -1760,9 +1784,8 @@
               "TriggerComponent": "back_flex"
             },
             "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "MenuScreen"
+              "Type": "ActionCustom",
+              "FunctionName": "goBack"
             }
           },
           {
@@ -1992,9 +2015,8 @@
               "TriggerComponent": "back_flex"
             },
             "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "MenuScreen"
+              "Type": "ActionCustom",
+              "FunctionName": "goBack"
             }
           },
           {
@@ -2027,6 +2049,841 @@
             "Action": {
               "Type": "ActionCustom",
               "FunctionName": "tap_areaClicked"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "SettingScreen",
+        "Components": [
+          {
+            "Type": "Image",
+            "Name": "app_bg",
+            "Width": 480,
+            "Height": 480,
+            "RelativeFilename": "app_bg\\app_bg_settings.png"
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "back_flex",
+            "X": 189,
+            "Y": 396,
+            "Width": 110,
+            "Height": 100,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "IconButtonStyle",
+                "X": 28,
+                "Y": 23,
+                "IconReleased": "Buttons\\Back_icon.png",
+                "IconPressed": "Buttons\\Back_icon.png"
+              }
+            ]
+          },
+          {
+            "Type": "Image",
+            "Name": "red_select",
+            "X": 120,
+            "Y": 5,
+            "Width": 241,
+            "Height": 45,
+            "RelativeFilename": "Selects\\h_select.png"
+          },
+          {
+            "Type": "ButtonWithLabel",
+            "Name": "btn_reset",
+            "X": 120,
+            "Y": 320,
+            "Width": 241,
+            "Height": 51,
+            "Pressed": "settings_cards\\card_reset_pressed.png",
+            "Released": "settings_cards\\card_reset.png",
+            "TextId": "SETTINGS_RESET",
+            "ReleasedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "PressedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "TextRotation": "0"
+          },
+          {
+            "Type": "ButtonWithLabel",
+            "Name": "btn_rgb",
+            "X": 120,
+            "Y": 170,
+            "Width": 241,
+            "Height": 51,
+            "Pressed": "settings_cards\\card_lighting_pressed.png",
+            "Released": "settings_cards\\card_lighting.png",
+            "TextId": "SETTINGS_RGB",
+            "ReleasedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "PressedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "TextRotation": "0"
+          },
+          {
+            "Type": "ButtonWithLabel",
+            "Name": "btn_colour",
+            "X": 120,
+            "Y": 245,
+            "Width": 241,
+            "Height": 51,
+            "Pressed": "settings_cards\\card_colour_pressed.png",
+            "Released": "settings_cards\\card_colour.png",
+            "TextId": "__SingleUse_5ZCB",
+            "ReleasedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "PressedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "TextRotation": "0"
+          },
+          {
+            "Type": "ButtonWithLabel",
+            "Name": "btn_haptics",
+            "X": 120,
+            "Y": 95,
+            "Width": 241,
+            "Height": 51,
+            "Pressed": "settings_cards\\card_haptics_pressed.png",
+            "Released": "settings_cards\\card_haptics.png",
+            "TextId": "SETTINGS_HAPTICS",
+            "ReleasedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "PressedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "TextRotation": "0"
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "back_flex"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "goBack"
+            }
+          },
+          {
+            "InteractionName": "Interaction2",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btn_haptics"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "openHaptics"
+            }
+          },
+          {
+            "InteractionName": "Interaction3",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btn_rgb"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "openLighting"
+            }
+          },
+          {
+            "InteractionName": "Interaction4",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btn_reset"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onResetClicked"
+            }
+          },
+          {
+            "InteractionName": "Interaction5",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btn_colour"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "openColour"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "SettingsHapticScreen",
+        "Components": [
+          {
+            "Type": "Image",
+            "Name": "app_bg",
+            "Width": 480,
+            "Height": 480,
+            "RelativeFilename": "app_bg\\app_bg_settings.png"
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "back_flex",
+            "X": 189,
+            "Y": 396,
+            "Width": 110,
+            "Height": 100,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "IconButtonStyle",
+                "X": 28,
+                "Y": 23,
+                "IconReleased": "Buttons\\Back_icon.png",
+                "IconPressed": "Buttons\\Back_icon.png"
+              }
+            ]
+          },
+          {
+            "Type": "ButtonWithLabel",
+            "Name": "btn_haptic_default",
+            "X": 152,
+            "Y": 287,
+            "Width": 176,
+            "Height": 51,
+            "Pressed": "settings_cards\\card_small_pressed.png",
+            "Released": "settings_cards\\card_small.png",
+            "TextId": "__SingleUse_5W5Z",
+            "ReleasedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "PressedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "TextRotation": "0"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "haptic_value_label",
+            "X": 70,
+            "Y": 204,
+            "Width": 13,
+            "Height": 21,
+            "TextId": "__SingleUse_QEDJ",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true,
+            "Wildcard1": {
+              "TextId": "SETTINGS_HAPTIC_VALUE"
+            }
+          },
+          {
+            "Type": "Slider",
+            "Name": "haptic_slider",
+            "X": 106,
+            "Y": 201,
+            "Width": 332,
+            "Height": 32,
+            "IsHorizontalSlider": true,
+            "BackgroundUnselected": "__generated\\alternate_theme_images_widgets_slider_horizontal_thick_filler_medium.png",
+            "BackgroundSelected": "__generated\\alternate_theme_images_widgets_slider_horizontal_thick_filler_medium.png",
+            "Indicator": "__generated\\alternate_theme_images_widgets_slider_horizontal_thick_round_dark.png",
+            "BackgroundX": 16,
+            "BackgroundY": 11,
+            "IndicatorMax": 300,
+            "ValueMax": 150,
+            "ValueMin": 5,
+            "InitValue": 35
+          },
+          {
+            "Type": "TextArea",
+            "Name": "haptics_title",
+            "X": 112,
+            "Y": 128,
+            "Width": 256,
+            "Height": 37,
+            "TextId": "__SingleUse_EUC6",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "Image",
+            "Name": "red_select",
+            "X": 293,
+            "Y": 12,
+            "Width": 177,
+            "Height": 176,
+            "RelativeFilename": "Selects\\h_select2.png"
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "back_flex"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "goBack"
+            }
+          },
+          {
+            "InteractionName": "Interaction2",
+            "Trigger": {
+              "Type": "TriggerSliderValueConfirmed",
+              "TriggerComponent": "haptic_slider"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onHapticSliderChanged"
+            }
+          },
+          {
+            "InteractionName": "Interaction3",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btn_haptic_default"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onHapticDefaultClicked"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "SettingsRGBScreen",
+        "Components": [
+          {
+            "Type": "Image",
+            "Name": "app_bg",
+            "Width": 480,
+            "Height": 480,
+            "RelativeFilename": "app_bg\\app_bg_settings.png"
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "back_flex",
+            "X": 189,
+            "Y": 396,
+            "Width": 110,
+            "Height": 100,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "IconButtonStyle",
+                "X": 28,
+                "Y": 23,
+                "IconReleased": "Buttons\\Back_icon.png",
+                "IconPressed": "Buttons\\Back_icon.png"
+              }
+            ]
+          },
+          {
+            "Type": "ToggleButton",
+            "Name": "btn_rgb_off",
+            "X": 185,
+            "Y": 115,
+            "Width": 111,
+            "Height": 51,
+            "Pressed": "toggles\\small_white_toggle_on.png",
+            "Released": "toggles\\small_white_toggle_off.png"
+          },
+          {
+            "Type": "Slider",
+            "Name": "colour_slider",
+            "X": 170,
+            "Y": 360,
+            "Width": 232,
+            "Height": 32,
+            "IsHorizontalSlider": true,
+            "BackgroundUnselected": "__generated\\alternate_theme_images_widgets_slider_horizontal_thick_filler_small.png",
+            "BackgroundSelected": "__generated\\alternate_theme_images_widgets_slider_horizontal_thick_filler_small.png",
+            "Indicator": "__generated\\alternate_theme_images_widgets_slider_horizontal_thick_round_dark.png",
+            "BackgroundX": 16,
+            "BackgroundY": 11,
+            "IndicatorMax": 200,
+            "ValueMax": 8
+          },
+          {
+            "Type": "TextArea",
+            "Name": "LED_ring",
+            "X": 107,
+            "Y": 360,
+            "Width": 47,
+            "Height": 25,
+            "TextId": "__SingleUse_OI3E",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "TextArea",
+            "Name": "backlight_label",
+            "X": 65,
+            "Y": 300,
+            "Width": 96,
+            "Height": 25,
+            "TextId": "__SingleUse_5B3S",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "Slider",
+            "Name": "brightness_slider",
+            "X": 170,
+            "Y": 300,
+            "Width": 232,
+            "Height": 32,
+            "IsHorizontalSlider": true,
+            "BackgroundUnselected": "__generated\\alternate_theme_images_widgets_slider_horizontal_thick_filler_small.png",
+            "BackgroundSelected": "__generated\\alternate_theme_images_widgets_slider_horizontal_thick_filler_small.png",
+            "Indicator": "__generated\\alternate_theme_images_widgets_slider_horizontal_thick_round_dark.png",
+            "BackgroundX": 16,
+            "BackgroundY": 11,
+            "IndicatorMax": 200,
+            "ValueMax": 100,
+            "InitValue": 100
+          },
+          {
+            "Type": "TextArea",
+            "Name": "brightness_label",
+            "X": 185,
+            "Y": 265,
+            "Width": 111,
+            "Height": 25,
+            "TextId": "__SingleUse_220L",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "ButtonWithLabel",
+            "Name": "btn_dynamic",
+            "X": 50,
+            "Y": 193,
+            "Width": 176,
+            "Height": 51,
+            "Pressed": "settings_cards\\card_small_pressed.png",
+            "Released": "settings_cards\\card_small.png",
+            "TextId": "SETTINGS_RGB_DYNAMIC",
+            "ReleasedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "PressedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "TextRotation": "0"
+          },
+          {
+            "Type": "ButtonWithLabel",
+            "Name": "btn_fixed",
+            "X": 259,
+            "Y": 193,
+            "Width": 176,
+            "Height": 51,
+            "Pressed": "settings_cards\\card_small_pressed.png",
+            "Released": "settings_cards\\card_small.png",
+            "TextId": "SETTINGS_RGB_FIXED",
+            "ReleasedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "PressedColor": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "TextRotation": "0"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "rgb_title",
+            "X": 177,
+            "Y": 55,
+            "Width": 127,
+            "Height": 37,
+            "TextId": "__SingleUse_VUIH",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "Image",
+            "Name": "red_select",
+            "X": 293,
+            "Y": 12,
+            "Width": 177,
+            "Height": 176,
+            "RelativeFilename": "Selects\\h_select2.png"
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "back_flex"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "goBack"
+            }
+          },
+          {
+            "InteractionName": "Interaction2",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btn_dynamic"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onDynamicClicked"
+            }
+          },
+          {
+            "InteractionName": "Interaction3",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btn_fixed"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onFixedClicked"
+            }
+          },
+          {
+            "InteractionName": "Interaction4",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "colour_slider"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onColourSliderChanged"
+            }
+          },
+          {
+            "InteractionName": "Interaction5",
+            "Trigger": {
+              "Type": "TriggerSliderValueChanged",
+              "TriggerComponent": "brightness_slider"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onBrightnessSliderChanged"
+            }
+          },
+          {
+            "InteractionName": "Interaction6",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "btn_rgb_off"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onRGBOffClicked"
+            }
+          }
+        ]
+      },
+      {
+        "Name": "SettingsColourScreen",
+        "Components": [
+          {
+            "Type": "Image",
+            "Name": "app_bg",
+            "Width": 480,
+            "Height": 480,
+            "RelativeFilename": "app_bg\\app_bg_settings.png"
+          },
+          {
+            "Type": "TextArea",
+            "Name": "haptics_title",
+            "X": 190,
+            "Y": 76,
+            "Width": 101,
+            "Height": 37,
+            "TextId": "__SingleUse_9Q3K",
+            "TextRotation": "0",
+            "Color": {
+              "Red": 255,
+              "Green": 255,
+              "Blue": 255
+            },
+            "AutoSize": true
+          },
+          {
+            "Type": "FlexButton",
+            "Name": "back_flex",
+            "X": 189,
+            "Y": 396,
+            "Width": 110,
+            "Height": 100,
+            "ButtonTrigger": {
+              "Type": "ClickButtonTrigger"
+            },
+            "ButtonStyles": [
+              {
+                "Type": "IconButtonStyle",
+                "X": 28,
+                "Y": 23,
+                "IconReleased": "Buttons\\Back_icon.png",
+                "IconPressed": "Buttons\\Back_icon.png"
+              }
+            ]
+          },
+          {
+            "Type": "Image",
+            "Name": "red_select",
+            "X": 293,
+            "Y": 12,
+            "Width": 177,
+            "Height": 176,
+            "RelativeFilename": "Selects\\h_select2.png"
+          },
+          {
+            "Type": "Button",
+            "Name": "white_button",
+            "X": 60,
+            "Y": 171,
+            "Width": 61,
+            "Height": 61,
+            "Pressed": "colours\\white_selected.png",
+            "Released": "colours\\white_unselected.png"
+          },
+          {
+            "Type": "Button",
+            "Name": "red_button",
+            "X": 160,
+            "Y": 171,
+            "Width": 61,
+            "Height": 61,
+            "Pressed": "colours\\red_selected.png",
+            "Released": "colours\\red_unselected.png"
+          },
+          {
+            "Type": "Button",
+            "Name": "green_button",
+            "X": 260,
+            "Y": 171,
+            "Width": 61,
+            "Height": 61,
+            "Pressed": "colours\\green_selected.png",
+            "Released": "colours\\green_unselected.png"
+          },
+          {
+            "Type": "Button",
+            "Name": "blue_button",
+            "X": 359,
+            "Y": 171,
+            "Width": 60,
+            "Height": 61,
+            "Pressed": "colours\\blue_selected.png",
+            "Released": "colours\\blue_unselected.png"
+          },
+          {
+            "Type": "Button",
+            "Name": "cyan_button",
+            "X": 60,
+            "Y": 284,
+            "Width": 61,
+            "Height": 61,
+            "Pressed": "colours\\cyan_selected.png",
+            "Released": "colours\\cyan_unselected.png"
+          },
+          {
+            "Type": "Button",
+            "Name": "yellow_button",
+            "X": 160,
+            "Y": 284,
+            "Width": 61,
+            "Height": 61,
+            "Pressed": "colours\\yellow_selected.png",
+            "Released": "colours\\yellow_unselected.png"
+          },
+          {
+            "Type": "Button",
+            "Name": "orange_button",
+            "X": 260,
+            "Y": 284,
+            "Width": 60,
+            "Height": 61,
+            "Pressed": "colours\\orange_selected.png",
+            "Released": "colours\\orange_unselected.png"
+          },
+          {
+            "Type": "Button",
+            "Name": "magenta_button",
+            "X": 359,
+            "Y": 284,
+            "Width": 61,
+            "Height": 61,
+            "Pressed": "colours\\magenta_selected.png",
+            "Released": "colours\\magenta_unselected.png"
+          }
+        ],
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "back_flex"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "goBack"
+            }
+          },
+          {
+            "InteractionName": "Interaction2",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "white_button"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onWhiteButtonClicked"
+            }
+          },
+          {
+            "InteractionName": "Interaction3",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "green_button"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onGreenButtonClicked"
+            }
+          },
+          {
+            "InteractionName": "Interaction4",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "red_button"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onRedButtonClicked"
+            }
+          },
+          {
+            "InteractionName": "Interaction5",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "blue_button"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onBlueButtonClicked"
+            }
+          },
+          {
+            "InteractionName": "Interaction6",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "cyan_button"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onCyanButtonClicked"
+            }
+          },
+          {
+            "InteractionName": "Interaction7",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "yellow_button"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onYellowButtonClicked"
+            }
+          },
+          {
+            "InteractionName": "Interaction8",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "orange_button"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onOrangeButtonClicked"
+            }
+          },
+          {
+            "InteractionName": "Interaction9",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "magenta_button"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "onMagentaButtonClicked"
             }
           }
         ]
@@ -2100,5 +2957,5 @@
       "Video"
     ]
   },
-  "Version": "4.26.0"
+  "Version": "4.27.0"
 }

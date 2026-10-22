@@ -8,10 +8,10 @@
 #include <mvp/View.hpp>
 #include <gui/volume_screen/VolumePresenter.hpp>
 #include <touchgfx/widgets/Box.hpp>
+#include <touchgfx/widgets/Image.hpp>
 #include <touchgfx/containers/progress_indicators/CircleProgress.hpp>
 #include <touchgfx/widgets/canvas/PainterRGB888.hpp>
 #include <touchgfx/containers/buttons/Buttons.hpp>
-#include <touchgfx/widgets/Image.hpp>
 
 class VolumeViewBase : public touchgfx::View<VolumePresenter>
 {
@@ -29,6 +29,10 @@ public:
         // Override and implement this function in Volume
     }
     virtual void onMinusClicked()
+    {
+        // Override and implement this function in Volume
+    }
+    virtual void goBack()
     {
         // Override and implement this function in Volume
     }
@@ -50,6 +54,7 @@ protected:
      * Member Declarations
      */
     touchgfx::Box __background;
+    touchgfx::Image app_bg;
     touchgfx::CircleProgress volRing_1;
     touchgfx::PainterRGB888 volRing_1Painter;
     touchgfx::CircleProgress volRing;

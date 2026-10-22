@@ -136,10 +136,10 @@ uint32_t nema_vg_draw_path(NEMA_VG_PATH_HANDLE path, NEMA_VG_PAINT_HANDLE paint)
 
 /** \brief Draw a line shape
  *
- *  \param x1 Upper left x coordinate
- *  \param y1 Upper left y coordinate
- *  \param x2 The width
- *  \param y2 The height
+ *  \param x1 Start point x coordinate
+ *  \param y1 Start point y coordinate
+ *  \param x2 End point x coordinate
+ *  \param y2 End point y coordinate
  *  \param m 3x3 affine transformation matrix
  *  \param paint The paint to draw
 

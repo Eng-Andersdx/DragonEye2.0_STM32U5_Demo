@@ -93,6 +93,14 @@ typedef float nema_vg_float_t; /**< Floating point data type (default is 'float'
 #define NEMA_VG_QUALITY_MAXIMUM             (0x02U) /**< Maximum rendering quality (favors rendering quality over performance)*/
 #define NEMA_VG_QUALITY_NON_AA              (0x10U) /**< Rendering quality without AA*/
 
+#define NEMA_VG_GRAD_QUALITY_FASTER         (0x00000040U) /**< Faster rendering quality (default option, favors performance over gradient rendering quality)*/
+#define NEMA_VG_GRAD_QUALITY_BETTER         (0x00000100U) /**< Better rendering quality (balances gradient rendering quality and performance)*/
+#define NEMA_VG_GRAD_QUALITY_MAXIMUM        (0x00000200U) /**< Maximum rendering quality (favors gradient rendering quality over performance)*/
+
+#define NEMA_VG_GRAD_DEFAULT_ALGO           (0x00U) /**< Use the default algorithm for nema_vg_grad_set(); favors performance over quality. */
+#define NEMA_VG_GRAD_ACCURATE_ALGO          (0x01U) /**< Use nema_vg_grad_set_accurate() when calling nema_vg_grad_set(); favors accuracy over performance.*/
+#define NEMA_VG_GRAD_ALGO_MAX               (0x02U) /**< Maximum valid value for gradient algorithm selection. */
+
 #define NEMA_VG_CAP_BUTT                    (0x00U) /**< Butt cap*/
 #define NEMA_VG_CAP_ROUND                   (0x01U) /**< Round cap*/
 #define NEMA_VG_CAP_SQUARE                  (0x02U) /**< Square cap*/
@@ -224,6 +232,27 @@ void nema_vg_set_mask_translation(float x, float y);
  *
  */
 void nema_vg_set_quality(uint8_t quality);
+
+/**
+ * \brief Set the gradient rendering quality and algorithm.
+ *
+ * This function sets the quality level for gradient rendering. The selected quality
+ * will affect all gradient objects created after this call (see nema_vg_grad_set()
+ * and nema_vg_grad_set_accurate()).
+ *
+ * By default, the quality level is NEMA_VG_GRAD_QUALITY_FASTER, which is optimal
+ * for most gradients with static stops. If gradient stops are dynamically changed,
+ * higher quality levels may improve rendering at the cost of increased render time.
+ *
+ * \param grad_quality The desired quality level (e.g., NEMA_VG_GRAD_QUALITY_FASTER, NEMA_VG_GRAD_QUALITY_BETTER, NEMA_VG_GRAD_QUALITY_MAXIMUM).
+ *        Any positive integer value is accepted and may provide a suitable trade-off between quality and performance.
+ *        The NEMA_VG_GRAD_QUALITY_* defines are provided as guidelines.
+ * \param grad_algo Selects the algorithm used for gradient generation:
+ *        - NEMA_VG_GRAD_DEFAULT_ALGO: Use the default algorithm (favors performance).
+ *        - NEMA_VG_GRAD_ACCURATE_ALGO: Use nema_vg_grad_set_accurate() for more accurate stops (favors quality).
+ *        Values outside the defined range are ignored.
+ */
+void nema_vg_set_grad_quality(uint32_t grad_quality, uint8_t grad_algo);
 
 /** \brief Set the blending mode for VG operations (see nema_blender.h documentation in NemaGFX API Manual)
  *  Additional Blending Operations: only NEMA_BLOP_SRC_PREMULT is supported

@@ -130,6 +130,8 @@ void CompressedFontCache::clearCache()
 
 void CompressedFontCache::unableToCache(const GlyphNode* glyphNode, int byteSize)
 {
+    (void)glyphNode;
+    (void)byteSize;
     while(1);
 }
 

@@ -1,8 +1,8 @@
 /******************************************************************************
-* Copyright (c) 2018(-2025) STMicroelectronics.
+* Copyright (c) 2018(-2026) STMicroelectronics.
 * All rights reserved.
 *
-* This file is part of the TouchGFX 4.26.0 distribution.
+* This file is part of the TouchGFX 4.27.0 distribution.
 *
 * This software is licensed under terms that can be found in the LICENSE file in
 * the root directory of this software component.
@@ -59,6 +59,16 @@ public:
      * @note The image is not resized and invalidated after setting the id.
      */
     virtual void setSVG(uint16_t id);
+
+    /**
+     * Gets the SVG ID currently assigned to the SVGImage widget.
+     *
+     * @return The current SVG ID of the widget.
+     */
+    uint16_t getSVGId() const
+    {
+        return svgId;
+    }
 
     /** Resize the Widget to match the size of the SVG drawing. */
     void resizeToCurrentSVG();

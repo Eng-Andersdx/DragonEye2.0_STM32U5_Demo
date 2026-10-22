@@ -6,6 +6,7 @@
 #include <touchgfx/Texts.hpp>
 #include <touchgfx/TypedText.hpp>
 #include <touchgfx/Unicode.hpp>
+#include <touchgfx/hal/ExternalFlash.h>
 #include <touchgfx/hal/HAL.hpp>
 #include <touchgfx/lcd/LCD.hpp>
 #include <texts/TypedTextDatabase.hpp>
@@ -13,6 +14,11 @@
 #include <touchgfx/hal/FlashDataReader.hpp>
 #include <fonts/ApplicationFontProvider.hpp>
 <% end %>
+
+namespace touchgfx
+{
+static uint32_t text_flash_offset = 0;
+}
 
 uint16_t touchgfx::Font::getStringWidth(const touchgfx::Unicode::UnicodeChar* text, ...) const
 {
@@ -179,11 +185,11 @@ void touchgfx::Texts::setLanguage(touchgfx::LanguageId id)
         {
             // Compiled and linked in languages
 <% if remap_global? %>
-            currentLanguagePtr = texts_all_languages;
-            currentLanguageIndices = staticLanguageIndices[id];
+            currentLanguagePtr = (const touchgfx::Unicode::UnicodeChar*)((const uint8_t*)texts_all_languages + text_flash_offset);
+            currentLanguageIndices = (const uint32_t*)((const uint8_t*)staticLanguageIndices[id] + text_flash_offset);
 <% else %>
 <% if not copy_translations? %>
-            currentLanguagePtr = staticLanguageTexts[id];
+            currentLanguagePtr = (const touchgfx::Unicode::UnicodeChar*)((const uint8_t*)staticLanguageTexts[id] + text_flash_offset);
 <% else %>
             // Read translations from unmapped flash
 #ifdef SIMULATOR
@@ -192,15 +198,16 @@ void touchgfx::Texts::setLanguage(touchgfx::LanguageId id)
             touchgfx::FlashDataReader* const flashReader = ApplicationFontProvider::getFlashReader();
             if (flashReader)
             {
-                flashReader->copyData(staticLanguageTexts[id], translationBuffer, staticLanguageSizes[id] * 2);
+                flashReader->copyData((const touchgfx::Unicode::UnicodeChar*)((const uint8_t*)staticLanguageTexts[id] + text_flash_offset),
+                                      translationBuffer, staticLanguageSizes[id] * 2);
             }
 #endif
 
             currentLanguagePtr = translationBuffer;
 <% end %>
-            currentLanguageIndices = staticLanguageIndices[id];
+            currentLanguageIndices = (const uint32_t*)((const uint8_t*)staticLanguageIndices[id] + text_flash_offset);
 <% end %>
-            currentLanguageTypedText = typedTextDatabaseArray[id];
+            currentLanguageTypedText = (const touchgfx::TypedText::TypedTextData*)((const uint8_t*)typedTextDatabaseArray[id] + text_flash_offset);
         }
 <% end %>
     }
@@ -221,4 +228,9 @@ void touchgfx::Texts::setTranslation(touchgfx::LanguageId id, const void* transl
 const touchgfx::Unicode::UnicodeChar* touchgfx::Texts::getText(TypedTextId id) const
 {
     return &currentLanguagePtr[currentLanguageIndices[id]];
+}
+
+extern "C" void touchgfx_setTextFlashOffset(uint32_t offset)
+{
+    touchgfx::text_flash_offset = offset;
 }

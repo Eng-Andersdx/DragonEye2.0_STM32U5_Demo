@@ -8,10 +8,12 @@
 
 namespace touchgfx
 {
+extern uint32_t font_flash_offset;
+
 GeneratedFont::GeneratedFont(const GlyphNode* glyphs, uint16_t numGlyphs, uint16_t height, uint16_t baseline, uint8_t pixAboveTop, uint8_t pixBelowBottom, uint8_t bitsPerPixel, uint8_t byteAlignRow, uint8_t maxLeft, uint8_t maxRight, const uint8_t* const* glyphDataInternalFlash, const KerningNode* kerningList, const Unicode::UnicodeChar fallbackChar, const Unicode::UnicodeChar ellipsisChar, const uint16_t* const gsubData, const FontContextualFormsTable* formsTable)
-    : ConstFont(glyphs, numGlyphs, height, baseline, pixAboveTop, pixBelowBottom, bitsPerPixel, byteAlignRow, maxLeft, maxRight, fallbackChar, ellipsisChar),
+    : ConstFont((const GlyphNode*)((const uint8_t*)glyphs + font_flash_offset), numGlyphs, height, baseline, pixAboveTop, pixBelowBottom, bitsPerPixel, byteAlignRow, maxLeft, maxRight, fallbackChar, ellipsisChar),
       glyphData(glyphDataInternalFlash),
-      kerningData(kerningList),
+      kerningData((const KerningNode*)((const uint8_t*)kerningList + font_flash_offset)),
       gsubTable(gsubData),
       arabicTable(formsTable)
 {
@@ -26,7 +28,7 @@ const uint8_t* GeneratedFont::getPixelData(const GlyphNode* glyph) const
 
     const uint8_t* const* table = (const uint8_t* const*)glyphData;
     const uint8_t* pixels = table[glyph->unicode / 2048];
-    return pixels + offset;
+    return pixels + offset + font_flash_offset;
 }
 
 int8_t GeneratedFont::getKerning(Unicode::UnicodeChar prevChar, const GlyphNode* glyph) const
@@ -78,7 +80,8 @@ GeneratedVectorFont::GeneratedVectorFont(uint16_t baseline, float scale, const V
         (uint8_t)ceilf(fontData.maxRight * scale),
         fontData.fallbackChar,
         fontData.ellipsisChar),
-   scaleFactor(scale), vectorNodes(vectorGlyphs), vectorTable(glyphData), kerningTable(kerning),
+   scaleFactor(scale), vectorNodes((const VectorFontNode*)((const uint8_t*)vectorGlyphs + font_flash_offset)),
+   vectorTable(glyphData), kerningTable((const VectorKerningNode*)((const uint8_t*)kerning + font_flash_offset)),
    arabicTable(formsTable), numberOfGlyphs(fontData.numberOfGlyphs)
 {
     if (gsubData[0] != 0)
@@ -114,7 +117,7 @@ const GlyphNode* GeneratedVectorFont::getGlyph(Unicode::UnicodeChar unicode, con
     else
     {
         const uint16_t* contourData = &(vectorTable[unicode / 2048][node->dataOffset]);
-        pixelData = (const uint8_t*)contourData;
+        pixelData = (const uint8_t*)contourData + font_flash_offset;
         bitsPerPixel = 0xFF;
         return getGlyphNode(node);
     }
@@ -304,7 +307,7 @@ const uint8_t* CompressedMappedFont::getPixelData(const GlyphNode* glyph) const
 
     const uint8_t* const* table = (const uint8_t* const*)glyphData;
     const uint8_t* compressedData = &(table[glyph->unicode / 2048][glyph->dataOffset & 0x3FFFFFFF]);
-    return CompressedFontCache::cacheGlyph(glyph, compressedData);
+    return CompressedFontCache::cacheGlyph(glyph, compressedData + font_flash_offset);
 }
 
 } // namespace touchgfx

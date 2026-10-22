@@ -4,7 +4,8 @@
 #include <touchgfx/mixins/FadeAnimator.hpp>
 #include <touchgfx/widgets/AnimatedImage.hpp>
 #include <BitmapDatabase.hpp>
-#include "dragoneye_leds.h"
+#include <gui/common/HwInterface.hpp>
+extern int LED_mode;
 
 using namespace touchgfx;
 
@@ -13,7 +14,10 @@ CoffeeView::CoffeeView() {}
 void CoffeeView::setupScreen()
 {
     CoffeeViewBase::setupScreen();
-    BSP_LED_SetColor(RGB_COFFEE);
+    if (LED_mode == 1)
+    {
+        BSP_LED_SetColor(RGB_COFFEE);
+    }
 
     // Fixed assumption for simulator
     fps = 60;
@@ -289,4 +293,11 @@ void CoffeeView::goRight()
 {
     // behave exactly like the right arrow (next coffee)
     onNextClicked();
+}
+
+// ---------- Navigation (animated, see FrontendApplication) ----------
+
+void CoffeeView::goBack()
+{
+    application().gotoHome();
 }

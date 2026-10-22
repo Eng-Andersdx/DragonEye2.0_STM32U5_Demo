@@ -29,6 +29,14 @@
 #include <gui/oventempview_screen/OvenTempViewPresenter.hpp>
 #include <gui/coffee_screen/CoffeeView.hpp>
 #include <gui/coffee_screen/CoffeePresenter.hpp>
+#include <gui/settingscreen_screen/SettingScreenView.hpp>
+#include <gui/settingscreen_screen/SettingScreenPresenter.hpp>
+#include <gui/settingshapticscreen_screen/SettingsHapticScreenView.hpp>
+#include <gui/settingshapticscreen_screen/SettingsHapticScreenPresenter.hpp>
+#include <gui/settingsrgbscreen_screen/SettingsRGBScreenView.hpp>
+#include <gui/settingsrgbscreen_screen/SettingsRGBScreenPresenter.hpp>
+#include <gui/settingscolourscreen_screen/SettingsColourScreenView.hpp>
+#include <gui/settingscolourscreen_screen/SettingsColourScreenPresenter.hpp>
 
 using namespace touchgfx;
 
@@ -114,32 +122,6 @@ void FrontendApplicationBase::gotoHobScreenScreenNoTransition()
 void FrontendApplicationBase::gotoHobScreenScreenNoTransitionImpl()
 {
     touchgfx::makeTransition<HobScreenView, HobScreenPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
-}
-
-// ExerciseScreen
-
-void FrontendApplicationBase::gotoExerciseScreenScreenNoTransition()
-{
-    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoExerciseScreenScreenNoTransitionImpl);
-    pendingScreenTransitionCallback = &transitionCallback;
-}
-
-void FrontendApplicationBase::gotoExerciseScreenScreenNoTransitionImpl()
-{
-    touchgfx::makeTransition<ExerciseScreenView, ExerciseScreenPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
-}
-
-// RunningScreen
-
-void FrontendApplicationBase::gotoRunningScreenScreenNoTransition()
-{
-    transitionCallback = touchgfx::Callback<FrontendApplicationBase>(this, &FrontendApplicationBase::gotoRunningScreenScreenNoTransitionImpl);
-    pendingScreenTransitionCallback = &transitionCallback;
-}
-
-void FrontendApplicationBase::gotoRunningScreenScreenNoTransitionImpl()
-{
-    touchgfx::makeTransition<RunningScreenView, RunningScreenPresenter, touchgfx::NoTransition, Model >(&currentScreen, &currentPresenter, frontendHeap, &currentTransition, &model);
 }
 
 // OvenTempView

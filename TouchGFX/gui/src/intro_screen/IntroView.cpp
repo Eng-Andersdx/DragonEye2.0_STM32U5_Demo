@@ -66,7 +66,7 @@ void IntroView::handleTickEvent()
             holdActive = false;
 
             // After 2s on last frame → go to your next screen
-            application().gotoMenuScreenScreenNoTransition();
+            application().gotoHomeNoTransition();
             // ^ replace with whatever transition you currently use
         }
     }
@@ -88,6 +88,6 @@ void IntroView::onDragonAnimDone(const touchgfx::AnimatedImage& src)
     dragonAnim.setAlpha(0);
     dragonAnim.invalidate();
 
-    application().gotoMenuScreenScreenNoTransition();
+    application().gotoHomeNoTransition();
 }
 

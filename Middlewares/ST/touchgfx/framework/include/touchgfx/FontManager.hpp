@@ -1,8 +1,8 @@
 /******************************************************************************
-* Copyright (c) 2018(-2025) STMicroelectronics.
+* Copyright (c) 2018(-2026) STMicroelectronics.
 * All rights reserved.
 *
-* This file is part of the TouchGFX 4.26.0 distribution.
+* This file is part of the TouchGFX 4.27.0 distribution.
 *
 * This software is licensed under terms that can be found in the LICENSE file in
 * the root directory of this software component.
@@ -31,6 +31,11 @@ class FontProvider
 {
 public:
     /**
+     * Initializes this FontProvider.
+     */
+    virtual void initialize() = 0;
+
+    /**
      * Gets a Font.
      *
      * @param  fontId The FontId of the font to get.
@@ -55,8 +60,8 @@ class FontManager
 {
 public:
     /**
-     * Sets the font provider. Must be initialized with the appropriate FontProvider by the
-     * application.
+     * Sets the font provider.
+     * Note: Calls fontProvider->initialize().
      *
      * @param [in] fontProvider Sets the font provider. Must be initialized with the
      *                          appropriate FontProvider by the application.

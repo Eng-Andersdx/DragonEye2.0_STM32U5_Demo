@@ -15,6 +15,7 @@ const touchgfx::TypedText::TypedTextData* getInstance();
 const touchgfx::Font** getFonts();
 const touchgfx::Font* setFont(touchgfx::FontId fontId, const touchgfx::Font*);
 void resetFont(touchgfx::FontId fontId);
+void initializeFonts();
 uint16_t getInstanceSize();
 } // namespace TypedTextDatabase
 

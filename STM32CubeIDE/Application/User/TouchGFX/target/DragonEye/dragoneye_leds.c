@@ -114,6 +114,8 @@ GPIO_TypeDef* GPIO_PORT[LEDn] = {DSI_BL_CTRL_GPIO_Port,
 
 static TIM_HandleTypeDef *tim_handle=NULL, *bl_handle=NULL;  // Static global variable for internal use only
 static uint32_t r_channel, g_channel, b_channel, bl_channel;
+/* 1 = dynamic (each screen sets its own colour), 0 = fixed/off (set from Settings) */
+int LED_mode=1;
 
 /**
   * @brief  Configures LED GPIO.

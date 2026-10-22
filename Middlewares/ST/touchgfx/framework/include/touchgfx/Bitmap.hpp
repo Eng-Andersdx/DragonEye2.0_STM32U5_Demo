@@ -1,8 +1,8 @@
 /******************************************************************************
-* Copyright (c) 2018(-2025) STMicroelectronics.
+* Copyright (c) 2018(-2026) STMicroelectronics.
 * All rights reserved.
 *
-* This file is part of the TouchGFX 4.26.0 distribution.
+* This file is part of the TouchGFX 4.27.0 distribution.
 *
 * This software is licensed under terms that can be found in the LICENSE file in
 * the root directory of this software component.
@@ -344,6 +344,20 @@ public:
     static bool decompress(BitmapId id, uint16_t* buffer = 0);
 
     /**
+     * Decompress a compressed bitmap into the bitmap cache using hardware
+     * accelerated decompression. The decompressed bitmap will automatically
+     * be used by all Widgets.
+     *
+     * Only compressed RGB565, RGB888 and ARGB8888 bitmaps can be decompressed with this method.
+     *
+     * If decompressing L8 bitmaps use the decompress method instead.
+     *
+     * @param  id The id of the Bitmap to decompress.
+     * @return true if the bitmap was decompressed.
+     */
+    static bool decompressHW(BitmapId id);
+
+    /**
      * Decompress a compressed bitmap into the bitmap cache. The
      * decompressed bitmap will automatically be used by all Widgets.
      *
@@ -386,7 +400,10 @@ public:
      *
      * @return  BitmapId of the new Bitmap or #BITMAP_INVALID if cache memory is full.
      *
-     * @see DynamicBitmapData, dynamicBitmapCreateL8, dynamicBitmapCreateCopy
+     * @note The pixel data of the new bitmap is not zeroed/initialized; it contains whatever was
+     *       previously in that part of the cache. Use dynamicBitmapClear() to zero it out.
+     *
+     * @see DynamicBitmapData, dynamicBitmapCreateL8, dynamicBitmapCreateCopy, dynamicBitmapClear
      */
     static BitmapId dynamicBitmapCreate(const uint16_t width, const uint16_t height, BitmapFormat format, ClutFormat clutFormat = CLUT_FORMAT_L8_ARGB8888);
 
@@ -413,7 +430,11 @@ public:
      *
      * @return  BitmapId of the new Bitmap or #BITMAP_INVALID if cache memory is full.
      *
-     * @see DynamicBitmapData, dynamicBitmapCreate
+     * @note Only the CLUT header (format and number of colors) is initialized; neither the pixel
+     *       data nor the palette color entries are zeroed. Use dynamicBitmapClear() to zero them
+     *       out (the CLUT header is preserved/re-established by dynamicBitmapClear()).
+     *
+     * @see DynamicBitmapData, dynamicBitmapCreate, dynamicBitmapClear
      */
     static BitmapId dynamicBitmapCreateL8(const uint16_t width, const uint16_t height, ClutFormat clutFormat, uint16_t clutSize = 256);
 
@@ -435,7 +456,10 @@ public:
      *       memory. Do not rely on bitmap memory addresses of dynamic bitmaps obtained from
      *       dynamicBitmapGetAddress() to be valid across calls to dynamicBitmapCreateCustom() .
      *
-     * @see dynamicBitmapGetAddress, dynamicBitmapCreate, dynamicBitmapSetSolidRect
+     * @note The reserved pixel data is not zeroed/initialized; it contains whatever was
+     *       previously in that part of the cache. Use dynamicBitmapClear() to zero it out.
+     *
+     * @see dynamicBitmapGetAddress, dynamicBitmapCreate, dynamicBitmapSetSolidRect, dynamicBitmapClear
      */
     static BitmapId dynamicBitmapCreateCustom(const uint16_t width, const uint16_t height, uint8_t customSubformat, uint32_t size);
 
@@ -470,6 +494,23 @@ public:
      * @see dynamicBitmapCreateL8, dynamicBitmapCreateExternal, dynamicBitmapSetSolidRect
      */
     static BitmapId dynamicBitmapCreateExternalL8(const uint16_t width, const uint16_t height, const void* pixels);
+
+    /**
+     * Clear a dynamic bitmap by setting all pixel data to zero. This is typically used to
+     * initialize the memory of a newly created dynamic bitmap, as this memory is not
+     * cleared automatically.
+     *
+     * The solid rectangle is reset to the format's default, i.e. the whole bitmap for
+     * opaque formats and empty for formats with an alpha channel, exactly as when the
+     * bitmap was created. For L8 bitmaps, the CLUT header (format and number of colors) is
+     * re-established after the clear, but the actual palette color entries are cleared like
+     * any other pixel data.
+     *
+     * @param   id      The ID of the dynamic bitmap to clear.
+     *
+     * @see dynamicBitmapCreate, dynamicBitmapCreateL8, dynamicBitmapCreateCustom, dynamicBitmapFill
+     */
+    static void dynamicBitmapClear(const BitmapId id);
 
     /**
      * Fill a dynamic Bitmap with a color. If alpha is less than 255, the color will be blended onto
@@ -603,6 +644,14 @@ public:
      * by Bitmap::cache when required.
      */
     static void compactCache();
+
+    /**
+     * Adjusts an image data address for the configured flash offset.
+     *
+     * @param address Pointer to image data.
+     * @return The adjusted pointer, or the original pointer for internal flash data.
+     */
+    static const uint8_t* addOffset(const uint8_t* address);
 
 private:
     static uint32_t getSizeOfBitmap(BitmapId id);

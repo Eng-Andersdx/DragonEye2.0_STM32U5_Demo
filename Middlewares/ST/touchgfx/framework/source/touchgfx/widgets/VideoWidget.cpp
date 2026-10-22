@@ -1,8 +1,8 @@
 /******************************************************************************
-* Copyright (c) 2018(-2025) STMicroelectronics.
+* Copyright (c) 2018(-2026) STMicroelectronics.
 * All rights reserved.
 *
-* This file is part of the TouchGFX 4.26.0 distribution.
+* This file is part of the TouchGFX 4.27.0 distribution.
 *
 * This software is licensed under terms that can be found in the LICENSE file in
 * the root directory of this software component.
@@ -148,7 +148,8 @@ void VideoWidget::setFrameRate(uint32_t ui_frames, uint32_t video_frames) const
 
 void VideoWidget::setVideoData(const uint8_t* movie, const uint32_t length)
 {
-    VideoController::getInstance().setVideoData(handle, movie, length);
+    const uint8_t* const adjustedMovie = movie != 0 ? Bitmap::addOffset(movie) : 0;
+    VideoController::getInstance().setVideoData(handle, adjustedMovie, length);
 
     readVideoInformation();
 }

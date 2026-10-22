@@ -1,12 +1,16 @@
 #include <gui/volume_screen/VolumeView.hpp>
-#include "dragoneye_leds.h"
+#include <gui/common/HwInterface.hpp>
+extern int LED_mode;
 
 using namespace touchgfx;
 
 void VolumeView::setupScreen()
 {
     VolumeViewBase::setupScreen();
-    BSP_LED_SetColor(RGB_WHITE);
+    if (LED_mode == 1)
+    {
+        BSP_LED_SetColor(RGB_WHITE);
+    }
 
     // Ensure a known start: show “0” and hide others (Designer visibility doesn’t matter)
     vol_0.setVisible(true);
@@ -76,4 +80,11 @@ void VolumeView::goLeft()
 {
     // Hardware button 0 (anti-clockwise): volume down
     onMinusClicked();
+}
+
+// ---------- Navigation (animated, see FrontendApplication) ----------
+
+void VolumeView::goBack()
+{
+    application().gotoHome();
 }

@@ -31,6 +31,10 @@ OvenTempViewViewBase::OvenTempViewViewBase() :
 
     add(blackContainer);
 
+    heat_glow.setXY(0, 0);
+    heat_glow.setBitmap(touchgfx::Bitmap(BITMAP_OVEN_HEAT_GLOW_ID));
+    add(heat_glow);
+
     Temperature.setXY(107, 141);
     Temperature.setColor(touchgfx::Color::getColorFromRGB(255, 255, 255));
     Temperature.setLinespacing(0);
@@ -107,9 +111,9 @@ void OvenTempViewViewBase::flexButtonCallbackHandler(const touchgfx::AbstractBut
     if (&src == &back_flex)
     {
         //Interaction4
-        //When back_flex clicked change screen to MenuScreen
-        //Go to MenuScreen with no screen transition
-        application().gotoMenuScreenScreenNoTransition();
+        //When back_flex clicked call virtual function
+        //Call goBack
+        goBack();
     }
 }
 

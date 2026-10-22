@@ -1,8 +1,8 @@
 /******************************************************************************
-* Copyright (c) 2018(-2025) STMicroelectronics.
+* Copyright (c) 2018(-2026) STMicroelectronics.
 * All rights reserved.
 *
-* This file is part of the TouchGFX 4.26.0 distribution.
+* This file is part of the TouchGFX 4.27.0 distribution.
 *
 * This software is licensed under terms that can be found in the LICENSE file in
 * the root directory of this software component.
@@ -26,6 +26,7 @@ ScrollableContainer::ScrollableContainer()
       scrollbarAlpha(120),
       scrollbarColor(Color::getColorFromRGB(0xFF, 0xFF, 0xFF)),
       maxVelocity(SCROLLBAR_MAX_VELOCITY),
+      verticalScrollbarAlignment(RIGHT),
       accelDirection(GestureEvent::SWIPE_HORIZONTAL),
       xSlider(0, 0, scrollbarColor, scrollbarAlpha),
       ySlider(0, 0, scrollbarColor, scrollbarAlpha),
@@ -327,7 +328,9 @@ Rect ScrollableContainer::getXScrollbar() const
                 // Distribute the deviation error based on current scrollbar X position (the amount subtracted from scrollbar xpos increases gradually).
                 leftPadding -= (diff * leftPadding) / startWidth;
             }
-            res = Rect(leftPadding + scrollbarPadding + SCROLLBAR_LINE, rect.height - (scrollbarWidth + scrollbarPadding + SCROLLBAR_LINE), width, scrollbarWidth);
+            // Leave room for the vertical scrollbar on whichever side it is attached to.
+            const int leftOffset = (verticalScrollbarAlignment == LEFT) ? scrollSpace : 0;
+            res = Rect(leftOffset + leftPadding + scrollbarPadding + SCROLLBAR_LINE, rect.height - (scrollbarWidth + scrollbarPadding + SCROLLBAR_LINE), width, scrollbarWidth);
         }
     }
     return res;
@@ -356,7 +359,8 @@ Rect ScrollableContainer::getYScrollbar() const
                 // Distribute the deviation error based on current scrollbar Y position (the amount subtracted from scrollbar ypos increases gradually).
                 topPadding -= (diff * topPadding) / startHeight;
             }
-            res = Rect(rect.width - (scrollbarWidth + scrollbarPadding + 2 * SCROLLBAR_LINE), topPadding + scrollbarPadding + SCROLLBAR_LINE, scrollbarWidth, height);
+            const int xPos = (verticalScrollbarAlignment == LEFT) ? (scrollbarPadding + 2 * SCROLLBAR_LINE) : (rect.width - (scrollbarWidth + scrollbarPadding + 2 * SCROLLBAR_LINE));
+            res = Rect(xPos, topPadding + scrollbarPadding + SCROLLBAR_LINE, scrollbarWidth, height);
         }
     }
     return res;
@@ -368,7 +372,8 @@ Rect ScrollableContainer::getXBorder(const Rect& xBar, const Rect& yBar) const
     if (!xBar.isEmpty())
     {
         const int scrollSpace = (!yBar.isEmpty()) ? (2 * scrollbarPadding + scrollbarWidth + SCROLLBAR_LINE) : 0;
-        border = Rect(scrollbarPadding, xBar.y - SCROLLBAR_LINE, rect.width - (2 * scrollbarPadding + scrollSpace), scrollbarWidth + 2 * SCROLLBAR_LINE);
+        const int xOffset = (verticalScrollbarAlignment == LEFT) ? scrollSpace : 0;
+        border = Rect(scrollbarPadding + xOffset, xBar.y - SCROLLBAR_LINE, rect.width - (2 * scrollbarPadding + scrollSpace), scrollbarWidth + 2 * SCROLLBAR_LINE);
     }
     return border;
 }
@@ -648,6 +653,33 @@ void ScrollableContainer::setScrollbarPadding(uint8_t padding)
 void ScrollableContainer::setScrollbarWidth(uint8_t width)
 {
     scrollbarWidth = width;
+}
+
+void ScrollableContainer::setVerticalScrollbarAlignment(Alignment alignment)
+{
+    if ((alignment == LEFT || alignment == RIGHT) && alignment != verticalScrollbarAlignment)
+    {
+        // Invalidate the vertical scrollbar's current (old) column. This is necessary
+        // in addition to invalidateScrollbars() below, since that function only
+        // invalidates the scrollbar's new position, computed after the alignment has
+        // been updated, and cannot know about the side the scrollbar is moving away
+        // from. The border's y/height already spans the full vertical track (constant
+        // regardless of scroll position), so no further expansion is needed here;
+        // only x/width differ between LEFT and RIGHT.
+        Rect oldYBorder = getYBorder(getXScrollbar(), getYScrollbar());
+        if (!oldYBorder.isEmpty())
+        {
+            invalidateRect(oldYBorder);
+        }
+
+        verticalScrollbarAlignment = alignment;
+        invalidateScrollbars();
+    }
+}
+
+Alignment ScrollableContainer::getVerticalScrollbarAlignment() const
+{
+    return verticalScrollbarAlignment;
 }
 
 void ScrollableContainer::setScrollbarsVisible(bool newVisible)

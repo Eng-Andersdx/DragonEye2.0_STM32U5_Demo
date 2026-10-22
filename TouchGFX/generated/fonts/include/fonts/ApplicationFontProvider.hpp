@@ -41,6 +41,8 @@ class ApplicationFontProvider : public touchgfx::FontProvider
 public:
     virtual touchgfx::Font* getFont(touchgfx::FontId typography);
 
+    virtual void initialize();
+
     static void setFlashReader(touchgfx::FlashDataReader* /*flashReader*/)
     {
     }

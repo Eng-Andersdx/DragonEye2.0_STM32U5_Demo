@@ -35,6 +35,10 @@ public:
     {
         // Override and implement this function in Coffee
     }
+    virtual void goBack()
+    {
+        // Override and implement this function in Coffee
+    }
     virtual void goLeft()
     {
         // Override and implement this function in Coffee

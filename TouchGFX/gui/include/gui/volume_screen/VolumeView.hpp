@@ -13,6 +13,7 @@ public:
 
     virtual void setupScreen() override;
     virtual void tearDownScreen() override;
+    virtual void goBack();   // navigation (Designer interaction)
 
     // Wired from Designer (Interactions on the two buttons)
     virtual void onPlusClicked() override;
